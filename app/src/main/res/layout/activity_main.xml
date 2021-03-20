@@ -7,12 +7,17 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Sleeping App"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- TODO -Kim Main Interface -->
+    <!-- TODO -Spencer Lock Screen and Unlock Screen Interfaces -->
+    <!-- TODO -Shanshan Gift Animation Interface -->
 </androidx.constraintlayout.widget.ConstraintLayout>
+
