@@ -22,7 +22,4 @@ public class Item {
         this._rare_level = rare_level;
     }
 
-    public int getValue {
-        return this._value;
-    }
 }
