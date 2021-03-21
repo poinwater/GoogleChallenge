@@ -20,7 +20,7 @@ public class GiftActivity extends AppCompatActivity {
         //TODO: Shanshan Yu openGift
     }
 
-    public Item[] getGift(boolean isHealthySleeping){
+    public void getGift(boolean isHealthySleeping){
         //TODO: Shanshan Yu the function randomly gets Gifts according to the condition
         if (isHealthySleeping){
             // do something
