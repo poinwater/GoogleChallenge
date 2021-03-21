@@ -5,16 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GiftActivity">
+
     <ImageView
-        android:id="@+id/giftView"
+        android:id="@+id/giftBoxView"
         android:layout_width="404dp"
         android:layout_height="228dp"
+        android:onClick="openGift"
         android:scaleType="fitStart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/giftTopView"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/gift" />
 
@@ -26,12 +28,13 @@
         android:text="You recieved a gift from Alice!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/giftView" />
+        app:layout_constraintTop_toBottomOf="@+id/giftBoxView" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/giftTopView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="openGift"
         android:scaleType="fitEnd"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
