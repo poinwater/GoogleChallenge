@@ -5,6 +5,9 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -32,12 +35,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bef3da07-be5a-4d7c-856c-6c9a5c2fb643" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bronzethread.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/goldthread.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/silverthread.PNG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/GiftActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/GiftActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_gift.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_gift.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +136,7 @@
       </method>
     </configuration>
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
-      <module name="GoogleChallenge.app" />
+      <module name="My_Application.app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
@@ -231,37 +248,50 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="New Files(?)" />
     <MESSAGE value="Add Todos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Todos" />
+    <MESSAGE value="Added three Items: Bronze Thread, Silver Thread, Gold Thread as rewards. Finished the Item class; Added animation to show the gifts; Added Random select function for gifts;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added three Items: Bronze Thread, Silver Thread, Gold Thread as rewards. Finished the Item class; Added animation to show the gifts; Added Random select function for gifts;" />
   </component>
   <component name="WindowStateProjectService">
     <state x="208" y="25" key="#Project_Structure" timestamp="1616278409247">
       <screen x="0" y="25" width="1440" height="801" />
     </state>
     <state x="208" y="25" key="#Project_Structure/1440.76.1080.785/0.25.1440.801@0.25.1440.801" timestamp="1616278409247" />
+    <state x="401" y="25" width="638" height="801" key="#app" timestamp="1616445843552">
+      <screen x="0" y="25" width="1440" height="801" />
+    </state>
+    <state x="401" y="25" width="638" height="801" key="#app/0.25.1440.801@0.25.1440.801" timestamp="1616445843552" />
     <state x="184" y="81" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616278364673">
       <screen x="0" y="25" width="1440" height="801" />
     </state>
     <state x="184" y="81" key="#com.intellij.execution.impl.EditConfigurationsDialog/1440.76.1080.785/0.25.1440.801@0.25.1440.801" timestamp="1616278364673" />
+    <state x="533" y="132" key="#com.intellij.ide.util.MemberChooser" timestamp="1616453510471">
+      <screen x="0" y="25" width="1440" height="801" />
+    </state>
+    <state x="533" y="132" key="#com.intellij.ide.util.MemberChooser/0.25.1440.801@0.25.1440.801" timestamp="1616453510471" />
     <state x="458" y="173" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1616306804250">
       <screen x="0" y="25" width="1440" height="794" />
     </state>
     <state x="458" y="173" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1440.794@0.25.1440.794" timestamp="1616306804250" />
-    <state width="698" height="200" key="GridCell.Tab.0.bottom" timestamp="1616310582810">
-      <screen x="0" y="25" width="1440" height="794" />
+    <state width="1398" height="216" key="GridCell.Tab.0.bottom" timestamp="1616453614060">
+      <screen x="0" y="25" width="1440" height="801" />
     </state>
     <state width="698" height="200" key="GridCell.Tab.0.bottom/0.25.1440.794/1440.76.1080.785@0.25.1440.794" timestamp="1616310582810" />
-    <state width="698" height="200" key="GridCell.Tab.0.center" timestamp="1616310582810">
-      <screen x="0" y="25" width="1440" height="794" />
+    <state width="1398" height="216" key="GridCell.Tab.0.bottom/0.25.1440.801@0.25.1440.801" timestamp="1616453614060" />
+    <state width="1398" height="216" key="GridCell.Tab.0.center" timestamp="1616453614059">
+      <screen x="0" y="25" width="1440" height="801" />
     </state>
     <state width="698" height="200" key="GridCell.Tab.0.center/0.25.1440.794/1440.76.1080.785@0.25.1440.794" timestamp="1616310582810" />
-    <state width="698" height="200" key="GridCell.Tab.0.left" timestamp="1616310582809">
-      <screen x="0" y="25" width="1440" height="794" />
+    <state width="1398" height="216" key="GridCell.Tab.0.center/0.25.1440.801@0.25.1440.801" timestamp="1616453614059" />
+    <state width="1398" height="216" key="GridCell.Tab.0.left" timestamp="1616453614058">
+      <screen x="0" y="25" width="1440" height="801" />
     </state>
     <state width="698" height="200" key="GridCell.Tab.0.left/0.25.1440.794/1440.76.1080.785@0.25.1440.794" timestamp="1616310582809" />
-    <state width="698" height="200" key="GridCell.Tab.0.right" timestamp="1616310582810">
-      <screen x="0" y="25" width="1440" height="794" />
+    <state width="1398" height="216" key="GridCell.Tab.0.left/0.25.1440.801@0.25.1440.801" timestamp="1616453614058" />
+    <state width="1398" height="216" key="GridCell.Tab.0.right" timestamp="1616453614059">
+      <screen x="0" y="25" width="1440" height="801" />
     </state>
     <state width="698" height="200" key="GridCell.Tab.0.right/0.25.1440.794/1440.76.1080.785@0.25.1440.794" timestamp="1616310582810" />
+    <state width="1398" height="216" key="GridCell.Tab.0.right/0.25.1440.801@0.25.1440.801" timestamp="1616453614059" />
     <state x="318" y="125" key="NewModule_or_Project.wizard" timestamp="1616277291704">
       <screen x="0" y="25" width="1440" height="801" />
     </state>
@@ -270,10 +300,11 @@
       <screen x="0" y="25" width="1440" height="801" />
     </state>
     <state x="221" y="58" key="SettingsEditor/1440.76.1080.785/0.25.1440.801@0.25.1440.801" timestamp="1616285129674" />
-    <state x="500" y="204" key="chooseDestDirectoryDialog" timestamp="1616306838120">
-      <screen x="0" y="25" width="1440" height="794" />
+    <state x="500" y="205" key="chooseDestDirectoryDialog" timestamp="1616443834479">
+      <screen x="0" y="25" width="1440" height="799" />
     </state>
     <state x="500" y="204" key="chooseDestDirectoryDialog/0.25.1440.794@0.25.1440.794" timestamp="1616306838120" />
+    <state x="500" y="205" key="chooseDestDirectoryDialog/0.25.1440.799@0.25.1440.799" timestamp="1616443834479" />
     <state x="503" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616278421183">
       <screen x="0" y="25" width="1440" height="801" />
     </state>

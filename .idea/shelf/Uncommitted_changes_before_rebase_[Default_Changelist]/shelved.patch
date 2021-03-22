@@ -206,9 +206,6 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
  </project>
 \ No newline at end of file
 Index: app/src/main/res/layout/activity_test.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
 ===================================================================
 --- app/src/main/res/layout/activity_test.xml	(date 1616365183000)
 +++ app/src/main/res/layout/activity_test.xml	(date 1616365183000)
@@ -233,9 +230,6 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 +</androidx.constraintlayout.widget.ConstraintLayout>
 \ No newline at end of file
 Index: app/src/main/java/com/example/googlechallenge/TestActivity.kt
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
 ===================================================================
 --- app/src/main/java/com/example/googlechallenge/TestActivity.kt	(date 1616365183000)
 +++ app/src/main/java/com/example/googlechallenge/TestActivity.kt	(date 1616365183000)

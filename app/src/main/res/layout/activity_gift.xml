@@ -8,13 +8,12 @@
 
     <ImageView
         android:id="@+id/giftBoxView"
-        android:layout_width="404dp"
-        android:layout_height="228dp"
+        android:layout_width="395dp"
+        android:layout_height="183dp"
         android:onClick="openGift"
-        android:scaleType="fitStart"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/giftTopView"
         app:layout_constraintVertical_bias="0.0"
@@ -25,18 +24,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="You recieved a gift from Alice!"
+        android:onClick="openGift"
+        android:text="You received a gift from Alice!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/giftBoxView" />
 
     <ImageView
         android:id="@+id/giftTopView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="328dp"
+        android:layout_height="167dp"
+        android:layout_marginStart="40dp"
         android:onClick="openGift"
         android:scaleType="fitEnd"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/gifttop" />
+
+    <ImageView
+        android:id="@+id/itemImageView"
+        android:layout_width="122dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="27dp"
+        android:alpha="1"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/silverthread" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,9 +16,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ChangeToGift(View view){
-//        Intent intent = new Intent (MainActivity.this, GiftActivity.class);
-//        startActivity(intent);
-        setContentView(R.layout.activity_gift);
+        Intent intent = new Intent (MainActivity.this, GiftActivity.class);
+        startActivity(intent);
+
     }
 
 }
