@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".LockScreen"></activity>
-
+        <receiver android:name=".BoardcastReceiver" >
+        </receiver>
     </application>
 
 </manifest>
