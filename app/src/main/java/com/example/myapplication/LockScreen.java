@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+import java.util.Calendar;
+import java.util.Date;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,11 +17,28 @@ public class LockScreen extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lock_screen);
+        Date currentTime = Calendar.getInstance().getTime();
+        TextView time = findViewById(R.id.text_currenttime);
+        if(currentTime.getHours()/10 ==0){
+            if(currentTime.getMinutes()/10==0){
+                time.setText("Current time 0"+currentTime.getHours()+":0"+currentTime.getMinutes());
+            }else {
+                time.setText("Current time 0" + currentTime.getHours() + ":" + currentTime.getMinutes());
+            }
+        }else{
+            if(currentTime.getMinutes()/10==0){
+                time.setText("Current time "+currentTime.getHours()+":0"+currentTime.getMinutes());
+            }else {
+                time.setText("Current time " + currentTime.getHours() + ":" + currentTime.getMinutes());
+            }
+        }
+
+
         Button unlock = findViewById(R.id.btn_unlockscreen);
         unlock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Hello ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), "You failed  ", Toast.LENGTH_SHORT).show();
                 showSystemUI();
             }
         });
