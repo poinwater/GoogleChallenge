@@ -17,6 +17,7 @@ public class LockScreen extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lock_screen);
+        String getUserPickTime = getIntent().getStringExtra("userPickTime");
         Date currentTime = Calendar.getInstance().getTime();
         TextView time = findViewById(R.id.text_currenttime);
         if(currentTime.getHours()/10 ==0){
@@ -32,6 +33,9 @@ public class LockScreen extends AppCompatActivity {
                 time.setText("Current time " + currentTime.getHours() + ":" + currentTime.getMinutes());
             }
         }
+
+        TextView wakeUpTime = findViewById(R.id.text_wakeupTime);
+        wakeUpTime.setText("Exepected wakeup time: " + getUserPickTime);
 
 
         Button unlock = findViewById(R.id.btn_unlockscreen);
