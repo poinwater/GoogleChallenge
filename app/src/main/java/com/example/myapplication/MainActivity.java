@@ -6,6 +6,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
@@ -17,14 +18,33 @@ import android.widget.Toast;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
+    private SharedPreferences mPreferences;
+    private String sharedPrefFile =
+            "com.example.myapplicationprefs";
+    final int[] hours = {-1};
+    final int[] minutes = {-1};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final int[] hours = {-1};
-        final int[] minutes = {-1};
+        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+        TimePicker simpleTimePicker = (TimePicker)findViewById(R.id.simpleTimePicker);
+        TextView text_userSetTime = findViewById(R.id.text_userSetTime);
+
+        Date date = new Date();
+        simpleTimePicker.setCurrentHour(date.getHours());
+        simpleTimePicker.setCurrentHour(date.getMinutes());
+
+        if(savedInstanceState != null){
+            hours[0] = savedInstanceState.getInt("hours");
+            minutes[0] = savedInstanceState.getInt("minutes");
+            simpleTimePicker.setCurrentHour(hours[0]);
+            simpleTimePicker.setCurrentMinute(minutes[0]);
+            text_userSetTime.setText(hours[0]+" : "+minutes[0]);
+        }
+
 
         Button lockScreen = findViewById(R.id.btn_lockscreen);
 
@@ -55,12 +75,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        TimePicker simpleTimePicker = (TimePicker)findViewById(R.id.simpleTimePicker);
-        Date date = new Date();
-        simpleTimePicker.setCurrentHour(date.getHours());
-        simpleTimePicker.setCurrentHour(date.getMinutes());
 
-        TextView text_userSetTime = findViewById(R.id.text_userSetTime);
+
 
 
         Button btn_confirmTime = findViewById(R.id.btn_confirmTime);
@@ -73,6 +89,16 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+        preferencesEditor.putInt("hours", hours[0]);
+        preferencesEditor.putInt("minutes", minutes[0]);
+        preferencesEditor.apply();
+
     }
 
     private void wakeupAfterOneMinute(View v){
