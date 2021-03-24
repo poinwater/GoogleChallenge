@@ -20,5 +20,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+    public void ChangeToNav(View view){
+        Intent intent = new Intent (MainActivity.this, navActivity.class);
+        startActivity(intent);
+
+    }
 
 }
