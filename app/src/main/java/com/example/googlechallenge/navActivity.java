@@ -29,7 +29,7 @@ public class navActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case 1:
-                        intent = new Intent (getApplicationContext(), GiftActivity.class);
+                        intent = new Intent (getApplicationContext(), ItemInventory.class);
                         startActivity(intent);
                         break;
                     case 2:
