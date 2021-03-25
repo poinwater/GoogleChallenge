@@ -1,9 +1,11 @@
 package com.example.googlechallenge;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ItemAdapter extends BaseAdapter {
@@ -33,8 +35,27 @@ public class ItemAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        TextView dummyTextView = new TextView(myContext);
-        dummyTextView.setText(String.valueOf(position));
-        return dummyTextView;
+        // 1
+        final Item item = items[position];
+
+        // 2
+        if (convertView == null) {
+            final LayoutInflater layoutInflater = LayoutInflater.from(myContext);
+            convertView = layoutInflater.inflate(R.layout.linearlayout_item, null);
+        }
+
+        // 3
+        final ImageView imageView = (ImageView)convertView.findViewById(R.id.imageview_cover_art);
+        final TextView itemNameTextView = (TextView)convertView.findViewById(R.id.itemNameTextView);
+        final TextView itemValueTextView = (TextView)convertView.findViewById(R.id.itemValueTextView);
+
+
+        // 4
+        imageView.setImageResource(item.getIcon());
+        itemValueTextView.setText(String.valueOf(item.getValue()));
+        itemNameTextView.setText(item.getName());
+
+        return convertView;
     }
+
 }

@@ -19,6 +19,7 @@ public class Item {
         return this._name;
     }
     public int getIcon() { return this._icon; }
+    public int getValue() {return this._value; }
 
 }
 

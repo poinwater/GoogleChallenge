@@ -17,19 +17,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-
         <ImageView
-            android:id="@+id/itemImageView"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/goldthread"
-            android:paddingTop="2dp"
-            android:layout_gravity="bottom|right"/>
+            android:id="@+id/imageview_cover_art"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:scaleType="fitCenter" />
+
+
 
     </FrameLayout>
 
     <TextView
-        android:id="@+id/ItemNameTextView"
+        android:id="@+id/itemNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="6sp"
