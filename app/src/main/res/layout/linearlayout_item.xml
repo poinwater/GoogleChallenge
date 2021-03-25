@@ -10,7 +10,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:textSize="7sp"
+        android:paddingBottom="3dp"
+        android:textColor="#FFEB3B"
+        android:textSize="10sp"
         tools:text="15G" />
 
     <FrameLayout
@@ -24,18 +26,18 @@
             android:scaleType="fitCenter" />
 
 
-
     </FrameLayout>
 
     <TextView
         android:id="@+id/itemNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="6sp"
-        tools:text="Gold Thread"
-        android:paddingTop="2dp"
+        android:gravity="center_horizontal"
         android:paddingLeft="8dp"
+        android:paddingTop="2dp"
         android:paddingRight="8dp"
-        android:gravity="center_horizontal"/>
+        android:textColor="#E6E2E2"
+        android:textSize="10sp"
+        tools:text="Gold Thread" />
 
 </LinearLayout>
