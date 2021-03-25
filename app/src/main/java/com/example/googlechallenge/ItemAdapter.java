@@ -1,6 +1,7 @@
 package com.example.googlechallenge;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +55,7 @@ public class ItemAdapter extends BaseAdapter {
         imageView.setImageResource(item.getIcon());
         itemValueTextView.setText(String.valueOf(item.getValue()) + " G");
         itemNameTextView.setText(item.getName());
+
 
         return convertView;
     }

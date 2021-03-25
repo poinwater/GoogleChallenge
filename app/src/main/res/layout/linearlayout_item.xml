@@ -1,19 +1,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:gravity="center"
-    >
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/itemValueTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/line"
+        android:layout_width="100dp"
+        android:layout_height="10dp"
+        android:background="#8E8E8E"
         android:gravity="center_horizontal"
         android:paddingBottom="3dp"
-        android:textColor="#FFEB3B"
-        android:textSize="10sp"
-        tools:text="15G" />
+        android:textColor="#FFEB3B" />
 
     <FrameLayout
         android:layout_width="wrap_content"
@@ -21,23 +21,33 @@
 
         <ImageView
             android:id="@+id/imageview_cover_art"
-            android:layout_width="70dp"
+            android:layout_width="90dp"
             android:layout_height="70dp"
-            android:scaleType="fitCenter" />
+            android:paddingTop="10dp"
+            android:scaleType="fitCenter"/>
 
 
     </FrameLayout>
 
     <TextView
         android:id="@+id/itemNameTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:paddingLeft="8dp"
         android:paddingTop="2dp"
-        android:paddingRight="8dp"
         android:textColor="#E6E2E2"
+        android:background="#8E8E8E"
         android:textSize="10sp"
         tools:text="Gold Thread" />
 
+    <TextView
+        android:id="@+id/itemValueTextView"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="#8E8E8E"
+        android:gravity="center_horizontal"
+        android:paddingBottom="3dp"
+        android:textColor="#FFEB3B"
+        android:textSize="10sp"
+        tools:text="15G" />
 </LinearLayout>
