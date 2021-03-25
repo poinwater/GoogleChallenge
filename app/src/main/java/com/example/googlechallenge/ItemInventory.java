@@ -18,7 +18,7 @@ import java.util.List;
 import static com.example.googlechallenge.R.drawable.bronzethread;
 
 public class ItemInventory extends AppCompatActivity {
-    List<Item> testItems = new ArrayList<Item>();
+    Item[] testItems = new Item[1];
 
 
 
@@ -27,14 +27,14 @@ public class ItemInventory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_inventory);
 
-        getItems(testItems);
-        String[] testStrings = new String[] {"A", "B", "C"};
+        getItems();
         GridView gridView = findViewById(R.id.gridView);
-        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, testStrings);
-        gridView.setAdapter(myAdapter);
+        ItemAdapter itemAdapter = new ItemAdapter(this, testItems);
+        gridView.setAdapter(itemAdapter);
+
     }
 
-    public void getItems(List userItems){
+    public void getItems(){
         // get items from user data
         // for now, just use the test data
         Item bronzeThread = new Item("Bronze Thread", bronzethread, 1, 5, 3);
@@ -42,10 +42,9 @@ public class ItemInventory extends AppCompatActivity {
         Item goldThread = new Item("Gold Thread", R.drawable.goldthread, 3, 15, 1);
         List<Item> items = Arrays.asList(new Item[] {bronzeThread, silverThread, goldThread});
 
-        for (Item item : items) {
-            userItems.add(item);
-            Log.i("item name", item.getName());
-        }
+        testItems = (Item[]) items.toArray();
+        Log.i("items length", String.valueOf(testItems.length));
+
 
 
     }
