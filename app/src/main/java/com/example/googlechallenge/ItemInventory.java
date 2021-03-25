@@ -4,6 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.GridView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,12 +19,19 @@ import static com.example.googlechallenge.R.drawable.bronzethread;
 
 public class ItemInventory extends AppCompatActivity {
     List<Item> testItems = new ArrayList<Item>();
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_inventory);
 
         getItems(testItems);
+        String[] testStrings = new String[] {"A", "B", "C"};
+        GridView gridView = findViewById(R.id.gridView);
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, testStrings);
+        gridView.setAdapter(myAdapter);
     }
 
     public void getItems(List userItems){

@@ -6,4 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".ItemInventory">
 
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:columnWidth="100dp"
+        android:numColumns="auto_fit"
+        android:verticalSpacing="24dp"
+        android:horizontalSpacing="10dp"
+        android:stretchMode="spacingWidthUniform"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

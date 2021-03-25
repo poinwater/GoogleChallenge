@@ -35,15 +35,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bef3da07-be5a-4d7c-856c-6c9a5c2fb643" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ItemInventory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_item_inventory.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/GoogleChallenge.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/GoogleChallenge.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/navActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/navActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ItemInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ItemInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_item_inventory.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_item_inventory.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,10 +262,11 @@
       <screen x="0" y="25" width="1440" height="801" />
     </state>
     <state x="184" y="81" key="#com.intellij.execution.impl.EditConfigurationsDialog/1440.76.1080.785/0.25.1440.801@0.25.1440.801" timestamp="1616278364673" />
-    <state x="533" y="133" key="#com.intellij.ide.util.MemberChooser" timestamp="1616567109049">
-      <screen x="0" y="25" width="1440" height="809" />
+    <state x="533" y="132" key="#com.intellij.ide.util.MemberChooser" timestamp="1616641891540">
+      <screen x="0" y="25" width="1440" height="804" />
     </state>
     <state x="533" y="132" key="#com.intellij.ide.util.MemberChooser/0.25.1440.801@0.25.1440.801" timestamp="1616453510471" />
+    <state x="533" y="132" key="#com.intellij.ide.util.MemberChooser/0.25.1440.804/1440.76.1080.785@0.25.1440.804" timestamp="1616641891540" />
     <state x="533" y="133" key="#com.intellij.ide.util.MemberChooser/0.25.1440.809@0.25.1440.809" timestamp="1616567109049" />
     <state x="458" y="177" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1616563422847">
       <screen x="0" y="25" width="1440" height="813" />
@@ -282,32 +277,36 @@
       <screen x="0" y="25" width="1440" height="809" />
     </state>
     <state x="308" y="181" key="AndroidCreateResourceFileDialog/0.25.1440.809@0.25.1440.809" timestamp="1616568825384" />
-    <state width="1396" height="91" key="GridCell.Tab.0.bottom" timestamp="1616569274934">
-      <screen x="0" y="25" width="1440" height="809" />
+    <state width="1396" height="210" key="GridCell.Tab.0.bottom" timestamp="1616641004672">
+      <screen x="0" y="25" width="1440" height="804" />
     </state>
     <state width="698" height="200" key="GridCell.Tab.0.bottom/0.25.1440.794/1440.76.1080.785@0.25.1440.794" timestamp="1616310582810" />
     <state width="1398" height="216" key="GridCell.Tab.0.bottom/0.25.1440.801@0.25.1440.801" timestamp="1616453614060" />
+    <state width="1396" height="210" key="GridCell.Tab.0.bottom/0.25.1440.804/1440.76.1080.785@0.25.1440.804" timestamp="1616641004672" />
     <state width="1396" height="91" key="GridCell.Tab.0.bottom/0.25.1440.809@0.25.1440.809" timestamp="1616569274934" />
     <state width="1396" height="159" key="GridCell.Tab.0.bottom/0.25.1440.813@0.25.1440.813" timestamp="1616566357389" />
-    <state width="1396" height="91" key="GridCell.Tab.0.center" timestamp="1616569274934">
-      <screen x="0" y="25" width="1440" height="809" />
+    <state width="1396" height="210" key="GridCell.Tab.0.center" timestamp="1616641004672">
+      <screen x="0" y="25" width="1440" height="804" />
     </state>
     <state width="698" height="200" key="GridCell.Tab.0.center/0.25.1440.794/1440.76.1080.785@0.25.1440.794" timestamp="1616310582810" />
     <state width="1398" height="216" key="GridCell.Tab.0.center/0.25.1440.801@0.25.1440.801" timestamp="1616453614059" />
+    <state width="1396" height="210" key="GridCell.Tab.0.center/0.25.1440.804/1440.76.1080.785@0.25.1440.804" timestamp="1616641004672" />
     <state width="1396" height="91" key="GridCell.Tab.0.center/0.25.1440.809@0.25.1440.809" timestamp="1616569274934" />
     <state width="1396" height="159" key="GridCell.Tab.0.center/0.25.1440.813@0.25.1440.813" timestamp="1616566357389" />
-    <state width="1396" height="91" key="GridCell.Tab.0.left" timestamp="1616569274933">
-      <screen x="0" y="25" width="1440" height="809" />
+    <state width="1396" height="210" key="GridCell.Tab.0.left" timestamp="1616641004671">
+      <screen x="0" y="25" width="1440" height="804" />
     </state>
     <state width="698" height="200" key="GridCell.Tab.0.left/0.25.1440.794/1440.76.1080.785@0.25.1440.794" timestamp="1616310582809" />
     <state width="1398" height="216" key="GridCell.Tab.0.left/0.25.1440.801@0.25.1440.801" timestamp="1616453614058" />
+    <state width="1396" height="210" key="GridCell.Tab.0.left/0.25.1440.804/1440.76.1080.785@0.25.1440.804" timestamp="1616641004671" />
     <state width="1396" height="91" key="GridCell.Tab.0.left/0.25.1440.809@0.25.1440.809" timestamp="1616569274933" />
     <state width="1396" height="159" key="GridCell.Tab.0.left/0.25.1440.813@0.25.1440.813" timestamp="1616566357388" />
-    <state width="1396" height="91" key="GridCell.Tab.0.right" timestamp="1616569274934">
-      <screen x="0" y="25" width="1440" height="809" />
+    <state width="1396" height="210" key="GridCell.Tab.0.right" timestamp="1616641004672">
+      <screen x="0" y="25" width="1440" height="804" />
     </state>
     <state width="698" height="200" key="GridCell.Tab.0.right/0.25.1440.794/1440.76.1080.785@0.25.1440.794" timestamp="1616310582810" />
     <state width="1398" height="216" key="GridCell.Tab.0.right/0.25.1440.801@0.25.1440.801" timestamp="1616453614059" />
+    <state width="1396" height="210" key="GridCell.Tab.0.right/0.25.1440.804/1440.76.1080.785@0.25.1440.804" timestamp="1616641004672" />
     <state width="1396" height="91" key="GridCell.Tab.0.right/0.25.1440.809@0.25.1440.809" timestamp="1616569274934" />
     <state width="1396" height="159" key="GridCell.Tab.0.right/0.25.1440.813@0.25.1440.813" timestamp="1616566357389" />
     <state x="318" y="125" key="NewModule_or_Project.wizard" timestamp="1616277291704">
