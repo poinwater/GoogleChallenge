@@ -2,6 +2,7 @@ package com.example.googlechallenge;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,11 +10,14 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+
 public class ItemAdapter extends BaseAdapter {
     private final Context myContext;
-    private final Item[] items;
+    private final ArrayList<Item> items;
 
-    public ItemAdapter(Context context, Item[] items){
+    public ItemAdapter(Context context, ArrayList<Item> items){
         this.myContext = context;
         this.items = items;
 
@@ -21,7 +25,7 @@ public class ItemAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return items.length;
+        return items.size();
     }
 
     @Override
@@ -37,7 +41,7 @@ public class ItemAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // 1
-        final Item item = items[position];
+        final Item item = items.get(position);
 
         // 2
         if (convertView == null) {

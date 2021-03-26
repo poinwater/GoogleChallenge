@@ -20,7 +20,9 @@ import java.util.List;
 import static com.example.googlechallenge.R.drawable.bronzethread;
 
 public class ItemInventory extends AppCompatActivity {
-    Item[] testItems = new Item[1];
+    // Use getGold() method to get user's gold amount;
+    int userGold = 0;
+    ArrayList<Item> testItems = new ArrayList<Item>();
     GridView gridView;
     Button sellBtn;
 
@@ -38,10 +40,24 @@ public class ItemInventory extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.i("selected item", String.valueOf(position));
+                sellBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        sellItem(view, position);
+                    }
+                });
             }
         });
 
 
+    }
+
+    public void sellItem(View view, int position){
+        Log.i("I want to sell", String.valueOf(position));
+        userGold += testItems.get(position).getValue();
+        Log.i("Now I have", String.valueOf(userGold));
+        testItems.remove(position);
+        view.setVisibility(View.GONE);
     }
 
     public void getItems(){
@@ -50,9 +66,9 @@ public class ItemInventory extends AppCompatActivity {
         Item bronzeThread = new Item("Bronze Thread", bronzethread, 1, 5, 3);
         Item silverThread = new Item("Silver Thread", R.drawable.silverthread, 2, 10, 2);
         Item goldThread = new Item("Gold Thread", R.drawable.goldthread, 3, 15, 1);
-        List<Item> items = Arrays.asList(new Item[] {bronzeThread, silverThread, goldThread});
+        ArrayList<Item> items = new ArrayList<Item>(Arrays.asList(new Item[] {bronzeThread, silverThread, goldThread}));
 
-        testItems = (Item[]) items.toArray();
+        testItems = items;
 
 
 
