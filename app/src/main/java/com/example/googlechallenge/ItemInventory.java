@@ -23,7 +23,9 @@ public class ItemInventory extends AppCompatActivity {
     // Use getGold() method to get user's gold amount;
     int userGold = 0;
     ArrayList<Item> testItems = new ArrayList<Item>();
+    ArrayList<Item> storeItems = new ArrayList<Item>();
     GridView gridView;
+    GridView storeGridView;
     Button sellBtn;
 
     @Override
@@ -34,8 +36,11 @@ public class ItemInventory extends AppCompatActivity {
         getItems();
         sellBtn = findViewById(R.id.sellBtn);
         gridView = findViewById(R.id.gridView);
+        storeGridView = findViewById(R.id.storeGridView);
         ItemAdapter itemAdapter = new ItemAdapter(this, testItems);
+        ItemAdapter storeAdapter = new ItemAdapter(this, storeItems);
         gridView.setAdapter(itemAdapter);
+        storeGridView.setAdapter(storeAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -69,6 +74,7 @@ public class ItemInventory extends AppCompatActivity {
         ArrayList<Item> items = new ArrayList<Item>(Arrays.asList(new Item[] {bronzeThread, silverThread, goldThread}));
 
         testItems = items;
+        storeItems = new ArrayList<Item>(Arrays.asList(new Item[] {bronzeThread, silverThread, silverThread, goldThread}));
 
 
 
