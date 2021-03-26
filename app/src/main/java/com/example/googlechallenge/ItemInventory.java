@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,7 +28,11 @@ public class ItemInventory extends AppCompatActivity {
     ArrayList<Item> storeItems = new ArrayList<Item>();
     GridView gridView;
     GridView storeGridView;
+    TextView goldText;
     Button sellBtn;
+    Button buyBtn;
+
+    Toast text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +41,11 @@ public class ItemInventory extends AppCompatActivity {
 
         getItems();
         sellBtn = findViewById(R.id.sellBtn);
+        buyBtn = findViewById(R.id.buyBtn);
         gridView = findViewById(R.id.gridView);
         storeGridView = findViewById(R.id.storeGridView);
+        goldText = findViewById(R.id.userGold);
+
         ItemAdapter itemAdapter = new ItemAdapter(this, testItems);
         ItemAdapter storeAdapter = new ItemAdapter(this, storeItems);
         gridView.setAdapter(itemAdapter);
@@ -44,11 +53,28 @@ public class ItemInventory extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.i("selected item", String.valueOf(position));
+                Log.i("sell item", String.valueOf(position));
                 sellBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Log.i("sell click item", String.valueOf(position));
                         sellItem(view, position);
+                        gridView.setAdapter(itemAdapter);
+                    }
+                });
+            }
+        });
+
+        storeGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.i("buy item", String.valueOf(position));
+                buyBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.i("buy click item", String.valueOf(position));
+                        buyItem(view, position);
+                        gridView.setAdapter(itemAdapter);
                     }
                 });
             }
@@ -58,11 +84,35 @@ public class ItemInventory extends AppCompatActivity {
     }
 
     public void sellItem(View view, int position){
-        Log.i("I want to sell", String.valueOf(position));
+        if (testItems.size() < position + 1){
+            return;
+        }
         userGold += testItems.get(position).getValue();
-        Log.i("Now I have", String.valueOf(userGold));
         testItems.remove(position);
         view.setVisibility(View.GONE);
+        updateGoldText();
+    }
+
+    public void buyItem(View view, int position){
+        if (text != null){
+            text.cancel();
+        }
+        final Item item = storeItems.get(position);
+        final int price = item.getValue();
+        text = Toast.makeText(this, "", Toast.LENGTH_SHORT);
+        if (userGold >= price){
+            userGold -= price;
+            testItems.add(item);
+            text.setText("Success!");
+        }else{
+            text.setText("You don't have enough golds!");
+        }
+        updateGoldText();
+        text.show();
+    }
+
+    public void updateGoldText(){
+        goldText.setText(String.valueOf(userGold));
     }
 
     public void getItems(){
