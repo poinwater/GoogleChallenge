@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -38,13 +39,16 @@ public class MainActivity extends AppCompatActivity {
         simpleTimePicker.setCurrentHour(date.getMinutes());
 
         if(savedInstanceState != null){
-            hours[0] = savedInstanceState.getInt("hours");
-            minutes[0] = savedInstanceState.getInt("minutes");
-            simpleTimePicker.setCurrentHour(hours[0]);
-            simpleTimePicker.setCurrentMinute(minutes[0]);
-            text_userSetTime.setText(hours[0]+" : "+minutes[0]);
-        }
+            hours[0] = savedInstanceState.getInt("hours", hours[0]);
+            minutes[0] = savedInstanceState.getInt("minutes", minutes[0]);
 
+        }else{
+            hours[0] = mPreferences.getInt("hours", hours[0]);
+            minutes[0] = mPreferences.getInt("minutes", minutes[0]);
+        }
+        simpleTimePicker.setCurrentHour(hours[0]);
+        simpleTimePicker.setCurrentMinute(minutes[0]);
+        text_userSetTime.setText(hours[0]+" : "+minutes[0]);
 
         Button lockScreen = findViewById(R.id.btn_lockscreen);
 
@@ -86,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 hours[0] = simpleTimePicker.getHour();
                 minutes[0] = simpleTimePicker.getMinute();
                 text_userSetTime.setText(simpleTimePicker.getHour()+" : "+simpleTimePicker.getMinute());
+                Log.d("test", hours[0]+" : "+minutes[0]);
 
             }
         });
@@ -94,11 +99,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause(){
         super.onPause();
+        Log.d("test", hours[0]+" : "+minutes[0]);
+
         SharedPreferences.Editor preferencesEditor = mPreferences.edit();
         preferencesEditor.putInt("hours", hours[0]);
         preferencesEditor.putInt("minutes", minutes[0]);
         preferencesEditor.apply();
-
     }
 
     private void wakeupAfterOneMinute(View v){
