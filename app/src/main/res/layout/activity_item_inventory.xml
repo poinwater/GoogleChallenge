@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#CDC9C6"
     tools:context=".ItemInventory">
 
     <GridView
@@ -22,14 +23,53 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/sellBtn"
-        android:layout_width="wrap_content"
+        android:id="@+id/buyBtn"
+        android:layout_width="115dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/round_corner"
+        android:text="buy"
+        app:layout_constraintEnd_toEndOf="@+id/userGold"
+        app:layout_constraintStart_toStartOf="@+id/userGold"
+        app:layout_constraintTop_toBottomOf="@+id/userGold" />
+
+    <Button
+        android:id="@+id/sellBtn"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
         android:background="@drawable/round_corner"
         android:text="sell"
+        app:layout_constraintEnd_toEndOf="@+id/buyBtn"
+        app:layout_constraintStart_toStartOf="@+id/buyBtn"
+        app:layout_constraintTop_toBottomOf="@+id/buyBtn" />
+
+    <TextView
+        android:id="@+id/userGold"
+        android:layout_width="115dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/round_corner"
+        android:gravity="center"
+        android:paddingLeft="50dp"
+        android:text="0"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="29dp"
+        android:layout_height="27dp"
+        app:layout_constraintBottom_toBottomOf="@+id/userGold"
+        app:layout_constraintEnd_toEndOf="@+id/userGold"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="@+id/userGold"
+        app:layout_constraintTop_toTopOf="@+id/userGold"
+        app:layout_constraintVertical_bias="0.41000003"
+        app:srcCompat="@drawable/goldcoin" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
