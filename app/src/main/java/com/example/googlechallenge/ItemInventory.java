@@ -7,8 +7,10 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 
 import java.util.ArrayList;
@@ -19,8 +21,8 @@ import static com.example.googlechallenge.R.drawable.bronzethread;
 
 public class ItemInventory extends AppCompatActivity {
     Item[] testItems = new Item[1];
-
-
+    GridView gridView;
+    Button sellBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +30,17 @@ public class ItemInventory extends AppCompatActivity {
         setContentView(R.layout.activity_item_inventory);
 
         getItems();
-        GridView gridView = findViewById(R.id.gridView);
+        sellBtn = findViewById(R.id.sellBtn);
+        gridView = findViewById(R.id.gridView);
         ItemAdapter itemAdapter = new ItemAdapter(this, testItems);
         gridView.setAdapter(itemAdapter);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.i("selected item", String.valueOf(position));
+            }
+        });
+
 
     }
 
@@ -43,7 +53,6 @@ public class ItemInventory extends AppCompatActivity {
         List<Item> items = Arrays.asList(new Item[] {bronzeThread, silverThread, goldThread});
 
         testItems = (Item[]) items.toArray();
-        Log.i("items length", String.valueOf(testItems.length));
 
 
 
