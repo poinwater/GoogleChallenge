@@ -53,13 +53,18 @@ public class ItemInventory extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                boolean[] hasSold = {false};
                 Log.i("sell item", String.valueOf(position));
                 sellBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Log.i("sell click item", String.valueOf(position));
-                        sellItem(view, position);
+                        if (hasSold[0]){
+                            return;
+                        }
+                        hasSold[0] = sellItem(view, position);
                         gridView.setAdapter(itemAdapter);
+
                     }
                 });
             }
@@ -83,14 +88,16 @@ public class ItemInventory extends AppCompatActivity {
 
     }
 
-    public void sellItem(View view, int position){
+    public boolean sellItem(View view, int position){
+        Log.i("sell function position", String.valueOf(position));
         if (testItems.size() < position + 1){
-            return;
+            return false;
         }
         userGold += testItems.get(position).getValue();
         testItems.remove(position);
         view.setVisibility(View.GONE);
         updateGoldText();
+        return true;
     }
 
     public void buyItem(View view, int position){

@@ -46,7 +46,6 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ItemInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ItemInventory.java" afterDir="false" />
@@ -292,38 +291,38 @@
       <screen x="0" y="25" width="1440" height="809" />
     </state>
     <state x="308" y="181" key="AndroidCreateResourceFileDialog/0.25.1440.809@0.25.1440.809" timestamp="1616568825384" />
-    <state width="1396" height="194" key="GridCell.Tab.0.bottom" timestamp="1616732763993">
+    <state width="1396" height="194" key="GridCell.Tab.0.bottom" timestamp="1616738633439">
       <screen x="0" y="25" width="1440" height="801" />
     </state>
     <state width="698" height="200" key="GridCell.Tab.0.bottom/0.25.1440.794/1440.76.1080.785@0.25.1440.794" timestamp="1616310582810" />
-    <state width="1396" height="194" key="GridCell.Tab.0.bottom/0.25.1440.801/1440.76.1080.785@0.25.1440.801" timestamp="1616732763993" />
+    <state width="1396" height="194" key="GridCell.Tab.0.bottom/0.25.1440.801/1440.76.1080.785@0.25.1440.801" timestamp="1616738633439" />
     <state width="1398" height="216" key="GridCell.Tab.0.bottom/0.25.1440.801@0.25.1440.801" timestamp="1616453614060" />
     <state width="1396" height="52" key="GridCell.Tab.0.bottom/0.25.1440.804/1440.76.1080.785@0.25.1440.804" timestamp="1616649116373" />
     <state width="1396" height="91" key="GridCell.Tab.0.bottom/0.25.1440.809@0.25.1440.809" timestamp="1616569274934" />
     <state width="1396" height="159" key="GridCell.Tab.0.bottom/0.25.1440.813@0.25.1440.813" timestamp="1616566357389" />
-    <state width="1396" height="194" key="GridCell.Tab.0.center" timestamp="1616732763993">
+    <state width="1396" height="194" key="GridCell.Tab.0.center" timestamp="1616738633439">
       <screen x="0" y="25" width="1440" height="801" />
     </state>
     <state width="698" height="200" key="GridCell.Tab.0.center/0.25.1440.794/1440.76.1080.785@0.25.1440.794" timestamp="1616310582810" />
-    <state width="1396" height="194" key="GridCell.Tab.0.center/0.25.1440.801/1440.76.1080.785@0.25.1440.801" timestamp="1616732763993" />
+    <state width="1396" height="194" key="GridCell.Tab.0.center/0.25.1440.801/1440.76.1080.785@0.25.1440.801" timestamp="1616738633439" />
     <state width="1398" height="216" key="GridCell.Tab.0.center/0.25.1440.801@0.25.1440.801" timestamp="1616453614059" />
     <state width="1396" height="52" key="GridCell.Tab.0.center/0.25.1440.804/1440.76.1080.785@0.25.1440.804" timestamp="1616649116373" />
     <state width="1396" height="91" key="GridCell.Tab.0.center/0.25.1440.809@0.25.1440.809" timestamp="1616569274934" />
     <state width="1396" height="159" key="GridCell.Tab.0.center/0.25.1440.813@0.25.1440.813" timestamp="1616566357389" />
-    <state width="1396" height="194" key="GridCell.Tab.0.left" timestamp="1616732763992">
+    <state width="1396" height="194" key="GridCell.Tab.0.left" timestamp="1616738633437">
       <screen x="0" y="25" width="1440" height="801" />
     </state>
     <state width="698" height="200" key="GridCell.Tab.0.left/0.25.1440.794/1440.76.1080.785@0.25.1440.794" timestamp="1616310582809" />
-    <state width="1396" height="194" key="GridCell.Tab.0.left/0.25.1440.801/1440.76.1080.785@0.25.1440.801" timestamp="1616732763992" />
+    <state width="1396" height="194" key="GridCell.Tab.0.left/0.25.1440.801/1440.76.1080.785@0.25.1440.801" timestamp="1616738633437" />
     <state width="1398" height="216" key="GridCell.Tab.0.left/0.25.1440.801@0.25.1440.801" timestamp="1616453614058" />
     <state width="1396" height="52" key="GridCell.Tab.0.left/0.25.1440.804/1440.76.1080.785@0.25.1440.804" timestamp="1616649116372" />
     <state width="1396" height="91" key="GridCell.Tab.0.left/0.25.1440.809@0.25.1440.809" timestamp="1616569274933" />
     <state width="1396" height="159" key="GridCell.Tab.0.left/0.25.1440.813@0.25.1440.813" timestamp="1616566357388" />
-    <state width="1396" height="194" key="GridCell.Tab.0.right" timestamp="1616732763993">
+    <state width="1396" height="194" key="GridCell.Tab.0.right" timestamp="1616738633439">
       <screen x="0" y="25" width="1440" height="801" />
     </state>
     <state width="698" height="200" key="GridCell.Tab.0.right/0.25.1440.794/1440.76.1080.785@0.25.1440.794" timestamp="1616310582810" />
-    <state width="1396" height="194" key="GridCell.Tab.0.right/0.25.1440.801/1440.76.1080.785@0.25.1440.801" timestamp="1616732763993" />
+    <state width="1396" height="194" key="GridCell.Tab.0.right/0.25.1440.801/1440.76.1080.785@0.25.1440.801" timestamp="1616738633439" />
     <state width="1398" height="216" key="GridCell.Tab.0.right/0.25.1440.801@0.25.1440.801" timestamp="1616453614059" />
     <state width="1396" height="52" key="GridCell.Tab.0.right/0.25.1440.804/1440.76.1080.785@0.25.1440.804" timestamp="1616649116373" />
     <state width="1396" height="91" key="GridCell.Tab.0.right/0.25.1440.809@0.25.1440.809" timestamp="1616569274934" />
