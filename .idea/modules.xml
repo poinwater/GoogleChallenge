@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/GoogleChallenge.iml" filepath="$PROJECT_DIR$/.idea/GoogleChallenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GoogleChallenge.iml" filepath="$PROJECT_DIR$/.idea/modules/GoogleChallenge.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/GoogleChallenge.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/GoogleChallenge.app.iml" />
     </modules>
   </component>

@@ -32,23 +32,35 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/ShanshanTest" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:ShanshanTest" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb7dcb6a-298b-4341-87ee-b1c70f567ebd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules/GoogleChallenge.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/TestAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/My_Application.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/GoogleChallenge.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/GoogleChallenge.app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/My_Application.app.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ItemAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ItemAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ItemInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ItemInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/linearlayout_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/linearlayout_item.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,9 +91,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="layoutResourceFile" />
         <option value="resourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -117,6 +129,9 @@
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+    </key>
     <key name="android.template.790103839">
       <recent name="com.example.googlechallenge" />
     </key>
@@ -127,9 +142,6 @@
       <recent name="com.example.googlechallenge" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
     </key>
   </component>
@@ -266,21 +278,22 @@
       <screen x="0" y="25" width="1440" height="801" />
     </state>
     <state x="208" y="25" key="#Project_Structure/1440.76.1080.785/0.25.1440.801@0.25.1440.801" timestamp="1616278409247" />
-    <state x="401" y="25" width="638" height="801" key="#app" timestamp="1616697848780">
+    <state x="401" y="25" width="638" height="805" key="#app" timestamp="1616813101405">
       <screen x="0" y="25" width="1440" height="805" />
     </state>
     <state x="401" y="25" width="638" height="801" key="#app/0.25.1440.801@0.25.1440.801" timestamp="1616445843552" />
-    <state x="401" y="25" key="#app/0.25.1440.805@0.25.1440.805" timestamp="1616697848780" />
+    <state x="401" y="25" width="638" height="805" key="#app/0.25.1440.805@0.25.1440.805" timestamp="1616813101405" />
     <state x="401" y="25" key="#app/0.25.1440.813@0.25.1440.813" timestamp="1616561756218" />
     <state x="184" y="81" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616278364673">
       <screen x="0" y="25" width="1440" height="801" />
     </state>
     <state x="184" y="81" key="#com.intellij.execution.impl.EditConfigurationsDialog/1440.76.1080.785/0.25.1440.801@0.25.1440.801" timestamp="1616278364673" />
-    <state x="533" y="132" key="#com.intellij.ide.util.MemberChooser" timestamp="1616642345733">
-      <screen x="0" y="25" width="1440" height="804" />
+    <state x="533" y="132" key="#com.intellij.ide.util.MemberChooser" timestamp="1616814699844">
+      <screen x="0" y="25" width="1440" height="805" />
     </state>
     <state x="533" y="132" key="#com.intellij.ide.util.MemberChooser/0.25.1440.801@0.25.1440.801" timestamp="1616453510471" />
     <state x="533" y="132" key="#com.intellij.ide.util.MemberChooser/0.25.1440.804/1440.76.1080.785@0.25.1440.804" timestamp="1616642345733" />
+    <state x="533" y="132" key="#com.intellij.ide.util.MemberChooser/0.25.1440.805@0.25.1440.805" timestamp="1616814699844" />
     <state x="533" y="133" key="#com.intellij.ide.util.MemberChooser/0.25.1440.809@0.25.1440.809" timestamp="1616567109049" />
     <state x="458" y="177" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1616563422847">
       <screen x="0" y="25" width="1440" height="813" />

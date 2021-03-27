@@ -53,7 +53,7 @@ public class ItemAdapter extends BaseAdapter {
         final ImageView imageView = (ImageView)convertView.findViewById(R.id.imageview_cover_art);
         final TextView itemNameTextView = (TextView)convertView.findViewById(R.id.itemNameTextView);
         final TextView itemValueTextView = (TextView)convertView.findViewById(R.id.itemValueTextView);
-
+        final TextView amountTextView = (TextView) convertView.findViewById(R.id.amountTextView);
 
         // 4
         imageView.setImageResource(item.getIcon());

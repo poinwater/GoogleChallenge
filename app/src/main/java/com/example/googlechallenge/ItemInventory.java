@@ -17,7 +17,10 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.example.googlechallenge.R.drawable.bronzethread;
 
@@ -33,6 +36,7 @@ public class ItemInventory extends AppCompatActivity {
     Button buyBtn;
 
     Toast text;
+    HashMap<Item, Integer> UserItems = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,8 @@ public class ItemInventory extends AppCompatActivity {
 
         ItemAdapter itemAdapter = new ItemAdapter(this, testItems);
         ItemAdapter storeAdapter = new ItemAdapter(this, storeItems);
+//        TestAdapter testAdapter = new TestAdapter(this, UserItems);
+
         gridView.setAdapter(itemAdapter);
         storeGridView.setAdapter(storeAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -130,6 +136,14 @@ public class ItemInventory extends AppCompatActivity {
         Item goldThread = new Item("Gold Thread", R.drawable.goldthread, 3, 15, 1);
         ArrayList<Item> items = new ArrayList<Item>(Arrays.asList(new Item[] {bronzeThread, silverThread, goldThread}));
 
+
+        UserItems.put(bronzeThread, 1);
+        UserItems.put(goldThread, 3);
+        UserItems.put(silverThread, 2);
+        Log.i("test for map", String.valueOf(UserItems.get(goldThread)));
+        Item[] keys = UserItems.keySet().toArray(new Item[UserItems.size()]);
+        Log.i("first item name", (String) keys[0].getName());
+        Log.i("second item name", (String) keys[1].getName());
         testItems = items;
         storeItems = new ArrayList<Item>(Arrays.asList(new Item[] {bronzeThread, silverThread, silverThread, goldThread}));
 
