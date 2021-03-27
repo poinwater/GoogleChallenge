@@ -64,6 +64,7 @@ public class UserItemAdapter extends BaseAdapter {
         itemValueTextView.setText(String.valueOf(item.getValue()) + " G");
         itemNameTextView.setText(item.getName());
         amountTextView.setText('x'+String.valueOf(items.get(keys[position])));
+        convertView.setBackgroundResource(R.drawable.round_corner);
 
         if (items.get(keys[position]) == 0) {
             convertView.setVisibility(View.GONE);

@@ -60,8 +60,7 @@ public class ItemAdapter extends BaseAdapter {
         itemValueTextView.setText(String.valueOf(item.getValue()) + " G");
         itemNameTextView.setText(item.getName());
         amountTextView.setVisibility(View.GONE);
-
-
+        convertView.setBackgroundResource(R.drawable.round_corner);
         return convertView;
     }
 

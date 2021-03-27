@@ -65,6 +65,8 @@
         android:columnWidth="40dp"
         android:numColumns="2"
         android:stretchMode="columnWidth"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
         app:layout_constraintBottom_toTopOf="@+id/gridView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.099"
@@ -83,7 +85,8 @@
         android:gravity="center"
         android:numColumns="3"
         android:stretchMode="spacingWidthUniform"
-        android:verticalSpacing="24dp"
+        android:verticalSpacing="10dp"
+        android:paddingTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

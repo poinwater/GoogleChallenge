@@ -17,6 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
+            android:layout_marginRight="5dp"
             android:text="x1" />
 
         <ImageView
@@ -31,7 +32,7 @@
 
     <TextView
         android:id="@+id/itemNameTextView"
-        android:layout_width="100dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingTop="2dp"
@@ -42,9 +43,9 @@
 
     <TextView
         android:id="@+id/itemValueTextView"
-        android:layout_width="100dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#8E8E8E"
+        android:background="@drawable/text_round_corner"
         android:gravity="center_horizontal"
         android:paddingBottom="3dp"
         android:textColor="#FFEB3B"
