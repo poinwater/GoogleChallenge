@@ -36,7 +36,7 @@ public class ItemInventory extends AppCompatActivity {
     Button buyBtn;
 
     Toast text;
-    HashMap<Item, Integer> UserItems = new HashMap<>();
+    LinkedHashMap<Item, Integer> UserItems = new LinkedHashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,9 +52,9 @@ public class ItemInventory extends AppCompatActivity {
 
         ItemAdapter itemAdapter = new ItemAdapter(this, testItems);
         ItemAdapter storeAdapter = new ItemAdapter(this, storeItems);
-//        TestAdapter testAdapter = new TestAdapter(this, UserItems);
+        TestAdapter testAdapter = new TestAdapter(this, UserItems);
 
-        gridView.setAdapter(itemAdapter);
+        gridView.setAdapter(testAdapter);
         storeGridView.setAdapter(storeAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -140,10 +140,8 @@ public class ItemInventory extends AppCompatActivity {
         UserItems.put(bronzeThread, 1);
         UserItems.put(goldThread, 3);
         UserItems.put(silverThread, 2);
-        Log.i("test for map", String.valueOf(UserItems.get(goldThread)));
-        Item[] keys = UserItems.keySet().toArray(new Item[UserItems.size()]);
-        Log.i("first item name", (String) keys[0].getName());
-        Log.i("second item name", (String) keys[1].getName());
+
+
         testItems = items;
         storeItems = new ArrayList<Item>(Arrays.asList(new Item[] {bronzeThread, silverThread, silverThread, goldThread}));
 
