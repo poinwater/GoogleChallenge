@@ -14,12 +14,12 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 
-public class TestAdapter extends BaseAdapter {
+public class UserItemAdapter extends BaseAdapter {
     private final Context myContext;
     private final LinkedHashMap<Item, Integer> items;
     final Item[] keys;
 
-    public TestAdapter(Context context, LinkedHashMap<Item, Integer> items){
+    public UserItemAdapter(Context context, LinkedHashMap<Item, Integer> items){
         this.myContext = context;
         this.items = items;
         this.keys = items.keySet().toArray(new Item[items.size()]);
@@ -33,7 +33,7 @@ public class TestAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return items.get(keys[position]);
+        return null;
     }
 
     @Override
@@ -65,6 +65,9 @@ public class TestAdapter extends BaseAdapter {
         itemNameTextView.setText(item.getName());
         amountTextView.setText('x'+String.valueOf(items.get(keys[position])));
 
+        if (items.get(keys[position]) == 0) {
+            convertView.setVisibility(View.GONE);
+        }
 
         return convertView;
     }

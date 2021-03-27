@@ -1,15 +1,13 @@
 package com.example.googlechallenge;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
@@ -17,10 +15,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 
 import static com.example.googlechallenge.R.drawable.bronzethread;
 
@@ -36,7 +31,8 @@ public class ItemInventory extends AppCompatActivity {
     Button buyBtn;
 
     Toast text;
-    LinkedHashMap<Item, Integer> UserItems = new LinkedHashMap<>();
+    LinkedHashMap<Item, Integer> userItems = new LinkedHashMap<>();
+    Item[] keys;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,20 +43,21 @@ public class ItemInventory extends AppCompatActivity {
         sellBtn = findViewById(R.id.sellBtn);
         buyBtn = findViewById(R.id.buyBtn);
         gridView = findViewById(R.id.gridView);
-        storeGridView = findViewById(R.id.storeGridView);
         goldText = findViewById(R.id.userGold);
+        storeGridView = findViewById(R.id.storeGridView);
 
-        ItemAdapter itemAdapter = new ItemAdapter(this, testItems);
         ItemAdapter storeAdapter = new ItemAdapter(this, storeItems);
-        TestAdapter testAdapter = new TestAdapter(this, UserItems);
+        UserItemAdapter userItemAdapter = new UserItemAdapter(this, userItems);
+        keys = userItems.keySet().toArray(new Item[userItems.size()]);
 
-        gridView.setAdapter(testAdapter);
+
+        gridView.setAdapter(userItemAdapter);
         storeGridView.setAdapter(storeAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 boolean[] hasSold = {false};
-                Log.i("sell item", String.valueOf(position));
+                Log.i("original view id", String.valueOf(view.getUniqueDrawingId()));
                 sellBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -69,7 +66,8 @@ public class ItemInventory extends AppCompatActivity {
                             return;
                         }
                         hasSold[0] = sellItem(view, position);
-                        gridView.setAdapter(itemAdapter);
+                        Log.i("inner view id", String.valueOf(view.getUniqueDrawingId()));
+                        userItemAdapter.notifyDataSetChanged();
 
                     }
                 });
@@ -85,7 +83,7 @@ public class ItemInventory extends AppCompatActivity {
                     public void onClick(View v) {
                         Log.i("buy click item", String.valueOf(position));
                         buyItem(view, position);
-                        gridView.setAdapter(itemAdapter);
+                        gridView.setAdapter(userItemAdapter);
                     }
                 });
             }
@@ -95,31 +93,40 @@ public class ItemInventory extends AppCompatActivity {
     }
 
     public boolean sellItem(View view, int position){
-        Log.i("sell function position", String.valueOf(position));
-        if (testItems.size() < position + 1){
+
+        if (userItems.size() == 0){
             return false;
         }
-        userGold += testItems.get(position).getValue();
-        testItems.remove(position);
-        view.setVisibility(View.GONE);
+        Item item = keys[position];
+        int amount = userItems.get(item);
+        userGold += item.getValue();
+        userItems.put(item, amount - 1);
+        if (userItems.get(item) == 0) {
+            view.setVisibility(View.GONE);
+        }
+        keys = userItems.keySet().toArray(new Item[userItems.size()]);
         updateGoldText();
         return true;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void buyItem(View view, int position){
         if (text != null){
             text.cancel();
         }
         final Item item = storeItems.get(position);
         final int price = item.getValue();
+        int amount = userItems.getOrDefault(item, 0);
+
         text = Toast.makeText(this, "", Toast.LENGTH_SHORT);
         if (userGold >= price){
             userGold -= price;
-            testItems.add(item);
+            userItems.put(item, amount + 1);
             text.setText("Success!");
         }else{
             text.setText("You don't have enough golds!");
         }
+
         updateGoldText();
         text.show();
     }
@@ -137,9 +144,9 @@ public class ItemInventory extends AppCompatActivity {
         ArrayList<Item> items = new ArrayList<Item>(Arrays.asList(new Item[] {bronzeThread, silverThread, goldThread}));
 
 
-        UserItems.put(bronzeThread, 1);
-        UserItems.put(goldThread, 3);
-        UserItems.put(silverThread, 2);
+        userItems.put(bronzeThread, 1);
+        userItems.put(goldThread, 3);
+        userItems.put(silverThread, 2);
 
 
         testItems = items;

@@ -59,6 +59,7 @@ public class ItemAdapter extends BaseAdapter {
         imageView.setImageResource(item.getIcon());
         itemValueTextView.setText(String.valueOf(item.getValue()) + " G");
         itemNameTextView.setText(item.getName());
+        amountTextView.setVisibility(View.GONE);
 
 
         return convertView;
