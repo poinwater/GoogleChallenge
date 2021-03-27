@@ -6,7 +6,6 @@ public class Item {
     int _id;
     int _value;
     int _rare_level;
-    int _amount;
 
     public Item(String name, int icon, int id, int value, int rare_level) {
         this._name = name;

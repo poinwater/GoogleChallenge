@@ -2,6 +2,7 @@ package com.example.googlechallenge;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
@@ -17,7 +20,7 @@ import java.util.LinkedHashMap;
 public class UserItemAdapter extends BaseAdapter {
     private final Context myContext;
     private final LinkedHashMap<Item, Integer> items;
-    final Item[] keys;
+    Item[] keys;
 
     public UserItemAdapter(Context context, LinkedHashMap<Item, Integer> items){
         this.myContext = context;
@@ -38,14 +41,15 @@ public class UserItemAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return keys[position]._id;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // 1
         final Item item = keys[position];
-        final int amount = items.get(keys[position]);
+        final int amount = items.getOrDefault(keys[position], 0);
         Log.i("get View", (String) item.getName());
         // 2
         if (convertView == null) {
@@ -63,7 +67,7 @@ public class UserItemAdapter extends BaseAdapter {
         imageView.setImageResource(item.getIcon());
         itemValueTextView.setText(String.valueOf(item.getValue()) + " G");
         itemNameTextView.setText(item.getName());
-        amountTextView.setText('x'+String.valueOf(items.get(keys[position])));
+        amountTextView.setText('x'+String.valueOf(amount));
         convertView.setBackgroundResource(R.drawable.round_corner);
 
         if (items.get(keys[position]) == 0) {

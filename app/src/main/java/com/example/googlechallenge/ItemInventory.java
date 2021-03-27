@@ -21,9 +21,10 @@ import static com.example.googlechallenge.R.drawable.bronzethread;
 
 public class ItemInventory extends AppCompatActivity {
     // Use getGold() method to get user's gold amount;
-    int userGold = 0;
     ArrayList<Item> testItems = new ArrayList<Item>();
     ArrayList<Item> storeItems = new ArrayList<Item>();
+    UserItemAdapter userItemAdapter;
+    ItemAdapter storeAdapter;
     GridView gridView;
     GridView storeGridView;
     TextView goldText;
@@ -33,6 +34,7 @@ public class ItemInventory extends AppCompatActivity {
     Toast text;
     LinkedHashMap<Item, Integer> userItems = new LinkedHashMap<>();
     Item[] keys;
+    int userGold = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +48,8 @@ public class ItemInventory extends AppCompatActivity {
         goldText = findViewById(R.id.userGold);
         storeGridView = findViewById(R.id.storeGridView);
 
-        ItemAdapter storeAdapter = new ItemAdapter(this, storeItems);
-        UserItemAdapter userItemAdapter = new UserItemAdapter(this, userItems);
+        storeAdapter = new ItemAdapter(this, storeItems);
+        userItemAdapter = new UserItemAdapter(this, userItems);
         keys = userItems.keySet().toArray(new Item[userItems.size()]);
 
 
@@ -67,7 +69,6 @@ public class ItemInventory extends AppCompatActivity {
                         }
                         hasSold[0] = sellItem(view, position);
                         Log.i("inner view id", String.valueOf(view.getUniqueDrawingId()));
-                        userItemAdapter.notifyDataSetChanged();
 
                     }
                 });
@@ -83,7 +84,6 @@ public class ItemInventory extends AppCompatActivity {
                     public void onClick(View v) {
                         Log.i("buy click item", String.valueOf(position));
                         buyItem(view, position);
-                        gridView.setAdapter(userItemAdapter);
                     }
                 });
             }
@@ -93,44 +93,72 @@ public class ItemInventory extends AppCompatActivity {
     }
 
     public boolean sellItem(View view, int position){
-
+        controlText();
         if (userItems.size() == 0){
             return false;
         }
         Item item = keys[position];
         int amount = userItems.get(item);
         userGold += item.getValue();
-        userItems.put(item, amount - 1);
-        if (userItems.get(item) == 0) {
-            view.setVisibility(View.GONE);
-        }
-        keys = userItems.keySet().toArray(new Item[userItems.size()]);
+        updateItem(item, amount - 1);
         updateGoldText();
+        text.setText("You have sold " + item.getName() + " !");
+        text.show();
         return true;
+    }
+
+    public void updateItem(Item item, int amount){
+        LinkedHashMap<Item, Integer> newUserItems = new LinkedHashMap<>(userItems);
+
+        if (amount == 0) {
+
+            newUserItems.remove(item);
+
+        } else {
+
+            newUserItems.put(item, amount);
+
+        }
+
+        userItemAdapter = new UserItemAdapter(getApplicationContext(), newUserItems);
+        userItems = newUserItems;
+        keys = userItems.keySet().toArray(new Item[userItems.size()]);
+        gridView.setAdapter(userItemAdapter);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void buyItem(View view, int position){
-        if (text != null){
-            text.cancel();
-        }
+
+        controlText();
         final Item item = storeItems.get(position);
         final int price = item.getValue();
         int amount = userItems.getOrDefault(item, 0);
-
-        text = Toast.makeText(this, "", Toast.LENGTH_SHORT);
         if (userGold >= price){
             userGold -= price;
-            userItems.put(item, amount + 1);
+            updateItem(item, amount + 1);
             text.setText("Success!");
+
         }else{
+
             text.setText("You don't have enough golds!");
+
         }
 
         updateGoldText();
         text.show();
     }
 
+    public void controlText() {
+        if (text == null){
+
+            text = Toast.makeText(this, "", Toast.LENGTH_SHORT);
+
+        } else {
+
+            text.cancel();
+
+        }
+    }
     public void updateGoldText(){
         goldText.setText(String.valueOf(userGold));
     }
