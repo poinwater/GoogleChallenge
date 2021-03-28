@@ -14,8 +14,12 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            </intent-filter></activity>
+        <activity android:name=".ItemInventory"></activity>
+        <activity android:name=".DataActivity" />
+        <activity android:name=".SettingActivity" />
+        <activity android:name=".navActivity" />
+        <activity android:name=".GiftActivity" />
     </application>
 
 </manifest>
