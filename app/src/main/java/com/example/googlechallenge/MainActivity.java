@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
         sleepTime = currentTime.getTime();
         wakeUpTime = wakeUpDateTime.getTime();
-        sleepingStatus = getSleepingStatus(sleepTime, wakeUpTime);
+
 
         Intent intent = new Intent(v.getContext(), BoardcastReceiver.class);
 

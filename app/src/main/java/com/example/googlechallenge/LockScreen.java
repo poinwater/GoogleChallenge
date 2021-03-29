@@ -1,6 +1,8 @@
 package com.example.googlechallenge;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,6 +14,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class LockScreen extends AppCompatActivity {
+    Toast text;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +77,22 @@ public class LockScreen extends AppCompatActivity {
     }
 
     public void unLockScreen(View v) {
-        Toast.makeText(v.getContext(), "You failed  ", Toast.LENGTH_SHORT).show();
-        showSystemUI();
+
+        long currentTime = System.currentTimeMillis();
+
+        MainActivity.sleepingStatus = MainActivity.getSleepingStatus(MainActivity.sleepTime, currentTime);
+        if (MainActivity.sleepingStatus == 0){
+            Log.i("sleeping Status", String.valueOf(MainActivity.sleepingStatus));
+            text.makeText(v.getContext(), "Your sleeping time is too short to get a gift!", Toast.LENGTH_SHORT).show();
+            showSystemUI();
+        } else {
+            Log.i("sleeping Status", String.valueOf(MainActivity.sleepingStatus));
+            text.makeText(v.getContext(), "Alice brought a gift during your sleeping time!", Toast.LENGTH_SHORT).show();
+            showSystemUI();
+            Intent intent = new Intent(this, GiftActivity.class);
+            startActivity(intent);
+        }
+
+
     }
 }
