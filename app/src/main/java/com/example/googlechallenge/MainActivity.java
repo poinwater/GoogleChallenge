@@ -30,6 +30,11 @@ public class MainActivity extends AppCompatActivity {
     final static int[] hours = {-1, -1};
     final static int[] minutes = {-1, -1};
 
+    // 0: invalid 1: valid 2: healthy
+    public static int sleepingStatus = 0;
+    public static long sleepTime;
+    public static long wakeUpTime;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,26 +107,25 @@ public class MainActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void sleepNow(View v){
         if (minutes[0] == -1 || hours[0] == -1) {
-            Toast.makeText(this, "Please set the wake up time first!",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please set the wake up time first!", Toast.LENGTH_LONG).show();
             return;
         }
 
 
 
         Date currentTime = Calendar.getInstance().getTime();
-        Date wakeUpTime = Calendar.getInstance().getTime();
-        wakeUpTime.setHours(hours[0]);
-        wakeUpTime.setMinutes(minutes[0]);
-        wakeUpTime.setSeconds(0);
+        Date wakeUpDateTime = Calendar.getInstance().getTime();
+        wakeUpDateTime.setHours(hours[0]);
+        wakeUpDateTime.setMinutes(minutes[0]);
+        wakeUpDateTime.setSeconds(0);
 
-        if (wakeUpTime.before(currentTime)) {
-            wakeUpTime.setDate(currentTime.getDate() + 1);
+        if (wakeUpDateTime.before(currentTime)) {
+            wakeUpDateTime.setDate(currentTime.getDate() + 1);
         }
 
-
-        Log.i("current time", currentTime.toString());
-        Log.i("wake time", wakeUpTime.toString());
-
+        sleepTime = currentTime.getTime();
+        wakeUpTime = wakeUpDateTime.getTime();
+        sleepingStatus = getSleepingStatus(sleepTime, wakeUpTime);
 
         Intent intent = new Intent(v.getContext(), BoardcastReceiver.class);
 
@@ -129,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
                 this.getApplicationContext(), 234324243, intent, 0);
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, wakeUpTime.getTime(), pendingIntent);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, wakeUpTime, pendingIntent);
         Toast.makeText(this, "Alarm set at " + hours[0] + ":" + minutes[0] + " clock", Toast.LENGTH_LONG).show();
         lockScreen();
 
@@ -187,6 +191,21 @@ public class MainActivity extends AppCompatActivity {
         preferencesEditor.apply(); // I'm a idiot :(
         Log.i("save Time Pref456", "saved!");
         Log.i("save Time Pref789", String.valueOf(mPreferences.getInt("start_hours", -1)));
+    }
+
+    public static int getSleepingStatus(long sleepTime, long wakeUpTime){
+
+        long duration = (wakeUpTime - sleepTime) / 60000;
+        Log.i("duration", String.valueOf(duration));
+        if (duration < 30 || duration >= 24 * 60) {
+            return 0;
+        } else if (duration <= 360) {
+            return 1;
+        } else {
+            return 2;
+        }
+
+
     }
 }
 
