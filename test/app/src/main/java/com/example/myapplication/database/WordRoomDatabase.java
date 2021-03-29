@@ -24,6 +24,8 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.myapplication.R;
+
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -37,7 +39,7 @@ import java.util.concurrent.Executors;
  * app, consider exporting the schema to help you with migrations.
  */
 
-@Database(entities = {Word.class, Sleep.class}, version = 2, exportSchema = false)
+@Database(entities = {Word.class, Sleep.class, Item.class}, version = 2, exportSchema = false)
 abstract class WordRoomDatabase extends RoomDatabase {
 
     abstract WordDao wordDao();
@@ -78,7 +80,15 @@ abstract class WordRoomDatabase extends RoomDatabase {
                 WordDao dao = INSTANCE.wordDao();
                 dao.deleteAll();
                 dao.deleteAllSleep();
+                dao.deleteAllitem();
 
+                Item item1 = new Item(1, "Bronze Thread", R.drawable.bronzethread, 5, 3);
+                Item item2 = new Item(2, "Silver Thread", R.drawable.silverthread, 10, 2);
+                Item item3 = new Item(3, "Gold Thread", R.drawable.goldthread, 15, 1);
+
+                dao.insertItem(item1);
+                dao.insertItem(item2);
+                dao.insertItem(item3);
 //                Date currentTime = Calendar.getInstance().getTime();
 //                String time = DateFormat.getInstance().format(currentTime);
 

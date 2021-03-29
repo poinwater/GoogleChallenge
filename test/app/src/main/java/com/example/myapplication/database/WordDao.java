@@ -49,12 +49,21 @@ public interface WordDao {
     @Query("DELETE FROM word_table")
     void deleteAll();
 
-    @Query("SELECT duration FROM sleep_time_table WHERE date= :date ")
-    long getduration(String date);
+    @Query("SELECT * FROM sleep_time_table")
+    LiveData<List<Sleep>> getduration();
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertDuration(Sleep sleep);
 
     @Query("DELETE FROM sleep_time_table")
     void deleteAllSleep();
+
+    @Query("DELETE FROM item_table")
+    void deleteAllitem();
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insertItem(Item item);
+
+    @Query("SELECT * FROM item_table ")
+    LiveData<List<Item>> getAllItem();
 }

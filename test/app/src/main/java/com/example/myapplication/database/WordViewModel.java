@@ -21,6 +21,7 @@ import android.util.Log;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModelProvider;
 
 import java.util.List;
 
@@ -37,11 +38,17 @@ public class WordViewModel extends AndroidViewModel {
     //   the UI when the data actually changes.
     // - Repository is completely separated from the UI through the ViewModel.
     private final LiveData<List<Word>> mAllWords;
+    private final LiveData<List<Item>> mAllItems;
+    private final LiveData<List<Sleep>> mAllSleepDuration;
+
 
     public WordViewModel(Application application) {
         super(application);
         mRepository = new WordRepository(application);
         mAllWords = mRepository.getAllWords();
+        mAllItems = mRepository.getAllItems();
+        mAllSleepDuration = mRepository.getAllSleepDuration();
+
     }
 
     public LiveData<List<Word>> getAllWords() {
@@ -56,4 +63,32 @@ public class WordViewModel extends AndroidViewModel {
     public void insertDuration(Sleep sleep){
         mRepository.insertDuration(sleep);
     }
+
+    public LiveData<List<Item>> getAllItems() {
+        return mAllItems;
+    }
+
+    public void insertItem(Item item){
+        mRepository.insertItem(item);
+    }
+
+    public LiveData<List<Sleep>> getSleepDuration() {
+        return mAllSleepDuration;
+    }
+
+    //how to access LiveData
+//    mWordViewModel = new ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication())).get(WordViewModel.class);
+//
+//    // Add an observer on the LiveData returned by getAlphabetizedWords.
+//    // The onChanged() method fires when the observed data changes and the activity is
+//    // in the foreground.
+//        mWordViewModel.getAllWords().observe(this, words -> {
+//        // Update the cached copy of the words in the adapter.
+//          //words is List type
+//    });
+
+
+
+
+
 }

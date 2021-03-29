@@ -37,7 +37,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return PlaceholderFragment.newInstance(position + 1);
             case 1:
-                return BlankFragment.newInstance(position+"","Hello");
+                return BlankFragment.newInstance();
             case 3:
                 return StaticsFragment.newInstance("Nav Bar 3"," hello");
             case 4:

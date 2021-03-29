@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.main;
 
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,11 +16,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-import android.content.SharedPreferences;
 
 
 import com.example.myapplication.R;
-import com.example.myapplication.database.Sleep;
 import com.example.myapplication.database.Word;
 import com.example.myapplication.database.WordViewModel;
 
@@ -28,7 +27,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-import static android.app.Activity.RESULT_OK;
 import static android.content.Context.MODE_PRIVATE;
 
 /**
@@ -38,14 +36,6 @@ import static android.content.Context.MODE_PRIVATE;
  */
 public class BlankFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
     private SharedPreferences mPreferences;
     private String sharedPrefFile =
             "com.example.myapplicationprefs";
@@ -53,43 +43,28 @@ public class BlankFragment extends Fragment {
     final int[] minutes = {-1};
     final long[] duration = {0};
 
-    public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
-
     final String[] startTime = new String[1];
     final String[] endTime = new String[1];
 
     public WordViewModel mWordViewModel;
 
+    private Button btn_wakeuptime;
+    private TextView text_userSetTime;
+    private Button btn_sleepingtime;
+    private Button wakeup;
+
 
     public BlankFragment() {
-        // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BlankFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static BlankFragment newInstance(String param1, String param2) {
+    public static BlankFragment newInstance() {
         BlankFragment fragment = new BlankFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -97,42 +72,63 @@ public class BlankFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_blank, container, false);
-        TextView textView = root.findViewById(R.id.text_home_fragment);
-        textView.setText(mParam1 + mParam2);
 
-        mPreferences = getContext().getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
-        TimePicker simpleTimePicker = (TimePicker)root.findViewById(R.id.simpleTimePicker);
-        TextView text_userSetTime = root.findViewById(R.id.text_userSetTime);
+        prefenceSetting(savedInstanceState);
+        findViewById(root);
+        setText();
+        buttonOnClick(root);
+        connectDatabase(root.getRootView());
+        return root;
+    }
 
-        Button btn_duration = root.findViewById(R.id.btn_duration);
-        btn_duration.setOnClickListener(new View.OnClickListener() {
+    public void findViewById(View root){
+        btn_wakeuptime = root.findViewById(R.id.btn_wakeuptime);
+        text_userSetTime = root.findViewById(R.id.text_userSetTime);
+        btn_sleepingtime = root.findViewById(R.id.btn_sleepingtime);
+        wakeup = root.findViewById(R.id.btn_wakeup);
+    }
+
+    public void setText(){
+        text_userSetTime.setText(hours[0]+" : "+minutes[0]);
+    }
+
+    public void buttonOnClick(View root){
+        btn_wakeuptime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Date currentTime = Calendar.getInstance().getTime();
-                String current = DateFormat.getInstance().format(currentTime);
-                mWordViewModel.insertDuration(new Sleep(current,duration[0]));
-                duration[0]=0;
+                final Calendar c = Calendar.getInstance();
+                int mHour = c.get(Calendar.HOUR_OF_DAY);
+                int mMinute = c.get(Calendar.MINUTE);
+                hours[0] = mHour;
+                minutes[0] = mMinute;
+                text_userSetTime.setText(hours[0]+" : "+minutes[0]);
+                Log.d("test", hours[0]+" : "+minutes[0]);
+
             }
         });
 
-        Date date = new Date();
-        simpleTimePicker.setCurrentHour(date.getHours());
-        simpleTimePicker.setCurrentHour(date.getMinutes());
+        btn_sleepingtime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Date currentTime = Calendar.getInstance().getTime();
+//                String current = DateFormat.getInstance().format(currentTime);
+//                mWordViewModel.insertDuration(new Sleep(current,duration[0]));
+//                duration[0]=0;
+                final Calendar c = Calendar.getInstance();
+                int mHour = c.get(Calendar.HOUR_OF_DAY);
+                int mMinute = c.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(v.getContext(), new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        hours[0] = hourOfDay;
+                        minutes[0] = minute;
+                        text_userSetTime.setText(hours[0]+" : "+minutes[0]);
+                    }
+                }, mHour, mMinute, true);
+                timePickerDialog.show();
+            }
+        });
 
-        if(savedInstanceState != null){
-            hours[0] = savedInstanceState.getInt("hours", hours[0]);
-            minutes[0] = savedInstanceState.getInt("minutes", minutes[0]);
-
-        }else{
-            hours[0] = mPreferences.getInt("hours", hours[0]);
-            minutes[0] = mPreferences.getInt("minutes", minutes[0]);
-        }
-        simpleTimePicker.setCurrentHour(hours[0]);
-        simpleTimePicker.setCurrentMinute(minutes[0]);
-        text_userSetTime.setText(hours[0]+" : "+minutes[0]);
-
-        Button wakeup = root.findViewById(R.id.btn_wakeup);
-        connectDatabase(root.getRootView());
         wakeup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -157,10 +153,14 @@ public class BlankFragment extends Fragment {
                     //if the interval time lower than 30 mins, it will not count as a break
                     //https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html#convert-long-java.util.concurrent.TimeUnit-
 
-                    if(time > 30 ){
+                    if(time > 0){
                         startTime[0] = DateFormat.getInstance().format(currentTime);
                     }else{
                         startTime[0] = startTime[0];
+                    }
+
+                    if(startTime[0] == null){
+                        startTime[0] = DateFormat.getInstance().format(currentTime);
                     }
                     Log.d("test", "onClick: "+startTime[0]);
                     //wakeupAfterOneMinute(v);
@@ -171,26 +171,19 @@ public class BlankFragment extends Fragment {
 
             }
         });
-
-
-
-
-
-        Button btn_confirmTime = root.findViewById(R.id.btn_confirmTime);
-        btn_confirmTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                hours[0] = simpleTimePicker.getHour();
-                minutes[0] = simpleTimePicker.getMinute();
-                text_userSetTime.setText(simpleTimePicker.getHour()+" : "+simpleTimePicker.getMinute());
-                Log.d("test", hours[0]+" : "+minutes[0]);
-
-            }
-        });
-
-        return root;
     }
 
+    public void prefenceSetting(Bundle savedInstanceState){
+        mPreferences = getContext().getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+        if(savedInstanceState != null){
+            hours[0] = savedInstanceState.getInt("hours", hours[0]);
+            minutes[0] = savedInstanceState.getInt("minutes", minutes[0]);
+
+        }else{
+            hours[0] = mPreferences.getInt("hours", hours[0]);
+            minutes[0] = mPreferences.getInt("minutes", minutes[0]);
+        }
+    }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
