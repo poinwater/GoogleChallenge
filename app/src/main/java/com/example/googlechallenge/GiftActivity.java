@@ -27,8 +27,8 @@ public class GiftActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gift);
     }
-    // 0: Invalid sleeping; duration < 2 hours;
-    // 1: Valid sleeping; duration >= 2 hours;
+    // 0: Invalid sleeping; duration < 0.5 hour;
+    // 1: Valid sleeping; duration >= 0.5 hours;
     // 2: Valid and healthy sleeping; start <= set start time && end >= set end time && 6 hours <= duration <= 9 hours
     public int SleepingStatus = 1;
     public boolean hasReceivedGift = false;

@@ -1,5 +1,7 @@
 package com.example.googlechallenge;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -20,8 +23,11 @@ import java.util.LinkedHashMap;
 import static com.example.googlechallenge.R.drawable.bronzethread;
 
 public class ItemInventory extends AppCompatActivity {
-    // Use getGold() method to get user's gold amount;
-    ArrayList<Item> testItems = new ArrayList<Item>();
+
+
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
+
     ArrayList<Item> storeItems = new ArrayList<Item>();
     UserItemAdapter userItemAdapter;
     ItemAdapter storeAdapter;
@@ -34,12 +40,23 @@ public class ItemInventory extends AppCompatActivity {
     Toast text;
     LinkedHashMap<Item, Integer> userItems = new LinkedHashMap<>();
     Item[] keys;
-    int userGold = 0;
+
+    // User Profile
+    int userGold;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_inventory);
+
+        sharedPref = this.getSharedPreferences("com.example.googlechallenge", MODE_PRIVATE);
+        editor = sharedPref.edit();
+
+        userGold = sharedPref.getInt("userGold", 0);
+        Log.i("user gold", String.valueOf(userGold));
+
+
+
 
         getItems();
         sellBtn = findViewById(R.id.sellBtn);
@@ -52,14 +69,13 @@ public class ItemInventory extends AppCompatActivity {
         userItemAdapter = new UserItemAdapter(this, userItems);
         keys = userItems.keySet().toArray(new Item[userItems.size()]);
 
-
+        goldText.setText(String.valueOf(userGold));
         gridView.setAdapter(userItemAdapter);
         storeGridView.setAdapter(storeAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 boolean[] hasSold = {false};
-                Log.i("original view id", String.valueOf(view.getUniqueDrawingId()));
                 sellBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -68,7 +84,6 @@ public class ItemInventory extends AppCompatActivity {
                             return;
                         }
                         hasSold[0] = sellItem(view, position);
-                        Log.i("inner view id", String.valueOf(view.getUniqueDrawingId()));
 
                     }
                 });
@@ -101,7 +116,7 @@ public class ItemInventory extends AppCompatActivity {
         int amount = userItems.get(item);
         userGold += item.getValue();
         updateItem(item, amount - 1);
-        updateGoldText();
+        updateGold();
         text.setText("You have sold " + item.getName() + " !");
         text.show();
         return true;
@@ -144,7 +159,7 @@ public class ItemInventory extends AppCompatActivity {
 
         }
 
-        updateGoldText();
+        updateGold();
         text.show();
     }
 
@@ -159,8 +174,17 @@ public class ItemInventory extends AppCompatActivity {
 
         }
     }
-    public void updateGoldText(){
+    public void updateGold(){
+
         goldText.setText(String.valueOf(userGold));
+        editor.putInt("userGold", userGold).apply();
+
+    }
+
+    public void updateUserItems(){
+
+        ObjectOutputStream oos = new ObjectOutputStream("userItems");
+
     }
 
     public void getItems(){
@@ -169,7 +193,6 @@ public class ItemInventory extends AppCompatActivity {
         Item bronzeThread = new Item("Bronze Thread", bronzethread, 1, 5, 3);
         Item silverThread = new Item("Silver Thread", R.drawable.silverthread, 2, 10, 2);
         Item goldThread = new Item("Gold Thread", R.drawable.goldthread, 3, 15, 1);
-        ArrayList<Item> items = new ArrayList<Item>(Arrays.asList(new Item[] {bronzeThread, silverThread, goldThread}));
 
 
         userItems.put(bronzeThread, 1);
@@ -177,7 +200,6 @@ public class ItemInventory extends AppCompatActivity {
         userItems.put(silverThread, 2);
 
 
-        testItems = items;
         storeItems = new ArrayList<Item>(Arrays.asList(new Item[] {bronzeThread, silverThread, silverThread, goldThread}));
 
 

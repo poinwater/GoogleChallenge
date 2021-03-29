@@ -34,42 +34,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bef3da07-be5a-4d7c-856c-6c9a5c2fb643" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_PhilJay_MPAndroidChart_v2_2_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/BoardcastReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/LockScreen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/MainActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/MyAdmin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/alice.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/lock_screen.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/raw/alarm.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/GoogleChallenge.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/GoogleChallenge.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/DataActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/DataActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_data.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_data.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/GiftActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/GiftActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ItemInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ItemInventory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_4_XL_API_30]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[emulator-5554]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -105,6 +85,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="AnalyzeApkAction.lastApkPath" value="$PROJECT_DIR$/build.gradle" />
+    <property name="ResourceManagerPrefKey.ResourceType" value="STRING" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -251,29 +232,33 @@
       <screen x="1440" y="76" width="1080" height="785" />
     </state>
     <state x="1718" y="219" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1440.801/1440.76.1080.785@1440.76.1080.785" timestamp="1616968989753" />
-    <state width="1234" height="516" key="GridCell.Tab.0.bottom" timestamp="1616972920478">
-      <screen x="0" y="25" width="1440" height="807" />
+    <state width="1396" height="202" key="GridCell.Tab.0.bottom" timestamp="1616979032125">
+      <screen x="0" y="25" width="1440" height="805" />
     </state>
     <state width="830" height="-16" key="GridCell.Tab.0.bottom/0.25.1440.801/1440.76.1080.785@0.25.1440.801" timestamp="1616972081119" />
     <state width="1038" height="198" key="GridCell.Tab.0.bottom/0.25.1440.801/1440.76.1080.785@1440.76.1080.785" timestamp="1616968578929" />
+    <state width="1396" height="202" key="GridCell.Tab.0.bottom/0.25.1440.805@0.25.1440.805" timestamp="1616979032125" />
     <state width="1234" height="516" key="GridCell.Tab.0.bottom/0.25.1440.807@0.25.1440.807" timestamp="1616972920478" />
-    <state width="1234" height="516" key="GridCell.Tab.0.center" timestamp="1616972920478">
-      <screen x="0" y="25" width="1440" height="807" />
+    <state width="1396" height="202" key="GridCell.Tab.0.center" timestamp="1616979032124">
+      <screen x="0" y="25" width="1440" height="805" />
     </state>
     <state width="830" height="-16" key="GridCell.Tab.0.center/0.25.1440.801/1440.76.1080.785@0.25.1440.801" timestamp="1616972081118" />
     <state width="1038" height="198" key="GridCell.Tab.0.center/0.25.1440.801/1440.76.1080.785@1440.76.1080.785" timestamp="1616968578929" />
+    <state width="1396" height="202" key="GridCell.Tab.0.center/0.25.1440.805@0.25.1440.805" timestamp="1616979032124" />
     <state width="1234" height="516" key="GridCell.Tab.0.center/0.25.1440.807@0.25.1440.807" timestamp="1616972920478" />
-    <state width="1234" height="516" key="GridCell.Tab.0.left" timestamp="1616972920477">
-      <screen x="0" y="25" width="1440" height="807" />
+    <state width="1396" height="202" key="GridCell.Tab.0.left" timestamp="1616979032123">
+      <screen x="0" y="25" width="1440" height="805" />
     </state>
     <state width="830" height="-16" key="GridCell.Tab.0.left/0.25.1440.801/1440.76.1080.785@0.25.1440.801" timestamp="1616972081118" />
     <state width="1038" height="198" key="GridCell.Tab.0.left/0.25.1440.801/1440.76.1080.785@1440.76.1080.785" timestamp="1616968578928" />
+    <state width="1396" height="202" key="GridCell.Tab.0.left/0.25.1440.805@0.25.1440.805" timestamp="1616979032123" />
     <state width="1234" height="516" key="GridCell.Tab.0.left/0.25.1440.807@0.25.1440.807" timestamp="1616972920477" />
-    <state width="1234" height="516" key="GridCell.Tab.0.right" timestamp="1616972920478">
-      <screen x="0" y="25" width="1440" height="807" />
+    <state width="1396" height="202" key="GridCell.Tab.0.right" timestamp="1616979032124">
+      <screen x="0" y="25" width="1440" height="805" />
     </state>
     <state width="830" height="-16" key="GridCell.Tab.0.right/0.25.1440.801/1440.76.1080.785@0.25.1440.801" timestamp="1616972081119" />
     <state width="1038" height="198" key="GridCell.Tab.0.right/0.25.1440.801/1440.76.1080.785@1440.76.1080.785" timestamp="1616968578929" />
+    <state width="1396" height="202" key="GridCell.Tab.0.right/0.25.1440.805@0.25.1440.805" timestamp="1616979032124" />
     <state width="1234" height="516" key="GridCell.Tab.0.right/0.25.1440.807@0.25.1440.807" timestamp="1616972920478" />
     <state x="318" y="125" key="NewModule_or_Project.wizard" timestamp="1616277291704">
       <screen x="0" y="25" width="1440" height="801" />
