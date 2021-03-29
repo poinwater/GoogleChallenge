@@ -18,8 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.tabs.TabLayout;
 
-import java.sql.Time;
-import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -27,8 +25,10 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences mPreferences;
     private String sharedPrefFile =
             "com.example.googlechallengeprefs";
-    final int[] hours = {-1};
-    final int[] minutes = {-1};
+    // 0: wake up hours or minutes
+    // 1: start hours or minutes
+    final static int[] hours = {-1, -1};
+    final static int[] minutes = {-1, -1};
 
 
     @Override
@@ -39,24 +39,37 @@ public class MainActivity extends AppCompatActivity {
         navBarSwitch();
 
         mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
-        TimePicker simpleTimePicker = (TimePicker)findViewById(R.id.simpleTimePicker);
+        TimePicker startTimePicker = (TimePicker)findViewById(R.id.startTimePicker);
+        TimePicker wakeUpTimePicker = (TimePicker)findViewById(R.id.wakeUpTimePicker);
         TextView text_userSetTime = findViewById(R.id.text_userSetTime);
 
         Date date = new Date();
-        simpleTimePicker.setCurrentHour(date.getHours());
-        simpleTimePicker.setCurrentHour(date.getMinutes());
+        wakeUpTimePicker.setCurrentHour(date.getHours());
+        wakeUpTimePicker.setCurrentMinute(date.getMinutes());
+        startTimePicker.setCurrentHour(date.getHours());
+        startTimePicker.setCurrentMinute(date.getMinutes());
 
         if(savedInstanceState != null){
             hours[0] = savedInstanceState.getInt("hours", hours[0]);
             minutes[0] = savedInstanceState.getInt("minutes", minutes[0]);
+            //hours[1] = savedInstanceState.getInt("start_hours", hours[1]);
+            //minutes[1] = savedInstanceState.getInt("start_minutes", minutes[1]);
+            hours[1] = mPreferences.getInt("start_hours", hours[1]);
+            minutes[1] = mPreferences.getInt("start_minutes", minutes[1]);
 
         }else{
             hours[0] = mPreferences.getInt("hours", hours[0]);
             minutes[0] = mPreferences.getInt("minutes", minutes[0]);
+            hours[1] = mPreferences.getInt("start_hours", hours[1]);
+            minutes[1] = mPreferences.getInt("start_minutes", minutes[1]);
         }
-        simpleTimePicker.setCurrentHour(hours[0]);
-        simpleTimePicker.setCurrentMinute(minutes[0]);
-        text_userSetTime.setText(hours[0] + " : "+ minutes[0]);
+        Log.i("hours and minutes",String.valueOf(hours[1]) + String.valueOf(minutes[1]));
+        wakeUpTimePicker.setCurrentHour(hours[0]);
+        wakeUpTimePicker.setCurrentMinute(minutes[0]);
+        startTimePicker.setCurrentHour(hours[1]);
+        startTimePicker.setCurrentMinute(minutes[1]);
+
+        text_userSetTime.setText("Wake Up Time: " + hours[0] + " : "+ minutes[0]);
 
         Button lockScreen = findViewById(R.id.btn_lockscreen);
 
@@ -65,12 +78,16 @@ public class MainActivity extends AppCompatActivity {
 
         Button btn_confirmTime = findViewById(R.id.btn_confirmTime);
         btn_confirmTime.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
-                hours[0] = simpleTimePicker.getHour();
-                minutes[0] = simpleTimePicker.getMinute();
-                text_userSetTime.setText(simpleTimePicker.getHour()+" : "+simpleTimePicker.getMinute());
-                Log.d("test", hours[0]+" : "+minutes[0]);
+                hours[0] = wakeUpTimePicker.getHour();
+                minutes[0] = wakeUpTimePicker.getMinute();
+                hours[1] = startTimePicker.getHour();
+                minutes[1] = startTimePicker.getMinute();
+
+                text_userSetTime.setText("Wake Up Time: " + wakeUpTimePicker.getHour()+" : "+wakeUpTimePicker.getMinute());
+                saveTimePref();
 
             }
         });
@@ -164,6 +181,16 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void saveTimePref(){
+        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+        preferencesEditor.putInt("hours", hours[0]);
+        preferencesEditor.putInt("minutes", minutes[0]);
+        preferencesEditor.putInt("start_hours", hours[1]);
+        preferencesEditor.putInt("start_minutes", minutes[1]);
+        Log.i("saved hours and minutes",String.valueOf(hours[1]) + String.valueOf(minutes[1]));
+        Log.i("save Time Pref345", "saved!");
     }
 }
 

@@ -37,7 +37,7 @@
             android:orientation="horizontal">
 
             <TimePicker
-                android:id="@+id/simpleTimePicker"
+                android:id="@+id/startTimePicker"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_marginLeft="-30dp"
@@ -48,7 +48,7 @@
                 android:timePickerMode="spinner" />
 
             <TimePicker
-                android:id="@+id/simpleTimePicker2"
+                android:id="@+id/wakeUpTimePicker"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_marginLeft="-30dp"
