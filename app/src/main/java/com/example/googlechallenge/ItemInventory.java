@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,6 +62,7 @@ public class ItemInventory extends AppCompatActivity {
 
 
         getItems();
+        saveObject(getApplicationContext(), "userItems", userItems);
         sellBtn = findViewById(R.id.sellBtn);
         buyBtn = findViewById(R.id.buyBtn);
         gridView = findViewById(R.id.gridView);
@@ -181,11 +185,6 @@ public class ItemInventory extends AppCompatActivity {
 
     }
 
-    public void updateUserItems(){
-
-        ObjectOutputStream oos = new ObjectOutputStream("userItems");
-
-    }
 
     public void getItems(){
         // get items from user data
@@ -205,4 +204,18 @@ public class ItemInventory extends AppCompatActivity {
 
 
     }
+
+   public void saveObject(Context mContext, String filename, Object obj){
+        try {
+            FileOutputStream f = mContext.openFileOutput(filename + ".dat", mContext.MODE_PRIVATE);
+            ObjectOutputStream s = new ObjectOutputStream(f);
+            s.writeObject(obj);
+            s.close();
+            Log.i("save file changed", "success!");
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.i("save file changed", "failed!");
+        }
+   }
+
 }

@@ -1,6 +1,8 @@
 package com.example.googlechallenge;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable {
     String _name;
     int _icon;
     int _id;
