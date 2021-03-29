@@ -27,14 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:layout_weight="1"
-            android:onClick="lockScreen" />
-
-        <Button
-            android:id="@+id/btn_wakeup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="wake up after one minute" />
+            android:onClick="sleepNow" />
 
         <LinearLayout
             android:id="@+id/timePickerLayout"
@@ -112,8 +105,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="lockScreen"
-            android:text="Lock the screen" />
+            android:onClick="sleepNow"
+            android:text="Sleep now!" />
 
         <ImageView
             android:id="@+id/imageView2"

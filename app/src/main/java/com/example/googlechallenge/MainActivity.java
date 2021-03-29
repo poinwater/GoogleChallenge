@@ -54,24 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button lockScreen = findViewById(R.id.btn_lockscreen);
 
-        Button wakeup = findViewById(R.id.btn_wakeup);
-        wakeup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                if(hours[0]!=-1 && minutes[0]!=-1){
-                    Intent intent = new Intent(getApplicationContext(), com.example.googlechallenge.LockScreen.class);
-                    intent.putExtra("userPickTime", hours[0] + ":" + minutes[0]);
-
-                    wakeupAfterOneMinute(v);
-                    startActivity(intent);
-                }else{
-
-                }
-                Toast.makeText(v.getContext(), "Please set your wake up time first!", Toast.LENGTH_SHORT).show();
-
-            }
-        });
 
 
         Button btn_confirmTime = findViewById(R.id.btn_confirmTime);
@@ -98,8 +81,13 @@ public class MainActivity extends AppCompatActivity {
         preferencesEditor.apply();
     }
 
-    private void wakeupAfterOneMinute(View v){
-        int i = 3;
+    public void sleepNow(View v){
+        if (minutes[0] == -1 || hours[0] == -1) {
+            Toast.makeText(this, "Please set the wake up time first!",Toast.LENGTH_LONG).show();
+            return;
+        }
+        int duration = 3;
+
         Intent intent = new Intent(v.getContext(), BoardcastReceiver.class);
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(
@@ -107,11 +95,13 @@ public class MainActivity extends AppCompatActivity {
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
-                + (i * 1000), pendingIntent);
-        Toast.makeText(this, "Alarm set in " + i + " seconds",Toast.LENGTH_LONG).show();
+                + (duration * 1000), pendingIntent);
+        Toast.makeText(this, "Alarm set at " + hours[0] + ":" + minutes[0] + " clock", Toast.LENGTH_LONG).show();
+        lockScreen();
+
     }
 
-    public void lockScreen(View view) {
+    public void lockScreen() {
         Intent intent = new Intent(getApplicationContext(), LockScreen.class);
         startActivity(intent);
     }
