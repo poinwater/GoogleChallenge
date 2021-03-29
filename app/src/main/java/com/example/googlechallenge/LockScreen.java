@@ -79,6 +79,12 @@ public class LockScreen extends AppCompatActivity {
     public void unLockScreen(View v) {
 
         long currentTime = System.currentTimeMillis();
+        if (BoardcastReceiver.mp.isPlaying()) {
+            BoardcastReceiver.mp.stop();
+        }
+        if (currentTime < MainActivity.wakeUpTime) {
+            MainActivity.alarmManager.cancel(MainActivity.pendingIntent);
+        }
 
         MainActivity.sleepingStatus = MainActivity.getSleepingStatus(MainActivity.sleepTime, currentTime);
         if (MainActivity.sleepingStatus == 0){

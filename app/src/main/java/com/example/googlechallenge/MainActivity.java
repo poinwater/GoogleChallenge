@@ -35,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
     public static long sleepTime;
     public static long wakeUpTime;
 
+    public static AlarmManager alarmManager;
+    public static PendingIntent pendingIntent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,10 +132,10 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(v.getContext(), BoardcastReceiver.class);
 
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+        pendingIntent = PendingIntent.getBroadcast(
                 this.getApplicationContext(), 234324243, intent, 0);
 
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, wakeUpTime, pendingIntent);
         Toast.makeText(this, "Alarm set at " + hours[0] + ":" + minutes[0] + " clock", Toast.LENGTH_LONG).show();
         lockScreen();

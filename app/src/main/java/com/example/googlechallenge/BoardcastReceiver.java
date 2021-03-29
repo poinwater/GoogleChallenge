@@ -7,7 +7,7 @@ import android.media.MediaPlayer;
 import android.widget.Toast;
 
 public class BoardcastReceiver extends BroadcastReceiver {
-    MediaPlayer mp;
+    static MediaPlayer mp;
 
     @Override
     public void onReceive(Context context, Intent intent) {

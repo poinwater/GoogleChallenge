@@ -34,24 +34,24 @@ public class ItemInventory extends AppCompatActivity {
     Item silverThread = new Item("Silver Thread", R.drawable.silverthread, 2, 10, 2);
     Item goldThread = new Item("Gold Thread", R.drawable.goldthread, 3, 15, 1);
 
-    SharedPreferences sharedPref;
-    SharedPreferences.Editor editor;
+    static SharedPreferences sharedPref;
+    static SharedPreferences.Editor editor;
 
     ArrayList<Item> storeItems = new ArrayList<Item>();
-    UserItemAdapter userItemAdapter;
-    ItemAdapter storeAdapter;
-    GridView gridView;
-    GridView storeGridView;
-    TextView goldText;
-    Button sellBtn;
-    Button buyBtn;
+    static UserItemAdapter userItemAdapter;
+    static ItemAdapter storeAdapter;
+    static GridView gridView;
+    static GridView storeGridView;
+    static TextView goldText;
+    static Button sellBtn;
+    static Button buyBtn;
 
     Toast text;
     LinkedHashMap<Item, Integer> userItems = new LinkedHashMap<>();
     Item[] keys;
 
     // User Profile
-    int userGold;
+    protected static int userGold;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,9 +125,8 @@ public class ItemInventory extends AppCompatActivity {
         }
         Item item = keys[position];
         int amount = userItems.get(item);
-        userGold += item.getValue();
         updateItem(item, amount - 1);
-        updateGold();
+        updateGold(userGold + item.getValue());
         text.setText("You have sold " + item.getName() + " !");
         text.show();
         return true;
@@ -161,7 +160,7 @@ public class ItemInventory extends AppCompatActivity {
         final int price = item.getValue();
         int amount = userItems.getOrDefault(item, 0);
         if (userGold >= price){
-            userGold -= price;
+            updateGold(userGold - price);
             updateItem(item, amount + 1);
             text.setText("Success!");
 
@@ -171,7 +170,7 @@ public class ItemInventory extends AppCompatActivity {
 
         }
 
-        updateGold();
+
         text.show();
     }
 
@@ -186,8 +185,8 @@ public class ItemInventory extends AppCompatActivity {
 
         }
     }
-    public void updateGold(){
-
+    public static void updateGold(int amount){
+        userGold = amount;
         goldText.setText(String.valueOf(userGold));
         editor.putInt("userGold", userGold).apply();
 

@@ -53,7 +53,7 @@ public class GiftActivity extends AppCompatActivity {
                 Log.i("name", name);
                 int icon = newGifts[counter].getIcon();
                 itemImageView.setImageResource(icon);
-                t = Toast.makeText(getApplicationContext(), "Congratulations! you get a " + name.toLowerCase() + "!", Toast.LENGTH_SHORT);
+                t = Toast.makeText(getApplicationContext(), "Congratulations! you get a " + name.toLowerCase() + " and some gold coins!", Toast.LENGTH_SHORT);
                 t.show();
 
 
@@ -89,11 +89,13 @@ public class GiftActivity extends AppCompatActivity {
             // do something
             Random generator = new Random();
             int randomIndex = generator.nextInt(rareGiftList.length);
+            ItemInventory.updateGold(ItemInventory.userGold + 20);
             Log.i("getGift", Integer.toString(randomIndex));
             return new Item[] {rareGiftList[randomIndex]};
         }else if(SleepingStatus == 1){
             Random generator = new Random();
             int randomIndex = generator.nextInt(allGiftList.length);
+            ItemInventory.updateGold(ItemInventory.userGold + 10);
             return new Item[] {allGiftList[randomIndex]};
         }else{
             return new Item[] {};
