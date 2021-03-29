@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,10 +13,14 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.sql.Time;
+import java.time.LocalTime;
+import java.util.Calendar;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             "com.example.googlechallengeprefs";
     final int[] hours = {-1};
     final int[] minutes = {-1};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,12 +87,29 @@ public class MainActivity extends AppCompatActivity {
         preferencesEditor.apply();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void sleepNow(View v){
         if (minutes[0] == -1 || hours[0] == -1) {
             Toast.makeText(this, "Please set the wake up time first!",Toast.LENGTH_LONG).show();
             return;
         }
-        int duration = 3;
+
+
+
+        Date currentTime = Calendar.getInstance().getTime();
+        Date wakeUpTime = Calendar.getInstance().getTime();
+        wakeUpTime.setHours(hours[0]);
+        wakeUpTime.setMinutes(minutes[0]);
+        wakeUpTime.setSeconds(0);
+
+        if (wakeUpTime.before(currentTime)) {
+            wakeUpTime.setDate(currentTime.getDate() + 1);
+        }
+
+
+        Log.i("current time", currentTime.toString());
+        Log.i("wake time", wakeUpTime.toString());
+
 
         Intent intent = new Intent(v.getContext(), BoardcastReceiver.class);
 
@@ -94,8 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 this.getApplicationContext(), 234324243, intent, 0);
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
-                + (duration * 1000), pendingIntent);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, wakeUpTime.getTime(), pendingIntent);
         Toast.makeText(this, "Alarm set at " + hours[0] + ":" + minutes[0] + " clock", Toast.LENGTH_LONG).show();
         lockScreen();
 
