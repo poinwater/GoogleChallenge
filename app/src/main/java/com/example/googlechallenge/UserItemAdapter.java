@@ -48,7 +48,6 @@ public class UserItemAdapter extends BaseAdapter {
         // 1
         final Item item = keys[position];
         final int amount = items.getOrDefault(keys[position], 0);
-        Log.i("get View", (String) item.getName());
         // 2
         if (convertView == null) {
             final LayoutInflater layoutInflater = LayoutInflater.from(myContext);

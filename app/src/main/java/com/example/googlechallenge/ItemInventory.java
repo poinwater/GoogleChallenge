@@ -62,7 +62,7 @@ public class ItemInventory extends AppCompatActivity {
         editor = sharedPref.edit();
 
         userGold = sharedPref.getInt("userGold", 0);
-        Log.i("user gold", String.valueOf(userGold));
+
 
 
 
@@ -89,7 +89,6 @@ public class ItemInventory extends AppCompatActivity {
                 sellBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Log.i("sell click item", String.valueOf(position));
                         if (hasSold[0]){
                             return;
                         }
@@ -103,11 +102,10 @@ public class ItemInventory extends AppCompatActivity {
         storeGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.i("buy item", String.valueOf(position));
+
                 buyBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Log.i("buy click item", String.valueOf(position));
                         buyItem(view, position);
                     }
                 });
@@ -220,11 +218,9 @@ public class ItemInventory extends AppCompatActivity {
             ObjectInputStream ois = new ObjectInputStream(fis);
             Object obj = ois.readObject();
             ois.close();
-            Log.i("Read file", "success!");
             return obj;
         } catch (Exception e) {
             e.printStackTrace();
-            Log.i("Read file", "failed!");
             return new Object();
         }
     }
