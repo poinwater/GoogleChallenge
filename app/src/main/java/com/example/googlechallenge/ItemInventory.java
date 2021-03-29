@@ -60,8 +60,8 @@ public class ItemInventory extends AppCompatActivity {
 
         sharedPref = this.getSharedPreferences("com.example.googlechallenge", MODE_PRIVATE);
         editor = sharedPref.edit();
-
-        userGold = sharedPref.getInt("userGold", 0);
+        //TODO: Change the default value back to 0
+        userGold = sharedPref.getInt("userGold", 100);
 
 
 
@@ -89,9 +89,11 @@ public class ItemInventory extends AppCompatActivity {
                 sellBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Log.i("update", "1");
                         if (hasSold[0]){
                             return;
                         }
+
                         hasSold[0] = sellItem(view, position);
 
                     }
@@ -104,6 +106,7 @@ public class ItemInventory extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 buyBtn.setOnClickListener(new View.OnClickListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.N)
                     @Override
                     public void onClick(View v) {
                         buyItem(view, position);
@@ -221,7 +224,7 @@ public class ItemInventory extends AppCompatActivity {
             return obj;
         } catch (Exception e) {
             e.printStackTrace();
-            return new Object();
+            return new LinkedHashMap<Item, Integer>();
         }
     }
 
