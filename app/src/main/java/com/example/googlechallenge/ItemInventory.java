@@ -17,7 +17,9 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,6 +29,10 @@ import static com.example.googlechallenge.R.drawable.bronzethread;
 
 public class ItemInventory extends AppCompatActivity {
 
+    // for now, just use the test data
+    Item bronzeThread = new Item("Bronze Thread", bronzethread, 1, 5, 3);
+    Item silverThread = new Item("Silver Thread", R.drawable.silverthread, 2, 10, 2);
+    Item goldThread = new Item("Gold Thread", R.drawable.goldthread, 3, 15, 1);
 
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
@@ -143,6 +149,7 @@ public class ItemInventory extends AppCompatActivity {
         userItems = newUserItems;
         keys = userItems.keySet().toArray(new Item[userItems.size()]);
         gridView.setAdapter(userItemAdapter);
+        saveObject(getApplicationContext(), "userItems", userItems);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -188,17 +195,8 @@ public class ItemInventory extends AppCompatActivity {
 
     public void getItems(){
         // get items from user data
-        // for now, just use the test data
-        Item bronzeThread = new Item("Bronze Thread", bronzethread, 1, 5, 3);
-        Item silverThread = new Item("Silver Thread", R.drawable.silverthread, 2, 10, 2);
-        Item goldThread = new Item("Gold Thread", R.drawable.goldthread, 3, 15, 1);
 
-
-        userItems.put(bronzeThread, 1);
-        userItems.put(goldThread, 3);
-        userItems.put(silverThread, 2);
-
-
+        userItems = (LinkedHashMap<Item, Integer>) readObj(getApplicationContext(), "userItems");
         storeItems = new ArrayList<Item>(Arrays.asList(new Item[] {bronzeThread, silverThread, silverThread, goldThread}));
 
 
@@ -211,11 +209,24 @@ public class ItemInventory extends AppCompatActivity {
             ObjectOutputStream s = new ObjectOutputStream(f);
             s.writeObject(obj);
             s.close();
-            Log.i("save file changed", "success!");
         } catch (Exception e) {
             e.printStackTrace();
-            Log.i("save file changed", "failed!");
         }
    }
+
+    public Object readObj(Context mContext, String filename) {
+        try {
+            FileInputStream fis = mContext.openFileInput(filename + ".dat");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            Object obj = ois.readObject();
+            ois.close();
+            Log.i("Read file", "success!");
+            return obj;
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.i("Read file", "failed!");
+            return new Object();
+        }
+    }
 
 }
