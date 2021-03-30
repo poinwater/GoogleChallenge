@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "GoogleChallenge"
+rootProject.name = "My Application"

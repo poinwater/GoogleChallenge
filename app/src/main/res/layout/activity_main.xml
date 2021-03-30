@@ -1,167 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
-
-    <LinearLayout
-        android:id="@+id/mainLayout"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:foregroundGravity="fill_horizontal|fill_vertical"
-        android:gravity="center_horizontal|fill_vertical"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_optimizationLevel="standard"
-        android:weightSum="8">
-
-        <AnalogClock
-            android:id="@+id/clock"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_weight="1"
-            android:onClick="sleepNow" />
-
-        <LinearLayout
-            android:id="@+id/timePickerLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <TimePicker
-                android:id="@+id/startTimePicker"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginLeft="-30dp"
-                android:layout_marginRight="-30dp"
-                android:layout_weight="1"
-                android:scaleX="0.80"
-                android:scaleY="0.80"
-                android:timePickerMode="spinner" />
-
-            <TimePicker
-                android:id="@+id/wakeUpTimePicker"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginLeft="-30dp"
-                android:layout_marginRight="-30dp"
-                android:layout_weight="1"
-                android:scaleX="0.80"
-                android:scaleY="0.80"
-                android:timePickerMode="spinner" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/timePickerTextLayout"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:layout_weight="1">
-
-
-            <TextView
-                android:id="@+id/startTimeTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Start Sleeping Time" />
-
-            <TextView
-                android:id="@+id/endTimeTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Wake Up Time" />
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_confirmTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="set the sleep time"
-            android:layout_weight="1"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:theme="@style/Theme.MyApplication.AppBarOverlay">
 
         <TextView
-            android:id="@+id/text_userSetTime"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:text="Please set the your start sleeping time and wake up time" />
-
-        <Button
-            android:id="@+id/btn_lockscreen"
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="sleepNow"
-            android:text="Sleep now!" />
+            android:gravity="center"
+            android:minHeight="?actionBarSize"
+            android:padding="@dimen/appbar_padding"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+            android:textSize="18sp" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="141dp"
-            android:layout_height="123dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/alice" />
+    </com.google.android.material.appbar.AppBarLayout>
 
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/navBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:tabIndicatorColor="#222222"
-            app:tabMode="fixed"
-            app:tabTextColor="#353535">
+    </androidx.viewpager.widget.ViewPager>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#8187FF" />
 
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/homeTab"
-                android:tag="home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:focusable="true"
-                android:icon="@drawable/clock" />
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/giftTab"
-                android:tag="gift"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:focusable="true"
-                android:icon="@drawable/gift_small" />
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/dataTab"
-                android:tag="data"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:focusable="true"
-                android:icon="@drawable/charts" />
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/settingTab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="false"
-                android:icon="@drawable/setting"
-                android:tag="setting" />
-        </com.google.android.material.tabs.TabLayout>
-
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
