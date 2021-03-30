@@ -122,20 +122,20 @@ abstract class WordRoomDatabase extends RoomDatabase {
                 dao.insertDuration(new Sleep(DateFormat.getInstance().format(preTime4days), 750));
 
 
-//                Item item1 = new Item(1, "Bronze Thread", R.drawable.bronzethread, 5, 3);
-//                Item item2 = new Item(2, "Silver Thread", R.drawable.silverthread, 10, 2);
-//                Item item3 = new Item(3, "Gold Thread", R.drawable.goldthread, 15, 1);
+                Item item1 = new Item(1, "Bronze Thread", "bronzethread", 5, 3);
+                Item item2 = new Item(2, "Silver Thread", "silverthread", 10, 2);
+                Item item3 = new Item(3, "Gold Thread", "goldthread", 15, 1);
 
-//                dao.insertItem(item1);
-//                dao.insertItem(item2);
-//                dao.insertItem(item3);
+                dao.insertItem(item1);
+                dao.insertItem(item2);
+                dao.insertItem(item3);
 //                Date currentTime = Calendar.getInstance().getTime();
 //                String time = DateFormat.getInstance().format(currentTime);
-
+//
 //                Date currentTime = Calendar.getInstance().getTime();
-
-                //string to Date
-                // System.out.println("Date is: "+d);
+//
+//                string to Date
+//                 System.out.println("Date is: "+d);
 //
 //                Word word = new Word("Hello",dateToStr, dateToStr);
 //                dao.insert(word);

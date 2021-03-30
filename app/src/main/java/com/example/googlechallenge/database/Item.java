@@ -19,7 +19,7 @@ public class Item {
 
     @NonNull
     @ColumnInfo(name = "icon")
-    private int _icon;
+    private String _icon;
 
     @NonNull
     @ColumnInfo(name = "value")
@@ -29,7 +29,7 @@ public class Item {
     @ColumnInfo(name = "level")
     private int _rare_level;
 
-    public Item(@NonNull int _id, @NonNull String _name, @NonNull int _icon,  @NonNull int _value, @NonNull int _rare_level) {
+    public Item(@NonNull int _id, @NonNull String _name, @NonNull String _icon,  @NonNull int _value, @NonNull int _rare_level) {
         this._name = _name;
         this._icon = _icon;
         this._id = _id;
@@ -46,7 +46,7 @@ public class Item {
         return _name;
     }
     @NonNull
-    public int get_icon() {
+    public String get_icon() {
         return _icon;
     }
     @NonNull
