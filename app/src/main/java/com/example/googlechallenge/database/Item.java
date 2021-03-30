@@ -5,8 +5,10 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "item_table")
-public class Item {
+public class Item implements Serializable {
 
     @PrimaryKey
     @NonNull
@@ -37,25 +39,27 @@ public class Item {
         this._rare_level = _rare_level;
     }
     @NonNull
-    public int get_id() {
+    public int getId() {
         return _id;
     }
 
     @NonNull
-    public String get_name() {
+    public String getName() {
         return _name;
     }
     @NonNull
-    public String get_icon() {
+    public String getIcon() {
         return _icon;
     }
     @NonNull
-    public int get_value() {
+    public int getValue() {
         return _value;
     }
     @NonNull
     public int get_rare_level() {
         return _rare_level;
     }
+
+
 }
 

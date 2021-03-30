@@ -16,6 +16,8 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.googlechallenge.database.Item;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -30,9 +32,9 @@ import static com.example.googlechallenge.R.drawable.bronzethread;
 public class ItemInventory extends AppCompatActivity {
 
     // for now, just use the test data
-    Item bronzeThread = new Item("Bronze Thread", "bronzethread", 1, 5, 3);
-    Item silverThread = new Item("Silver Thread", "silverthread", 2, 10, 2);
-    Item goldThread = new Item("Gold Thread", "goldthread", 3, 15, 1);
+    Item bronzeThread = new Item(1, "Bronze Thread", "bronzethread", 1, 5);
+    Item silverThread = new Item(2, "Silver Thread", "silverthread", 2, 10);
+    Item goldThread = new Item(3, "Gold Thread", "goldthread", 3, 15);
 
     static SharedPreferences sharedPref;
     static SharedPreferences.Editor editor;

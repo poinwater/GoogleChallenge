@@ -11,21 +11,40 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.example.googlechallenge.database.Item;
+import com.example.googlechallenge.database.WordViewModel;
 
 import java.util.Random;
 
-import static com.example.googlechallenge.R.drawable.bronzethread;
-
 public class GiftActivity extends ItemInventory {
 
-    public Item[] allGiftList = {bronzeThread, silverThread, goldThread};
-    public Item[] rareGiftList = {silverThread, goldThread};
+
+    public WordViewModel mWordViewModel;
+    public Item[] allGiftList;
+    public Item[] rareGiftList;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gift);
+
+        mWordViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication())).get(WordViewModel.class);
+        mWordViewModel.getAllItems().observe(this, items -> {
+            allGiftList = new Item[items.size()];
+            for(int i = 0 ; i < items.size() ; i++) {
+                Item item = items.get(i);
+                allGiftList[i] = item;
+                Log.i("test items", item.getIcon());
+            }
+
+
+        });
+        rareGiftList = new Item[]{goldThread, silverThread};
+
     }
     // 0: Invalid sleeping; duration < 0.5 hour;
     // 1: Valid sleeping; duration >= 0.5 hours;
@@ -39,7 +58,7 @@ public class GiftActivity extends ItemInventory {
             startActivity(intent);
             return;
         }
-        Item[] newGifts = getGift();
+        Item[] newGifts = getGift(MainActivity.sleepingStatus);
         ImageView itemImageView = (ImageView) findViewById(R.id.itemImageView);
         Animation ani = new AlphaAnimation(0.00f, 1.00f);
         Animation aniEnd = new AlphaAnimation(1.00f, 0.00f);
@@ -87,8 +106,8 @@ public class GiftActivity extends ItemInventory {
     }
 
 
-    public Item[] getGift(){
-
+    public Item[] getGift(int SleepingStatus){
+        // TODO: For testing, change the first if condition to == 0, change it back to 2 after testing
         if (SleepingStatus == 2){
             // do something
             Random generator = new Random();
@@ -96,7 +115,7 @@ public class GiftActivity extends ItemInventory {
             ItemInventory.updateGold(ItemInventory.userGold + 20);
             Log.i("getGift", Integer.toString(randomIndex));
             return new Item[] {rareGiftList[randomIndex]};
-        }else if(SleepingStatus == 1){
+        }else if(SleepingStatus == 0){
             Random generator = new Random();
             int randomIndex = generator.nextInt(allGiftList.length);
             ItemInventory.updateGold(ItemInventory.userGold + 10);

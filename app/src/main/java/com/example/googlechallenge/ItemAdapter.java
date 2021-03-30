@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.googlechallenge.database.Item;
+
 import java.util.ArrayList;
 
 
