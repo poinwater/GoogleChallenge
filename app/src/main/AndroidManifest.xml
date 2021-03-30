@@ -15,6 +15,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter></activity>
+        <activity android:name=".ui.main.DashBoard"></activity>
         <activity android:name=".item.ItemInventory"></activity>
         <activity android:name=".ui.main.LockScreen"></activity>
         <activity android:name=".ui.main.DataActivity" />

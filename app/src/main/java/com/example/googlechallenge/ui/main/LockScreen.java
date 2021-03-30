@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.googlechallenge.MainActivity;
+import com.example.googlechallenge.ui.main.DashBoard;
 import com.example.googlechallenge.R;
 import com.example.googlechallenge.item.GiftActivity;
 
@@ -45,7 +45,7 @@ public class LockScreen extends AppCompatActivity {
         }
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        Date wakeUpDate = new Date(MainActivity.wakeUpTime);
+        Date wakeUpDate = new Date(DashBoard.wakeUpTime);
         TextView wakeUpTime = findViewById(R.id.text_wakeupTime);
         wakeUpTime.setText("Expected wakeup time: " + dateFormat.format(wakeUpDate));
 
@@ -90,18 +90,18 @@ public class LockScreen extends AppCompatActivity {
         if (BoardcastReceiver.mp != null && BoardcastReceiver.mp.isPlaying()) {
             BoardcastReceiver.mp.stop();
         }
-        if (currentTime < MainActivity.wakeUpTime) {
-            MainActivity.alarmManager.cancel(MainActivity.pendingIntent);
+        if (currentTime < DashBoard.wakeUpTime) {
+            DashBoard.alarmManager.cancel(DashBoard.pendingIntent);
         }
 
-        MainActivity.sleepingStatus = MainActivity.getSleepingStatus(MainActivity.sleepTime, currentTime);
+        DashBoard.sleepingStatus = DashBoard.getSleepingStatus(DashBoard.sleepTime, currentTime);
         // TODO: Testing for gift branch, reset to == 0 after testing
-        if (MainActivity.sleepingStatus != 0){
-            Log.i("sleeping Status", String.valueOf(MainActivity.sleepingStatus));
+        if (DashBoard.sleepingStatus != 0){
+            Log.i("sleeping Status", String.valueOf(DashBoard.sleepingStatus));
             text.makeText(v.getContext(), "Your sleeping time is too short to get a gift!", Toast.LENGTH_SHORT).show();
             showSystemUI();
         } else {
-            Log.i("sleeping Status", String.valueOf(MainActivity.sleepingStatus));
+            Log.i("sleeping Status", String.valueOf(DashBoard.sleepingStatus));
             text.makeText(v.getContext(), "Alice brought a gift during your sleeping time!", Toast.LENGTH_SHORT).show();
             showSystemUI();
             Intent intent = new Intent(this, GiftActivity.class);

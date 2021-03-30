@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 
-import com.example.googlechallenge.MainActivity;
+import com.example.googlechallenge.ui.main.DashBoard;
 import com.example.googlechallenge.R;
 import com.example.googlechallenge.database.Item;
 
@@ -46,11 +46,11 @@ public class GiftActivity extends ItemInventory {
     public int counter = 0;
     public void openGift(View view) throws InterruptedException {
         if (hasReceivedGift){
-            Intent intent = new Intent (GiftActivity.this, MainActivity.class);
+            Intent intent = new Intent (GiftActivity.this, DashBoard.class);
             startActivity(intent);
             return;
         }
-        Item[] newGifts = getGift(MainActivity.sleepingStatus);
+        Item[] newGifts = getGift(DashBoard.sleepingStatus);
         ImageView itemImageView = (ImageView) findViewById(R.id.itemImageView);
         Animation ani = new AlphaAnimation(0.00f, 1.00f);
         Animation aniEnd = new AlphaAnimation(1.00f, 0.00f);

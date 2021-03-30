@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.main;
+package com.example.googlechallenge.ui.main;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -18,9 +18,9 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 
-import com.example.myapplication.R;
-import com.example.myapplication.database.Word;
-import com.example.myapplication.database.WordViewModel;
+import com.example.googlechallenge.R;
+import com.example.googlechallenge.database.Word;
+import com.example.googlechallenge.database.WordViewModel;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -38,7 +38,7 @@ public class BlankFragment extends Fragment {
 
     private SharedPreferences mPreferences;
     private String sharedPrefFile =
-            "com.example.myapplicationprefs";
+            "com.example.googlechallengeprefs";
     final int[] hours = {-1};
     final int[] minutes = {-1};
     final long[] duration = {0};
