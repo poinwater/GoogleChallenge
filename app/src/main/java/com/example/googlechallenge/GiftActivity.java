@@ -16,36 +16,29 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.googlechallenge.database.Item;
 import com.example.googlechallenge.database.WordViewModel;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class GiftActivity extends ItemInventory {
 
 
-    public WordViewModel mWordViewModel;
-    public Item[] allGiftList;
-    public Item[] rareGiftList;
 
-
+    static Item[] allGiftList;
+    static Item[] rareGiftList;
+    static ArrayList<Item> allItems = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gift);
 
-        mWordViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication())).get(WordViewModel.class);
-        mWordViewModel.getAllItems().observe(this, items -> {
-            allGiftList = new Item[items.size()];
-            for(int i = 0 ; i < items.size() ; i++) {
-                Item item = items.get(i);
-                allGiftList[i] = item;
-                Log.i("test items", item.getIcon());
-            }
 
-
-        });
+        allGiftList = new Item[] {goldThread, silverThread, bronzeThread};
         rareGiftList = new Item[]{goldThread, silverThread};
-
     }
+
+
     // 0: Invalid sleeping; duration < 0.5 hour;
     // 1: Valid sleeping; duration >= 0.5 hours;
     // 2: Valid and healthy sleeping; start <= set start time && end >= set end time && 6 hours <= duration <= 9 hours
@@ -107,6 +100,7 @@ public class GiftActivity extends ItemInventory {
 
 
     public Item[] getGift(int SleepingStatus){
+
         // TODO: For testing, change the first if condition to == 0, change it back to 2 after testing
         if (SleepingStatus == 2){
             // do something

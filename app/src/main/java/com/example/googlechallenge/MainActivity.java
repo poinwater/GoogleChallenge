@@ -15,7 +15,10 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
+import com.example.googlechallenge.database.Item;
+import com.example.googlechallenge.database.WordViewModel;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.Calendar;
@@ -38,6 +41,20 @@ public class MainActivity extends AppCompatActivity {
     public static AlarmManager alarmManager;
     public static PendingIntent pendingIntent;
 
+// TODO： reading items table
+//WordViewModel mWordViewModel;
+//
+//    mWordViewModel = new ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication())).get(WordViewModel.class);
+//        mWordViewModel.getAllItems().observeForever(items -> {
+//        for(int i = 0 ; i < items.size() ; i++) {
+//            Item item = items.get(i);
+//            this.allGiftList[i] = item;
+//            Log.i("test items", item.getIcon());
+//        }
+//
+//        Log.i("all Gift", String.valueOf(GiftActivity.allItems.size()));
+//
+//    });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
