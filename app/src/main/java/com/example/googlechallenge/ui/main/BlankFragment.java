@@ -48,10 +48,10 @@ public class BlankFragment extends Fragment {
 
     public WordViewModel mWordViewModel;
 
-    private Button btn_wakeuptime;
+    private Button btn_confirmTime;
     private TextView text_userSetTime;
-    private Button btn_sleepingtime;
-    private Button wakeup;
+    private Button btn_sleepNow;
+//    private Button wakeup;
 
 
     public BlankFragment() {
@@ -82,10 +82,10 @@ public class BlankFragment extends Fragment {
     }
 
     public void findViewById(View root){
-        btn_wakeuptime = root.findViewById(R.id.btn_wakeuptime);
+        btn_confirmTime = root.findViewById(R.id.btn_confirmTime);
         text_userSetTime = root.findViewById(R.id.text_userSetTime);
-        btn_sleepingtime = root.findViewById(R.id.btn_sleepingtime);
-        wakeup = root.findViewById(R.id.btn_wakeup);
+        btn_sleepNow = root.findViewById(R.id.btn_sleepNow);
+
     }
 
     public void setText(){
@@ -93,7 +93,7 @@ public class BlankFragment extends Fragment {
     }
 
     public void buttonOnClick(View root){
-        btn_wakeuptime.setOnClickListener(new View.OnClickListener() {
+        btn_confirmTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final Calendar c = Calendar.getInstance();
@@ -107,7 +107,7 @@ public class BlankFragment extends Fragment {
             }
         });
 
-        btn_sleepingtime.setOnClickListener(new View.OnClickListener() {
+        btn_sleepNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                Date currentTime = Calendar.getInstance().getTime();
@@ -128,49 +128,50 @@ public class BlankFragment extends Fragment {
                 timePickerDialog.show();
             }
         });
+//TODO: Correct the wakeup button
 
-        wakeup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(hours[0]!=-1 && minutes[0]!=-1){
-                    Intent intent = new Intent(getContext(), LockScreen.class);
-                    intent.putExtra("userPickTime", hours[0] + ":" + minutes[0]);
-
-
-                    Date currentTime = Calendar.getInstance().getTime();
-
-                    long time =0;
-                    try{
-                        Date lastTime = DateFormat.getInstance().parse(endTime[0]);
-                        long diff = currentTime.getTime() - lastTime.getTime();
-                        time = TimeUnit.MINUTES.convert(diff, TimeUnit.MILLISECONDS);
-                        Log.d("test", "onClick: "+startTime[0]);
-                    }catch (Exception e){
-
-                    }
-
-                    //if the interval time lower than 30 mins, it will not count as a break
-                    //https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html#convert-long-java.util.concurrent.TimeUnit-
-
-                    if(time > 0){
-                        startTime[0] = DateFormat.getInstance().format(currentTime);
-                    }else{
-                        startTime[0] = startTime[0];
-                    }
-
-                    if(startTime[0] == null){
-                        startTime[0] = DateFormat.getInstance().format(currentTime);
-                    }
-                    Log.d("test", "onClick: "+startTime[0]);
-                    //wakeupAfterOneMinute(v);
-                    startActivityForResult(intent, 1);
-                }else{
-                    Toast.makeText(v.getContext(), "Please set your wake up time first!", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
+//        wakeup.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                if(hours[0]!=-1 && minutes[0]!=-1){
+//                    Intent intent = new Intent(getContext(), LockScreen.class);
+//                    intent.putExtra("userPickTime", hours[0] + ":" + minutes[0]);
+//
+//
+//                    Date currentTime = Calendar.getInstance().getTime();
+//
+//                    long time =0;
+//                    try{
+//                        Date lastTime = DateFormat.getInstance().parse(endTime[0]);
+//                        long diff = currentTime.getTime() - lastTime.getTime();
+//                        time = TimeUnit.MINUTES.convert(diff, TimeUnit.MILLISECONDS);
+//                        Log.d("test", "onClick: "+startTime[0]);
+//                    }catch (Exception e){
+//
+//                    }
+//
+//                    //if the interval time lower than 30 mins, it will not count as a break
+//                    //https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html#convert-long-java.util.concurrent.TimeUnit-
+//
+//                    if(time > 0){
+//                        startTime[0] = DateFormat.getInstance().format(currentTime);
+//                    }else{
+//                        startTime[0] = startTime[0];
+//                    }
+//
+//                    if(startTime[0] == null){
+//                        startTime[0] = DateFormat.getInstance().format(currentTime);
+//                    }
+//                    Log.d("test", "onClick: "+startTime[0]);
+//                    //wakeupAfterOneMinute(v);
+//                    startActivityForResult(intent, 1);
+//                }else{
+//                    Toast.makeText(v.getContext(), "Please set your wake up time first!", Toast.LENGTH_SHORT).show();
+//                }
+//
+//            }
+//        });
     }
 
     public void prefenceSetting(Bundle savedInstanceState){
