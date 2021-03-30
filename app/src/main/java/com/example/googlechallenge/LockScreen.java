@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -38,8 +40,10 @@ public class LockScreen extends AppCompatActivity {
             }
         }
 
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        Date wakeUpDate = new Date(MainActivity.wakeUpTime);
         TextView wakeUpTime = findViewById(R.id.text_wakeupTime);
-        wakeUpTime.setText("Exepected wakeup time: " + getUserPickTime);
+        wakeUpTime.setText("Expected wakeup time: " + dateFormat.format(wakeUpDate));
 
 
         Button unlock = findViewById(R.id.btn_unlockscreen);
@@ -79,7 +83,7 @@ public class LockScreen extends AppCompatActivity {
     public void unLockScreen(View v) {
 
         long currentTime = System.currentTimeMillis();
-        if (BoardcastReceiver.mp.isPlaying()) {
+        if (BoardcastReceiver.mp != null && BoardcastReceiver.mp.isPlaying()) {
             BoardcastReceiver.mp.stop();
         }
         if (currentTime < MainActivity.wakeUpTime) {
@@ -87,7 +91,8 @@ public class LockScreen extends AppCompatActivity {
         }
 
         MainActivity.sleepingStatus = MainActivity.getSleepingStatus(MainActivity.sleepTime, currentTime);
-        if (MainActivity.sleepingStatus == 0){
+        // TODO: Testing for gift branch, reset to == 0 after testing
+        if (MainActivity.sleepingStatus != 0){
             Log.i("sleeping Status", String.valueOf(MainActivity.sleepingStatus));
             text.makeText(v.getContext(), "Your sleeping time is too short to get a gift!", Toast.LENGTH_SHORT).show();
             showSystemUI();

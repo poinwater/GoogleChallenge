@@ -63,10 +63,6 @@ public class ItemInventory extends AppCompatActivity {
         //TODO: Change the default value back to 0
         userGold = sharedPref.getInt("userGold", 100);
 
-
-
-
-
         getItems();
         saveObject(getApplicationContext(), "userItems", userItems);
         sellBtn = findViewById(R.id.sellBtn);

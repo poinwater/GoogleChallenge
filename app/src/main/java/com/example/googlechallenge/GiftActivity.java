@@ -1,6 +1,7 @@
 package com.example.googlechallenge;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,16 +10,15 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
 
 import static com.example.googlechallenge.R.drawable.bronzethread;
 
-public class GiftActivity extends AppCompatActivity {
-    public Item bronzeThread = new Item("Bronze Thread", "bronzethread", 1, 5, 3);
-    public Item silverThread = new Item("Silver Thread", "silverthread", 2, 10, 2);
-    public Item goldThread = new Item("Gold Thread", "goldthread", 3, 15, 1);
+public class GiftActivity extends ItemInventory {
+
     public Item[] allGiftList = {bronzeThread, silverThread, goldThread};
     public Item[] rareGiftList = {silverThread, goldThread};
 
@@ -48,10 +48,14 @@ public class GiftActivity extends AppCompatActivity {
         ani.setAnimationListener(new Animation.AnimationListener() {
             Toast t = Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_SHORT);
 
+            @RequiresApi(api = Build.VERSION_CODES.N)
             public void onAnimationStart(Animation animation) {
-                String name = newGifts[counter].getName();
+                Item newGift = newGifts[counter];
+                int amount = userItems.getOrDefault(newGift, 0);
+                updateItem(newGift, amount + 1);
+                String name = newGift.getName();
                 Log.i("name", name);
-                String icon = newGifts[counter].getIcon();
+                String icon = newGift.getIcon();
                 itemImageView.setImageResource(getResources().getIdentifier(icon, "drawable", getPackageName()));
                 t = Toast.makeText(getApplicationContext(), "Congratulations! you get a " + name.toLowerCase() + " and some gold coins!", Toast.LENGTH_SHORT);
                 t.show();
@@ -84,7 +88,7 @@ public class GiftActivity extends AppCompatActivity {
 
 
     public Item[] getGift(){
-        //TODO: Shanshan Yu the function randomly gets Gifts according to the condition
+
         if (SleepingStatus == 2){
             // do something
             Random generator = new Random();
