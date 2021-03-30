@@ -35,6 +35,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
+import com.example.myapplication.ui.main.PageViewModel;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -45,7 +46,7 @@ public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
-//    private PageViewModel pageViewModel;
+    private PageViewModel pageViewModel;
 
     Item bronzeThread = new Item(3, "Bronze Thread", "bronzethread", 1, 5);
     Item silverThread = new Item(2, "Silver Thread", "silverthread", 2, 10);
@@ -78,6 +79,7 @@ public class PlaceholderFragment extends Fragment {
         return fragment;
     }
 
+    //TODO: Solve the conflict
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
