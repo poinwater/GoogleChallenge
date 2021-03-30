@@ -1,4 +1,4 @@
-package com.example.googlechallenge;
+package com.example.googlechallenge.ui.main;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.googlechallenge.R;
 
 public class SettingActivity extends AppCompatActivity {
 

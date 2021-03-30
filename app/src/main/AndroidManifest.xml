@@ -15,13 +15,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter></activity>
-        <activity android:name=".ItemInventory"></activity>
-        <activity android:name=".LockScreen"></activity>
-        <activity android:name=".DataActivity" />
-        <activity android:name=".SettingActivity" />
-        <activity android:name=".navActivity" />
-        <activity android:name=".GiftActivity" />
-        <receiver android:name=".BoardcastReceiver" >
+        <activity android:name=".item.ItemInventory"></activity>
+        <activity android:name=".ui.main.LockScreen"></activity>
+        <activity android:name=".ui.main.DataActivity" />
+        <activity android:name=".ui.main.SettingActivity" />
+        <activity android:name=".ui.main.navActivity" />
+        <activity android:name=".item.GiftActivity" />
+        <receiver android:name=".ui.main.BoardcastReceiver" >
         </receiver>
     </application>
 

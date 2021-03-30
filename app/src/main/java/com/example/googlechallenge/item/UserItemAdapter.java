@@ -1,7 +1,9 @@
-package com.example.googlechallenge;
+package com.example.googlechallenge.item;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,20 +11,26 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
+
+import com.example.googlechallenge.R;
 import com.example.googlechallenge.database.Item;
 
-import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 
-public class ItemAdapter extends BaseAdapter {
+public class UserItemAdapter extends BaseAdapter {
     private final Context myContext;
-    private final ArrayList<Item> items;
+    private final LinkedHashMap<Item, Integer> items;
     private final Resources resources;
+    Item[] keys;
 
-    public ItemAdapter(Context context, ArrayList<Item> items){
+    public UserItemAdapter(Context context, LinkedHashMap<Item, Integer> items){
         this.myContext = context;
         this.items = items;
+        this.keys = items.keySet().toArray(new Item[items.size()]);
         this.resources = context.getResources();
+
     }
 
     @Override
@@ -37,14 +45,15 @@ public class ItemAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return keys[position].getId();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // 1
-        final Item item = items.get(position);
-
+        final Item item = keys[position];
+        final int amount = items.getOrDefault(keys[position], 0);
         // 2
         if (convertView == null) {
             final LayoutInflater layoutInflater = LayoutInflater.from(myContext);
@@ -61,8 +70,13 @@ public class ItemAdapter extends BaseAdapter {
         imageView.setImageResource(resources.getIdentifier(item.getIcon(), "drawable", myContext.getPackageName()));
         itemValueTextView.setText(String.valueOf(item.getValue()) + " G");
         itemNameTextView.setText(item.getName());
-        amountTextView.setVisibility(View.GONE);
+        amountTextView.setText('x'+String.valueOf(amount));
         convertView.setBackgroundResource(R.drawable.round_corner);
+
+        if (items.get(keys[position]) == 0) {
+            convertView.setVisibility(View.GONE);
+        }
+
         return convertView;
     }
 

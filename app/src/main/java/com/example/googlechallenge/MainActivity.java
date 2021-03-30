@@ -15,10 +15,12 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.example.googlechallenge.database.Item;
-import com.example.googlechallenge.database.WordViewModel;
+import com.example.googlechallenge.item.ItemInventory;
+import com.example.googlechallenge.ui.main.BoardcastReceiver;
+import com.example.googlechallenge.ui.main.DataActivity;
+import com.example.googlechallenge.ui.main.LockScreen;
+import com.example.googlechallenge.ui.main.SettingActivity;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.Calendar;

@@ -1,4 +1,4 @@
-package com.example.googlechallenge;
+package com.example.googlechallenge.ui.main;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.googlechallenge.R;
 import com.example.googlechallenge.database.WordViewModel;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;

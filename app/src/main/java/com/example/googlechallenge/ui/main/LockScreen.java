@@ -1,4 +1,4 @@
-package com.example.googlechallenge;
+package com.example.googlechallenge.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.googlechallenge.MainActivity;
+import com.example.googlechallenge.R;
+import com.example.googlechallenge.item.GiftActivity;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

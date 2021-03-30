@@ -1,4 +1,4 @@
-package com.example.googlechallenge;
+package com.example.googlechallenge.item;
 
 import android.content.Intent;
 import android.os.Build;
@@ -11,12 +11,11 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
-import androidx.lifecycle.ViewModelProvider;
 
+import com.example.googlechallenge.MainActivity;
+import com.example.googlechallenge.R;
 import com.example.googlechallenge.database.Item;
-import com.example.googlechallenge.database.WordViewModel;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
