@@ -3,8 +3,10 @@ package com.example.googlechallenge.ui.main;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -39,8 +41,8 @@ public class BlankFragment extends Fragment {
     private SharedPreferences mPreferences;
     private String sharedPrefFile =
             "com.example.googlechallengeprefs";
-    final int[] hours = {-1};
-    final int[] minutes = {-1};
+    final int[] hours = {-1, -1};
+    final int[] minutes = {-1, -1};
     final long[] duration = {0};
 
     final String[] startTime = new String[1];
@@ -48,9 +50,16 @@ public class BlankFragment extends Fragment {
 
     public WordViewModel mWordViewModel;
 
+    // Elements
     private Button btn_confirmTime;
     private TextView text_userSetTime;
     private Button btn_sleepNow;
+    private TimePicker startTimePicker;
+    private TimePicker wakeUpTimePicker;
+
+
+//    public static long sleepTime;
+//    public static long wakeUpTime;
 //    private Button wakeup;
 
 
@@ -67,6 +76,7 @@ public class BlankFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -85,26 +95,38 @@ public class BlankFragment extends Fragment {
         btn_confirmTime = root.findViewById(R.id.btn_confirmTime);
         text_userSetTime = root.findViewById(R.id.text_userSetTime);
         btn_sleepNow = root.findViewById(R.id.btn_sleepNow);
+        startTimePicker = root.findViewById(R.id.startTimePicker);
+        wakeUpTimePicker = root.findViewById(R.id.wakeUpTimePicker);
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void setText(){
+
         text_userSetTime.setText(hours[0]+" : "+minutes[0]);
+        startTimePicker.setHour(hours[1]);
+        startTimePicker.setMinute(minutes[1]);
+        wakeUpTimePicker.setHour(hours[0]);
+        wakeUpTimePicker.setMinute(minutes[0]);
+
     }
 
     public void buttonOnClick(View root){
         btn_confirmTime.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
-                final Calendar c = Calendar.getInstance();
-                int mHour = c.get(Calendar.HOUR_OF_DAY);
-                int mMinute = c.get(Calendar.MINUTE);
-                hours[0] = mHour;
-                minutes[0] = mMinute;
-                text_userSetTime.setText(hours[0]+" : "+minutes[0]);
-                Log.d("test", hours[0]+" : "+minutes[0]);
+                hours[0] = wakeUpTimePicker.getHour();
+                minutes[0] = wakeUpTimePicker.getMinute();
+                hours[1] = startTimePicker.getHour();
+                minutes[1] = startTimePicker.getMinute();
+
+                text_userSetTime.setText("Wake Up Time: " + wakeUpTimePicker.getHour()+" : "+wakeUpTimePicker.getMinute());
+
+                saveTimePref();
 
             }
+
         });
 
         btn_sleepNow.setOnClickListener(new View.OnClickListener() {
@@ -174,16 +196,34 @@ public class BlankFragment extends Fragment {
 //        });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public void saveTimePref(){
+        SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+        preferencesEditor.putInt("hours", hours[0]);
+        preferencesEditor.putInt("minutes", minutes[0]);
+        preferencesEditor.putInt("start_hours", hours[1]);
+        preferencesEditor.putInt("start_minutes", minutes[1]);
+        preferencesEditor.apply(); // I'm a idiot :(
+        Log.i("start time", "Wake Up Time: " + startTimePicker.getHour()+" : "+startTimePicker.getMinute());
+        Log.i("wake up time", "Wake Up Time: " + wakeUpTimePicker.getHour()+" : "+wakeUpTimePicker.getMinute());
+    }
+
     public void prefenceSetting(Bundle savedInstanceState){
         mPreferences = getContext().getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         if(savedInstanceState != null){
             hours[0] = savedInstanceState.getInt("hours", hours[0]);
             minutes[0] = savedInstanceState.getInt("minutes", minutes[0]);
+            hours[1] = savedInstanceState.getInt("start_hours", hours[1]);
+            minutes[1] = savedInstanceState.getInt("start_minutes", minutes[1]);
+
 
         }else{
             hours[0] = mPreferences.getInt("hours", hours[0]);
             minutes[0] = mPreferences.getInt("minutes", minutes[0]);
+            hours[1] = mPreferences.getInt("start_hours", hours[1]);
+            minutes[1] = mPreferences.getInt("start_minutes", minutes[1]);
         }
+
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
