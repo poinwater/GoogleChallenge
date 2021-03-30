@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 public class Item implements Serializable {
     String _name;
-    int _icon;
+    String _icon;
     int _id;
     int _value;
     int _rare_level;
 
-    public Item(String name, int icon, int id, int value, int rare_level) {
+    public Item(String name, String icon, int id, int value, int rare_level) {
         this._name = name;
         this._icon = icon;
         this._id = id;
@@ -20,7 +20,7 @@ public class Item implements Serializable {
     public String getName(){
         return this._name;
     }
-    public int getIcon() { return this._icon; }
+    public String getIcon() { return this._icon; }
     public int getValue() {return this._value; }
 
 

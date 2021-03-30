@@ -1,6 +1,7 @@
 package com.example.googlechallenge;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +15,12 @@ import java.util.ArrayList;
 public class ItemAdapter extends BaseAdapter {
     private final Context myContext;
     private final ArrayList<Item> items;
+    private final Resources resources;
 
     public ItemAdapter(Context context, ArrayList<Item> items){
         this.myContext = context;
         this.items = items;
-
+        this.resources = context.getResources();
     }
 
     @Override
@@ -54,7 +56,7 @@ public class ItemAdapter extends BaseAdapter {
         final TextView amountTextView = (TextView) convertView.findViewById(R.id.amountTextView);
 
         // 4
-        imageView.setImageResource(item.getIcon());
+        imageView.setImageResource(resources.getIdentifier(item.getIcon(), "drawable", myContext.getPackageName()));
         itemValueTextView.setText(String.valueOf(item.getValue()) + " G");
         itemNameTextView.setText(item.getName());
         amountTextView.setVisibility(View.GONE);

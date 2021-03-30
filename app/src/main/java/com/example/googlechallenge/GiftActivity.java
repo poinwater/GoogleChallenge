@@ -16,9 +16,9 @@ import java.util.Random;
 import static com.example.googlechallenge.R.drawable.bronzethread;
 
 public class GiftActivity extends AppCompatActivity {
-    public Item bronzeThread = new Item("Bronze Thread", bronzethread, 1, 5, 3);
-    public Item silverThread = new Item("Silver Thread", R.drawable.silverthread, 2, 10, 2);
-    public Item goldThread = new Item("Gold Thread", R.drawable.goldthread, 3, 15, 1);
+    public Item bronzeThread = new Item("Bronze Thread", "bronzethread", 1, 5, 3);
+    public Item silverThread = new Item("Silver Thread", "silverthread", 2, 10, 2);
+    public Item goldThread = new Item("Gold Thread", "goldthread", 3, 15, 1);
     public Item[] allGiftList = {bronzeThread, silverThread, goldThread};
     public Item[] rareGiftList = {silverThread, goldThread};
 
@@ -51,8 +51,8 @@ public class GiftActivity extends AppCompatActivity {
             public void onAnimationStart(Animation animation) {
                 String name = newGifts[counter].getName();
                 Log.i("name", name);
-                int icon = newGifts[counter].getIcon();
-                itemImageView.setImageResource(icon);
+                String icon = newGifts[counter].getIcon();
+                itemImageView.setImageResource(getResources().getIdentifier(icon, "drawable", getPackageName()));
                 t = Toast.makeText(getApplicationContext(), "Congratulations! you get a " + name.toLowerCase() + " and some gold coins!", Toast.LENGTH_SHORT);
                 t.show();
 

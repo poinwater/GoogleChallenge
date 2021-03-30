@@ -1,6 +1,7 @@
 package com.example.googlechallenge;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,12 +19,14 @@ import java.util.LinkedHashMap;
 public class UserItemAdapter extends BaseAdapter {
     private final Context myContext;
     private final LinkedHashMap<Item, Integer> items;
+    private final Resources resources;
     Item[] keys;
 
     public UserItemAdapter(Context context, LinkedHashMap<Item, Integer> items){
         this.myContext = context;
         this.items = items;
         this.keys = items.keySet().toArray(new Item[items.size()]);
+        this.resources = context.getResources();
 
     }
 
@@ -61,7 +64,7 @@ public class UserItemAdapter extends BaseAdapter {
         final TextView amountTextView = (TextView) convertView.findViewById(R.id.amountTextView);
 
         // 4
-        imageView.setImageResource(item.getIcon());
+        imageView.setImageResource(resources.getIdentifier(item.getIcon(), "drawable", myContext.getPackageName()));
         itemValueTextView.setText(String.valueOf(item.getValue()) + " G");
         itemNameTextView.setText(item.getName());
         amountTextView.setText('x'+String.valueOf(amount));

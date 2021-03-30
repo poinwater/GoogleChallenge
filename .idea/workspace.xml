@@ -41,6 +41,12 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/GiftActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/GiftActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ItemAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ItemAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ItemInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ItemInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/UserItemAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/UserItemAdapter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616999166818</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added Setting page">
+      <created>1617080935761</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1617080935761</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -252,13 +265,18 @@
     <MESSAGE value="Add Todos" />
     <MESSAGE value="Save start time picker" />
     <MESSAGE value="Fix Time picker not saved bugs, Item inventory bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Time picker not saved bugs, Item inventory bugs" />
+    <MESSAGE value="Added Setting page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Setting page" />
   </component>
   <component name="WindowStateProjectService">
     <state x="354" y="106" key="#Inspections" timestamp="1616998883695">
       <screen x="0" y="25" width="1440" height="799" />
     </state>
     <state x="354" y="106" key="#Inspections/0.25.1440.799/1440.76.1080.785@0.25.1440.799" timestamp="1616998883695" />
+    <state x="598" y="298" key="#Notifications" timestamp="1617082058238">
+      <screen x="0" y="25" width="1440" height="814" />
+    </state>
+    <state x="598" y="298" key="#Notifications/0.25.1440.814/1440.76.1080.785@0.25.1440.814" timestamp="1617082058238" />
     <state x="245" y="159" key="#PSD" timestamp="1616998101220">
       <screen x="0" y="25" width="1440" height="799" />
     </state>

@@ -30,9 +30,9 @@ import static com.example.googlechallenge.R.drawable.bronzethread;
 public class ItemInventory extends AppCompatActivity {
 
     // for now, just use the test data
-    Item bronzeThread = new Item("Bronze Thread", bronzethread, 1, 5, 3);
-    Item silverThread = new Item("Silver Thread", R.drawable.silverthread, 2, 10, 2);
-    Item goldThread = new Item("Gold Thread", R.drawable.goldthread, 3, 15, 1);
+    Item bronzeThread = new Item("Bronze Thread", "bronzethread", 1, 5, 3);
+    Item silverThread = new Item("Silver Thread", "silverthread", 2, 10, 2);
+    Item goldThread = new Item("Gold Thread", "goldthread", 3, 15, 1);
 
     static SharedPreferences sharedPref;
     static SharedPreferences.Editor editor;
@@ -58,7 +58,7 @@ public class ItemInventory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_inventory);
 
-        sharedPref = this.getSharedPreferences("com.example.googlechallenge", MODE_PRIVATE);
+        sharedPref = this.getSharedPreferences(getPackageName(), MODE_PRIVATE);
         editor = sharedPref.edit();
         //TODO: Change the default value back to 0
         userGold = sharedPref.getInt("userGold", 100);
