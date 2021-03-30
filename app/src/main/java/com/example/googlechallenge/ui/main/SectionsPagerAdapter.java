@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.main;
+package com.example.googlechallenge.ui.main;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.myapplication.R;
+import com.example.googlechallenge.R;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to

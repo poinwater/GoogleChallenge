@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.main;
+package com.example.googlechallenge.ui.main;
 
 import android.content.Context;
 import android.content.Intent;
@@ -22,11 +22,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.myapplication.R;
-import com.example.myapplication.item.Item;
-import com.example.myapplication.item.ItemAdapter;
-import com.example.myapplication.item.ItemInventory;
-import com.example.myapplication.item.UserItemAdapter;
+import com.example.googlechallenge.R;
+import com.example.googlechallenge.database.Item;
+import com.example.googlechallenge.item.ItemAdapter;
+import com.example.googlechallenge.item.ItemInventory;
+import com.example.googlechallenge.item.UserItemAdapter;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -45,11 +45,11 @@ public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
-    private PageViewModel pageViewModel;
+//    private PageViewModel pageViewModel;
 
-    Item bronzeThread = new Item("Bronze Thread", "bronzethread", 1, 5, 3);
-    Item silverThread = new Item("Silver Thread", "silverthread", 2, 10, 2);
-    Item goldThread = new Item("Gold Thread", "goldthread", 3, 15, 1);
+    Item bronzeThread = new Item(3, "Bronze Thread", "bronzethread", 1, 5);
+    Item silverThread = new Item(2, "Silver Thread", "silverthread", 2, 10);
+    Item goldThread = new Item(1, "Gold Thread", "goldthread", 3, 15);
 
     static SharedPreferences sharedPref;
     static SharedPreferences.Editor editor;
@@ -80,13 +80,13 @@ public class PlaceholderFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        pageViewModel = new ViewModelProvider(this).get(PageViewModel.class);
-        int index = 1;
-        if (getArguments() != null) {
-            index = getArguments().getInt(ARG_SECTION_NUMBER);
-        }
-        pageViewModel.setIndex(index);
+//        super.onCreate(savedInstanceState);
+//        pageViewModel = new ViewModelProvider(this).get(PageViewModel.class);
+//        int index = 1;
+//        if (getArguments() != null) {
+//            index = getArguments().getInt(ARG_SECTION_NUMBER);
+//        }
+//        pageViewModel.setIndex(index);
     }
 
     @Override
@@ -94,7 +94,7 @@ public class PlaceholderFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
-        sharedPref = root.getContext().getSharedPreferences("com.example.myapplication.ui.main", MODE_PRIVATE);
+        sharedPref = root.getContext().getSharedPreferences("com.example.googlechallenge.ui.main", MODE_PRIVATE);
         editor = sharedPref.edit();
         //TODO: Change the default value back to 0
         userGold = sharedPref.getInt("userGold", 100);

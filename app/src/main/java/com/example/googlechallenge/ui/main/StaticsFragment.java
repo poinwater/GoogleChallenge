@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.main;
+package com.example.googlechallenge.ui.main;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,8 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.myapplication.R;
-import com.example.myapplication.database.WordViewModel;
+import com.example.googlechallenge.R;
+import com.example.googlechallenge.database.WordViewModel;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;

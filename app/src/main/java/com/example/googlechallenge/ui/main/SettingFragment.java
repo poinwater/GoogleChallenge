@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.main;
+package com.example.googlechallenge.ui.main;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.example.myapplication.R;
+import com.example.googlechallenge.R;
 
 import static android.content.Context.MODE_PRIVATE;
 

@@ -35,20 +35,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bef3da07-be5a-4d7c-856c-6c9a5c2fb643" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/BoardcastReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ui/main/BoardcastReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/DataActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ui/main/DataActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/GiftActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/item/GiftActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ItemAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/item/ItemAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ItemInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/item/ItemInventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/LockScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ui/main/LockScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/MyAdmin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/UserItemAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/item/UserItemAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/navActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/navActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_gift.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_gift.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_item_inventory.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_item_inventory.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,13 +93,14 @@
     <property name="DEBUGGER_ID" value="Auto" />
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="emulator-5554" />
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-03-29T02:51:18.255Z" />
-    <property name="ResourceManagerPrefKey.ResourceType" value="FRACTION" />
+    <property name="ResourceManagerPrefKey.ResourceType" value="STRING" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="android-custom-view/Users/bcghostpc/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.3.0/b42a5159ef2c670d26ce08246ec5aaf8f92e5a42/material-1.3.0-sources.jar!/com/google/android/material/tabs/TabLayout.java_SELECTED" value="TabLayout" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/values" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout" />
     <property name="memory.settings.postsync.last.time.stamp" value="1616278478637" />
     <property name="multi-representation-preview/Users/bcghostpc/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.3.0/b42a5159ef2c670d26ce08246ec5aaf8f92e5a42/material-1.3.0-sources.jar!/com/google/android/material/tabs/TabLayout.java_selected" value="Custom views" />
     <property name="project.structure.last.edited" value="Build Variants" />
@@ -123,22 +112,26 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.example.googlechallenge" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
-      <recent name="$PROJECT_DIR$/app/src/main/res" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
-      <recent name="$PROJECT_DIR$/app/src/main/java" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.googlechallenge" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/arrays" />
       <recent name="$PROJECT_DIR$/app/src/main/res/string" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.googlechallenge" />
+    </key>
+    <key name="android.template.947117678">
+      <recent name="com.example.googlechallenge.ui.main" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.googlechallenge.ui.main" />
+      <recent name="com.example.googlechallenge" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/values" />
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge/ui/main" />
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/example/googlechallenge" />
+      <recent name="$PROJECT_DIR$/app/src/main/res" />
     </key>
   </component>
   <component name="RunManager">
@@ -303,15 +296,16 @@
       <screen x="0" y="25" width="1440" height="813" />
     </state>
     <state x="533" y="148" key="#com.intellij.ide.util.MemberChooser/1440.76.1080.785/0.25.1440.813@0.25.1440.813" timestamp="1617126585409" />
-    <state x="1744" y="341" width="471" height="262" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1616968212256">
-      <screen x="1440" y="76" width="1080" height="785" />
+    <state x="405" y="299" width="471" height="262" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1617140451145">
+      <screen x="0" y="25" width="1440" height="813" />
     </state>
     <state x="1744" y="341" width="471" height="262" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.25.1440.801/1440.76.1080.785@1440.76.1080.785" timestamp="1616968212256" />
-    <state x="371" y="173" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1617127652220">
+    <state x="405" y="299" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/1440.76.1080.785/0.25.1440.813@0.25.1440.813" timestamp="1617140451145" />
+    <state x="371" y="173" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1617140774716">
       <screen x="0" y="25" width="1440" height="813" />
     </state>
     <state x="1718" y="219" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1440.801/1440.76.1080.785@1440.76.1080.785" timestamp="1616968989753" />
-    <state x="371" y="173" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1440.76.1080.785/0.25.1440.813@0.25.1440.813" timestamp="1617127652220" />
+    <state x="371" y="173" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1440.76.1080.785/0.25.1440.813@0.25.1440.813" timestamp="1617140774716" />
     <state x="100" y="125" width="1240" height="597" key="AVDManager" timestamp="1616997963516">
       <screen x="0" y="25" width="1440" height="797" />
     </state>
@@ -408,6 +402,10 @@
       <screen x="0" y="25" width="1440" height="799" />
     </state>
     <state x="308" y="280" key="Performance.Activity.Monitor/0.25.1440.799/1440.76.1080.785@0.25.1440.799" timestamp="1616998225303" />
+    <state x="500" y="210" key="chooseDestDirectoryDialog" timestamp="1617141239025">
+      <screen x="0" y="25" width="1440" height="813" />
+    </state>
+    <state x="500" y="210" key="chooseDestDirectoryDialog/1440.76.1080.785/0.25.1440.813@0.25.1440.813" timestamp="1617141239025" />
     <state x="503" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616278421183">
       <screen x="0" y="25" width="1440" height="801" />
     </state>
