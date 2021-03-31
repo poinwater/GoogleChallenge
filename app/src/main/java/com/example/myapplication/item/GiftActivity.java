@@ -74,7 +74,6 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
             public void onAnimationStart(Animation animation) {
                 Item newGift = newGifts[counter];
 
-                //TODO: made a table to store user's items
                 int amount = userItems.getOrDefault(newGift, 0);
                 updateItem(newGift, amount + 1);
                 String name = newGift.getName();

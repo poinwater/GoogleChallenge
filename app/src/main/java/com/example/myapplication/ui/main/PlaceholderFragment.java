@@ -120,8 +120,7 @@ public class PlaceholderFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 boolean[] hasSold = {false};
-                Log.i("place holder", "grid view position" + position);
-                Log.i("place holder", "grid view id" + id);
+
                 sellBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -139,8 +138,7 @@ public class PlaceholderFragment extends Fragment {
         storeGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.i("place holder", "grid view position" + position);
-                Log.i("place holder", "grid view id" + id);
+
                 buyBtn.setOnClickListener(new View.OnClickListener() {
                     @RequiresApi(api = Build.VERSION_CODES.N)
                     @Override
