@@ -1,11 +1,9 @@
 package com.example.myapplication.ui.main;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,17 +13,14 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myapplication.R;
-import com.example.myapplication.item.Item;
+import com.example.myapplication.database.Item;
 import com.example.myapplication.item.ItemAdapter;
-import com.example.myapplication.item.ItemInventory;
 import com.example.myapplication.item.UserItemAdapter;
 
 import java.io.FileInputStream;
@@ -47,9 +42,9 @@ public class PlaceholderFragment extends Fragment {
 
     private PageViewModel pageViewModel;
 
-    Item bronzeThread = new Item("Bronze Thread", "bronzethread", 1, 5, 3);
-    Item silverThread = new Item("Silver Thread", "silverthread", 2, 10, 2);
-    Item goldThread = new Item("Gold Thread", "goldthread", 3, 15, 1);
+    Item bronzeThread = new Item(1,"Bronze Thread", "bronzethread", 5, 3);
+    Item silverThread = new Item(2, "Silver Thread", "silverthread",  10, 2);
+    Item goldThread = new Item(3,"Gold Thread", "goldthread", 15, 1);
 
     static SharedPreferences sharedPref;
     static SharedPreferences.Editor editor;

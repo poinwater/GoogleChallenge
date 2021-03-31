@@ -83,13 +83,12 @@ abstract class WordRoomDatabase extends RoomDatabase {
                 dao.deleteAllSleep();
                 dao.deleteAllitem();
                 fakeData(dao);
-                Item item1 = new Item(1, "Bronze Thread", R.drawable.bronzethread, 5, 3);
-                Item item2 = new Item(2, "Silver Thread", R.drawable.silverthread, 10, 2);
-                Item item3 = new Item(3, "Gold Thread", R.drawable.goldthread, 15, 1);
-
-                dao.insertItem(item1);
-                dao.insertItem(item2);
-                dao.insertItem(item3);
+                Item bronzeThread = new Item(1,"Bronze Thread", "bronzethread", 5, 3);
+                Item silverThread = new Item(2, "Silver Thread", "silverthread",  10, 2);
+                Item goldThread = new Item(3,"Gold Thread", "goldthread", 15, 1);
+                dao.insertItem(bronzeThread);
+                dao.insertItem(silverThread);
+                dao.insertItem(goldThread);
 //                Date currentTime = Calendar.getInstance().getTime();
 //                String time = DateFormat.getInstance().format(currentTime);
 

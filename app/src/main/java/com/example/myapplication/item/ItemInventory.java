@@ -16,6 +16,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.database.Item;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -28,9 +29,9 @@ import java.util.LinkedHashMap;
 public class ItemInventory extends AppCompatActivity {
 
     // for now, just use the test data
-    Item bronzeThread = new Item("Bronze Thread", "bronzethread", 1, 5, 3);
-    Item silverThread = new Item("Silver Thread", "silverthread", 2, 10, 2);
-    Item goldThread = new Item("Gold Thread", "goldthread", 3, 15, 1);
+    Item bronzeThread = new Item(1,"Bronze Thread", "bronzethread", 5, 3);
+    Item silverThread = new Item(2, "Silver Thread", "silverthread",  10, 2);
+    Item goldThread = new Item(3,"Gold Thread", "goldthread", 15, 1);
 
     static SharedPreferences sharedPref;
     static SharedPreferences.Editor editor;

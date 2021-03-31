@@ -14,6 +14,7 @@ import androidx.annotation.RequiresApi;
 
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.database.Item;
 import com.example.myapplication.ui.main.LockScreen;
 import com.example.myapplication.ui.main.PlaceholderFragment;
 
@@ -93,7 +94,7 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
 
         // TODO: After testing reset the first condition to == 2
         Log.i("gift sleeping status", String.valueOf(SleepingStatus));
-        if (SleepingStatus == 2){
+        if (SleepingStatus == 0){
             // do something
             Random generator = new Random();
             int randomIndex = generator.nextInt(rareGiftList.length);

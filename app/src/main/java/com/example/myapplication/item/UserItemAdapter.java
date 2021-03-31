@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 
 import com.example.myapplication.R;
+import com.example.myapplication.database.Item;
 
 import java.util.LinkedHashMap;
 
@@ -43,7 +44,7 @@ public class UserItemAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return keys[position]._id;
+        return keys[position].getId();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
