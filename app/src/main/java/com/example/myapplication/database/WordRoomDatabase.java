@@ -117,28 +117,21 @@ abstract class WordRoomDatabase extends RoomDatabase {
         dao.insertDuration(new Sleep(time, 360));
         dao.insertDuration(new Sleep(DateFormat.getInstance().format(preTime), 480));
 
-        cal = new GregorianCalendar();
-        cal.setTime(currentTime);
-        cal.add(Calendar.DATE, -1);
-        Date preTime2days = cal.getTime();
-
-        dao.insertDuration(new Sleep(DateFormat.getInstance().format(preTime2days), 720));
 
 
-        cal = new GregorianCalendar();
-        cal.setTime(currentTime);
-        cal.add(Calendar.DATE, -2);
-        Date preTime3days = cal.getTime();
+        insertData(dao, -1,700, currentTime);
+        insertData(dao, -2,100, currentTime);
+        insertData(dao, -3,750, currentTime);
 
-        dao.insertDuration(new Sleep(DateFormat.getInstance().format(preTime3days), 100));
 
-        cal = new GregorianCalendar();
-        cal.setTime(currentTime);
-        cal.add(Calendar.DATE, -3);
-        Date preTime4days = cal.getTime();
-
-        dao.insertDuration(new Sleep(DateFormat.getInstance().format(preTime4days), 750));
     }
 
+    public static void insertData(WordDao dao, int amount, long duration, Date currentTime){
+        GregorianCalendar cal = new GregorianCalendar();
+        cal.setTime(currentTime);
+        cal.add(Calendar.DATE, amount);
+        Date perTime = cal.getTime();
 
+        dao.insertDuration(new Sleep(DateFormat.getInstance().format(perTime), duration));
+    }
 }
