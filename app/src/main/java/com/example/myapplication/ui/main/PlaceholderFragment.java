@@ -266,12 +266,19 @@ public class PlaceholderFragment extends Fragment {
         WordViewModel mWordViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication())).get(WordViewModel.class);
         mWordViewModel.getAllItems().observe(this, items -> {
 
-
+                ArrayList<Item> storeItems = new ArrayList<>();
                 Random random = new Random();
-                int index = random.nextInt(items.size());
-                Item item = items.get(index);
+                while (storeItems.size() < 4) {
+                    int index = random.nextInt(items.size());
+                    Item item = items.get(index);
+                    if (!storeItems.contains(item)) { storeItems.add(item); }
+                    Log.d("test", "update Store "+item.getName());
 
-                Log.d("test", "update Store "+item.getName());
+                }
+
+                ItemAdapter adapter = new ItemAdapter(getContext(), storeItems);
+                storeGridView.setAdapter(adapter);
+
             });
     }
 }
