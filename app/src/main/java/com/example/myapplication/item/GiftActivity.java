@@ -49,7 +49,7 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
             return;
         }
 
-        giftAnimation(newGifts);
+//        giftAnimation(newGifts);
         hasReceivedGift = true;
 
     }
@@ -99,21 +99,23 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
 
     public Item[] getGift(){
 
-        // TODO: After testing reset the first condition to == 2
-        if (SleepingStatus == 0){
+        //
+        if (SleepingStatus == 2){
             // do something
             Random generator = new Random();
             int randomIndex = generator.nextInt(rareGiftList.length);
             PlaceholderFragment.updateGold(PlaceholderFragment.getGold() + 20);
             return new Item[] {rareGiftList[randomIndex]};
-        }else if(SleepingStatus == 1){
+        }
+        //TODO: After testing reset the first condition to == 1
+        if(SleepingStatus == 0){
             Random generator = new Random();
             int randomIndex = generator.nextInt(allGiftList.length);
             PlaceholderFragment.updateGold(PlaceholderFragment.getGold() + 10);
             return new Item[] {allGiftList[randomIndex]};
-        }else{
-            return new Item[] {};
         }
+        return new Item[] {};
+
     }
 
     public void readItemsFromDatabase(){
@@ -121,11 +123,14 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
         WordViewModel mWordViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication())).get(WordViewModel.class);
         mWordViewModel.getAllItems().observe(this, items -> {
             Random random = new Random();
+
             int index = random.nextInt(items.size());
-            Item newGift = items.get(index);
+            Item newItem = items.get(index);
+            Item[] newGifts = new Item[] {newItem};
 
-            Log.i("new gift", newGift.getName());
 
+            Log.i("new gift", newItem.getName());
+            giftAnimation(newGifts);
 
         });
     }
