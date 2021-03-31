@@ -1,0 +1,150 @@
+[
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/drawable_alice.png.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/drawable/alice.png"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/drawable_goldthread.png.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/drawable/goldthread.png"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/drawable-v24_charts.png.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/drawable-v24/charts.png"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/layout_activity_item_inventory.xml.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/layout/activity_item_inventory.xml"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/layout_fragment_setting.xml.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/layout/fragment_setting.xml"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/layout_fragment_blank.xml.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/layout/fragment_blank.xml"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/drawable_clock.png.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/drawable/clock.png"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/layout_lock_screen.xml.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/layout/lock_screen.xml"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/drawable-v24_goldcoin.png.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/drawable-v24/goldcoin.png"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/drawable_silverthread.PNG.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/drawable/silverthread.PNG"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/layout_fragment_main.xml.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/layout/fragment_main.xml"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/drawable-v24_text_round_corner.xml.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/drawable-v24/text_round_corner.xml"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/drawable_bronzethread.PNG.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/drawable/bronzethread.PNG"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/layout_fragment_statics.xml.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/layout/fragment_statics.xml"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/layout_activity_gift.xml.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/layout/activity_gift.xml"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/raw_alarm.mp3.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/raw/alarm.mp3"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/drawable-v24_round_corner.xml.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/drawable-v24/round_corner.xml"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/drawable-v24_gift_small.png.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/drawable-v24/gift_small.png"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/drawable-v24_setting.png.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/drawable-v24/setting.png"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/drawable_gift.png.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/drawable/gift.png"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/layout_linearlayout_item.xml.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/layout/linearlayout_item.xml"
+    },
+    {
+        "merged": "/Users/bcghostpc/GoogleChallenge/app/build/intermediates/res/merged/debug/drawable-v24_gifttop.png.flat",
+        "source": "/Users/bcghostpc/GoogleChallenge/app/src/main/res/drawable-v24/gifttop.png"
+    }
+]
