@@ -39,7 +39,7 @@ public class UserItemAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return keys[position];
     }
 
     @Override

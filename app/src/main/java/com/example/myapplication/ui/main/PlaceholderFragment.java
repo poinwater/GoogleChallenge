@@ -21,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myapplication.R;
 import com.example.myapplication.database.Item;
+import com.example.myapplication.database.WordDao;
 import com.example.myapplication.database.WordViewModel;
 import com.example.myapplication.item.ItemAdapter;
 import com.example.myapplication.item.UserItemAdapter;
@@ -114,10 +115,13 @@ public class PlaceholderFragment extends Fragment {
         goldText.setText(String.valueOf(userGold));
         gridView.setAdapter(userItemAdapter);
         storeGridView.setAdapter(storeAdapter);
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 boolean[] hasSold = {false};
+                Log.i("place holder", "grid view position" + position);
+                Log.i("place holder", "grid view id" + id);
                 sellBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -125,7 +129,7 @@ public class PlaceholderFragment extends Fragment {
                             return;
                         }
 
-                        hasSold[0] = sellItem(view, position);
+                        hasSold[0] = sellItem(view, (Item) gridView.getAdapter().getItem(position));
 
                     }
                 });
@@ -135,12 +139,13 @@ public class PlaceholderFragment extends Fragment {
         storeGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Log.i("place holder", "grid view position" + position);
+                Log.i("place holder", "grid view id" + id);
                 buyBtn.setOnClickListener(new View.OnClickListener() {
                     @RequiresApi(api = Build.VERSION_CODES.N)
                     @Override
                     public void onClick(View v) {
-                        buyItem(view, position);
+                        buyItem(view, (Item) storeGridView.getAdapter().getItem(position));
                     }
                 });
             }
@@ -149,12 +154,11 @@ public class PlaceholderFragment extends Fragment {
         return root;
     }
 
-    public boolean sellItem(View view, int position){
+    public boolean sellItem(View view, Item item){
         controlText(view);
         if (userItems.size() == 0){
             return false;
         }
-        Item item = keys[position];
         int amount = userItems.get(item);
         updateItem(view, item, amount - 1);
         updateGold(userGold + item.getValue());
@@ -184,10 +188,9 @@ public class PlaceholderFragment extends Fragment {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public void buyItem(View view, int position){
+    public void buyItem(View view, Item item){
 
         controlText(view);
-        final Item item = storeItems.get(position);
         final int price = item.getValue();
         int amount = userItems.getOrDefault(item, 0);
         if (userGold >= price){
@@ -281,4 +284,6 @@ public class PlaceholderFragment extends Fragment {
 
             });
     }
+
+
 }
