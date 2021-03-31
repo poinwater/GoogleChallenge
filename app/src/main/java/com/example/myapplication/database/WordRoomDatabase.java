@@ -83,12 +83,29 @@ abstract class WordRoomDatabase extends RoomDatabase {
                 dao.deleteAllSleep();
                 dao.deleteAllitem();
                 fakeData(dao);
-                Item bronzeThread = new Item(1,"Bronze Thread", "bronzethread", 5, 3);
-                Item silverThread = new Item(2, "Silver Thread", "silverthread",  10, 2);
-                Item goldThread = new Item(3,"Gold Thread", "goldthread", 15, 1);
+                Item bronzeThread = new Item(1,"Bronze Thread", "bronzethread", 10, 3);
+                Item silverThread = new Item(2, "Silver Thread", "silverthread",  50, 2);
+                Item goldThread = new Item(3,"Gold Thread", "goldthread", 100, 1);
+                Item backpack = new Item(4, "Backpack", "backpack", 8, 3);
+                Item belt = new Item (5, "Belt", "belt", 25, 2);
+                Item bomb = new Item (6, "Bomb", "bomb", 1, 4);
+                Item book = new Item(7, "Book", "book", 50, 2);
+                Item bronze_coin = new Item (8, "Bronze Coin", "bronze_coin", 50, 3);
+                Item clover = new Item(9, "Clover", "clover", 777, 1);
+                Item feather = new Item(10, "Feather", "feather", 30, 3);
+                Item ring = new Item(11, "Ring", "ring", 500, 1);
+
                 dao.insertItem(bronzeThread);
                 dao.insertItem(silverThread);
                 dao.insertItem(goldThread);
+                dao.insertItem(backpack);
+                dao.insertItem(belt);
+                dao.insertItem(bomb);
+                dao.insertItem(book);
+                dao.insertItem(bronze_coin);
+                dao.insertItem(clover);
+                dao.insertItem(feather);
+                dao.insertItem(ring);
 //                Date currentTime = Calendar.getInstance().getTime();
 //                String time = DateFormat.getInstance().format(currentTime);
 
