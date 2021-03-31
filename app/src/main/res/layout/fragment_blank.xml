@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.BlankFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <LinearLayout
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"

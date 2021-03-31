@@ -59,8 +59,7 @@ public class ItemInventory extends AppCompatActivity {
 
         sharedPref = this.getSharedPreferences(getPackageName(), MODE_PRIVATE);
         editor = sharedPref.edit();
-        //TODO: Change the default value back to 0
-        userGold = sharedPref.getInt("userGold", 100);
+        userGold = sharedPref.getInt("userGold", 0);
 
         getItems();
         saveObject(getApplicationContext(), "userItems", userItems);
