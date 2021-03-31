@@ -31,7 +31,7 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gift);
 
-        readItemsFromDatabase();
+        readAllItemsFromDatabase();
     }
 
     // 0: Invalid sleeping; duration < 0.5 hour || duration >= 24 hours
@@ -55,13 +55,12 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
     }
 
     public void giftAnimation(Item[] newGifts) {
-        ImageView itemImageView = (ImageView) findViewById(R.id.itemImageView);
+        ImageView itemImageView = findViewById(R.id.itemImageView);
         Animation ani = new AlphaAnimation(0.00f, 1.00f);
         Animation aniEnd = new AlphaAnimation(1.00f, 0.00f);
         ani.setDuration(1800);
         aniEnd.setDuration(800);
         ani.setAnimationListener(new Animation.AnimationListener() {
-            Toast t = Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_SHORT);
 
             @RequiresApi(api = Build.VERSION_CODES.N)
             public void onAnimationStart(Animation animation) {
@@ -71,8 +70,7 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
                 String name = newGift.getName();
                 String icon = newGift.getIcon();
                 itemImageView.setImageResource(getResources().getIdentifier(icon, "drawable", getPackageName()));
-                t = Toast.makeText(getApplicationContext(), "Congratulations! you get a " + name.toLowerCase() + " and some gold coins!", Toast.LENGTH_SHORT);
-                t.show();
+                Toast.makeText(getApplicationContext(), "Congratulations! you get a " + name.toLowerCase() + " and some gold coins!", Toast.LENGTH_SHORT).show();
 
 
             }
@@ -118,7 +116,7 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
 
     }
 
-    public void readItemsFromDatabase(){
+    public void readAllItemsFromDatabase(){
 
         WordViewModel mWordViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication())).get(WordViewModel.class);
         mWordViewModel.getAllItems().observe(this, items -> {
