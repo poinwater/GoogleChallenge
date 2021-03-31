@@ -224,6 +224,10 @@ public class PlaceholderFragment extends Fragment {
 
     }
 
+    public static int getGold() {
+        return userGold;
+    }
+
 
     public void getItems(View view ){
         // get items from user data

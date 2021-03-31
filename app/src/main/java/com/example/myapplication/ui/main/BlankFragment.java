@@ -58,13 +58,11 @@ public class BlankFragment extends Fragment {
     private TimePicker startTimePicker;
     private TimePicker wakeUpTimePicker;
 
-    public static int sleepingStatus;
-    public static long wakeUpTime;
-    public static long sleepTime;
-
-
-//    public static long sleepTime;
+    public static int sleepingStatus = 0;
+    public static long sleepTime = 0;
 //    public static long wakeUpTime;
+
+
 //    private Button wakeup;
 
 
@@ -137,7 +135,10 @@ public class BlankFragment extends Fragment {
         btn_sleepNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                sleepTime = System.currentTimeMillis();
                 lockScreen(v.getContext());
+
             }
 //                Date currentTime = Calendar.getInstance().getTime();
 //                String current = DateFormat.getInstance().format(currentTime);
@@ -276,18 +277,5 @@ public class BlankFragment extends Fragment {
         startActivity(intent);
     }
 
-    public static int getSleepingStatus(long sleepTime, long wakeUpTime){
 
-        long duration = (wakeUpTime - sleepTime) / 60000;
-        Log.i("duration", String.valueOf(duration));
-        if (duration < 30 || duration >= 24 * 60) {
-            return 0;
-        } else if (duration <= 360) {
-            return 1;
-        } else {
-            return 2;
-        }
-
-
-    }
 }

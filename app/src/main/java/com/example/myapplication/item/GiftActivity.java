@@ -14,6 +14,8 @@ import androidx.annotation.RequiresApi;
 
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.ui.main.LockScreen;
+import com.example.myapplication.ui.main.PlaceholderFragment;
 
 import java.util.Random;
 
@@ -30,16 +32,16 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
     // 0: Invalid sleeping; duration < 0.5 hour;
     // 1: Valid sleeping; duration >= 0.5 hours;
     // 2: Valid and healthy sleeping; start <= set start time && end >= set end time && 6 hours <= duration <= 9 hours
-    public int SleepingStatus = 1;
-    public boolean hasReceivedGift = false;
+    public static int SleepingStatus = 1;
+    private boolean hasReceivedGift = false;
     public int counter = 0;
     public void openGift(View view) throws InterruptedException {
-        if (hasReceivedGift){
+        Item[] newGifts = getGift();
+        if (hasReceivedGift || newGifts.length == 0){
             Intent intent = new Intent (com.example.myapplication.item.GiftActivity.this, MainActivity.class);
             startActivity(intent);
             return;
         }
-        Item[] newGifts = getGift();
         ImageView itemImageView = (ImageView) findViewById(R.id.itemImageView);
         Animation ani = new AlphaAnimation(0.00f, 1.00f);
         Animation aniEnd = new AlphaAnimation(1.00f, 0.00f);
@@ -89,17 +91,19 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
 
     public Item[] getGift(){
 
+        //Testing
+        Log.i("gift sleeping status", String.valueOf(SleepingStatus));
         if (SleepingStatus == 2){
             // do something
             Random generator = new Random();
             int randomIndex = generator.nextInt(rareGiftList.length);
-            com.example.myapplication.item.ItemInventory.updateGold(com.example.myapplication.item.ItemInventory.userGold + 20);
+            PlaceholderFragment.updateGold(PlaceholderFragment.getGold() + 20);
             Log.i("getGift", Integer.toString(randomIndex));
             return new Item[] {rareGiftList[randomIndex]};
         }else if(SleepingStatus == 1){
             Random generator = new Random();
             int randomIndex = generator.nextInt(allGiftList.length);
-            com.example.myapplication.item.ItemInventory.updateGold(com.example.myapplication.item.ItemInventory.userGold + 10);
+            PlaceholderFragment.updateGold(PlaceholderFragment.getGold() + 10);
             return new Item[] {allGiftList[randomIndex]};
         }else{
             return new Item[] {};

@@ -17,6 +17,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class LockScreen extends AppCompatActivity {
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,10 +50,12 @@ public class LockScreen extends AppCompatActivity {
                 long currentTime = System.currentTimeMillis();
 
 
-                BlankFragment.sleepingStatus = BlankFragment.getSleepingStatus(BlankFragment.sleepTime, currentTime);
+                BlankFragment.sleepingStatus = getSleepingStatus(BlankFragment.sleepTime, currentTime);
+                GiftActivity.SleepingStatus = BlankFragment.sleepingStatus;
                 // TODO: Testing for gift branch, reset to == 0 after testing
+
                 Log.i("sleeping Status", String.valueOf(BlankFragment.sleepingStatus));
-                if (BlankFragment.sleepingStatus == 0){
+                if (BlankFragment.sleepingStatus == 1){
                     Toast.makeText(v.getContext(), "Your sleeping time is too short to get a gift!", Toast.LENGTH_SHORT).show();
                     showSystemUI();
                     return false;
@@ -109,5 +112,20 @@ public class LockScreen extends AppCompatActivity {
         replyIntent.putExtra(EXTRA_REPLY, word);
         setResult(RESULT_OK, replyIntent);
         finish();
+    }
+
+    public static int getSleepingStatus(long sleepTime, long wakeUpTime){
+
+        long duration = (wakeUpTime - sleepTime) / 60000;
+        Log.i("duration", String.valueOf(duration));
+        if (duration < 30 || duration >= 24 * 60) {
+            return 0;
+        } else if (duration <= 360) {
+            return 1;
+        } else {
+            return 2;
+        }
+
+
     }
 }
