@@ -57,7 +57,6 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
                 int amount = userItems.getOrDefault(newGift, 0);
                 updateItem(newGift, amount + 1);
                 String name = newGift.getName();
-                Log.i("name", name);
                 String icon = newGift.getIcon();
                 itemImageView.setImageResource(getResources().getIdentifier(icon, "drawable", getPackageName()));
                 t = Toast.makeText(getApplicationContext(), "Congratulations! you get a " + name.toLowerCase() + " and some gold coins!", Toast.LENGTH_SHORT);
@@ -93,13 +92,11 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
     public Item[] getGift(){
 
         // TODO: After testing reset the first condition to == 2
-        Log.i("gift sleeping status", String.valueOf(SleepingStatus));
-        if (SleepingStatus == 0){
+        if (SleepingStatus == 2){
             // do something
             Random generator = new Random();
             int randomIndex = generator.nextInt(rareGiftList.length);
             PlaceholderFragment.updateGold(PlaceholderFragment.getGold() + 20);
-            Log.i("getGift", Integer.toString(randomIndex));
             return new Item[] {rareGiftList[randomIndex]};
         }else if(SleepingStatus == 1){
             Random generator = new Random();

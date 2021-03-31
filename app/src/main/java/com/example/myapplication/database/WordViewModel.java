@@ -56,7 +56,6 @@ public class WordViewModel extends AndroidViewModel {
     }
 
     public void insert(Word word) {
-        Log.d("test", "insert: "+word.getStartTime());
         mRepository.insert(word);
     }
 

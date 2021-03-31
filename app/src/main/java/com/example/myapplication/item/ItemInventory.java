@@ -84,7 +84,6 @@ public class ItemInventory extends AppCompatActivity {
                 sellBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Log.i("update", "1");
                         if (hasSold[0]){
                             return;
                         }

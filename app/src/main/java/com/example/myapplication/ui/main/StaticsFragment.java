@@ -101,7 +101,6 @@ public class StaticsFragment extends Fragment {
 //        // Update the cached copy of the words in the adapter.
 //          //words is List typ
             for(int i = 0 ; i < sleep.size() ; i++){
-                Log.d("test", "connectDatabase: "+sleep.get(i).getDuration());
                 entries.add(new BarEntry((sleep.get(i).getDuration()/60), i));
                 long hour = (sleep.get(i).getDuration()/60);
                 if( hour <= 4){

@@ -15,7 +15,6 @@ public class BoardcastReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         mp = MediaPlayer.create(context, R.raw.alarm);
         mp.start();
-        Log.d("test", "from boardcastReceiver");
 
     }
 }

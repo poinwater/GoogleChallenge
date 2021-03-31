@@ -161,76 +161,15 @@ public class BlankFragment extends Fragment {
 
                 sleepTime = currentTime.getTime();
                 wakeUpTime = wakeUpDateTime.getTime();
-                Log.i("test", "sleep time"+String.valueOf(sleepTime));
-                Log.i("test", "wakeUpTime"+String.valueOf(wakeUpTime));
 
                 ExitMoreThan30Mins();
                 wakeupAfterOneMinute(root.getRootView());
                 lockScreen(v.getContext());
 
             }
-//                Date currentTime = Calendar.getInstance().getTime();
-//                String current = DateFormat.getInstance().format(currentTime);
-//                mWordViewModel.insertDuration(new Sleep(current,duration[0]));
-//                duration[0]=0;
-//                final Calendar c = Calendar.getInstance();
-//                int mHour = c.get(Calendar.HOUR_OF_DAY);
-//                int mMinute = c.get(Calendar.MINUTE);
-//                TimePickerDialog timePickerDialog = new TimePickerDialog(v.getContext(), new TimePickerDialog.OnTimeSetListener() {
-//                    @Override
-//                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-//                        hours[0] = hourOfDay;
-//                        minutes[0] = minute;
-//                        text_userSetTime.setText(hours[0]+" : "+minutes[0]);
-//                    }
-//                }, mHour, mMinute, true);
-//                timePickerDialog.show();
-//            }
-        });
-//TODO: Correct the wakeup button
 
-//        wakeup.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                if(hours[0]!=-1 && minutes[0]!=-1){
-//                    Intent intent = new Intent(getContext(), LockScreen.class);
-//                    intent.putExtra("userPickTime", hours[0] + ":" + minutes[0]);
-//
-//
-//                    Date currentTime = Calendar.getInstance().getTime();
-//
-//                    long time =0;
-//                    try{
-//                        Date lastTime = DateFormat.getInstance().parse(endTime[0]);
-//                        long diff = currentTime.getTime() - lastTime.getTime();
-//                        time = TimeUnit.MINUTES.convert(diff, TimeUnit.MILLISECONDS);
-//                        Log.d("test", "onClick: "+startTime[0]);
-//                    }catch (Exception e){
-//
-//                    }
-//
-//                    //if the interval time lower than 30 mins, it will not count as a break
-//                    //https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html#convert-long-java.util.concurrent.TimeUnit-
-//
-//                    if(time > 0){
-//                        startTime[0] = DateFormat.getInstance().format(currentTime);
-//                    }else{
-//                        startTime[0] = startTime[0];
-//                    }
-//
-//                    if(startTime[0] == null){
-//                        startTime[0] = DateFormat.getInstance().format(currentTime);
-//                    }
-//                    Log.d("test", "onClick: "+startTime[0]);
-//                    //wakeupAfterOneMinute(v);
-//                    startActivityForResult(intent, 1);
-//                }else{
-//                    Toast.makeText(v.getContext(), "Please set your wake up time first!", Toast.LENGTH_SHORT).show();
-//                }
-//
-//            }
-//        });
+        });
+
     }
 
     public void ExitMoreThan30Mins(){
@@ -241,7 +180,7 @@ public class BlankFragment extends Fragment {
             Date lastTime = DateFormat.getInstance().parse(endTime[0]);
             long diff = currentTime.getTime() - lastTime.getTime();
             leavingTime = TimeUnit.MINUTES.convert(diff, TimeUnit.MILLISECONDS);
-            Log.d("test", "onClick: "+startTime[0]);
+
         }catch (Exception e){
 
         }
@@ -270,8 +209,7 @@ public class BlankFragment extends Fragment {
         preferencesEditor.putInt("start_hours", hours[1]);
         preferencesEditor.putInt("start_minutes", minutes[1]);
         preferencesEditor.apply(); // I'm a idiot :(
-        Log.i("start time", "Wake Up Time: " + startTimePicker.getHour()+" : "+startTimePicker.getMinute());
-        Log.i("wake up time", "Wake Up Time: " + wakeUpTimePicker.getHour()+" : "+wakeUpTimePicker.getMinute());
+
     }
 
     public void prefenceSetting(Bundle savedInstanceState){
@@ -296,7 +234,6 @@ public class BlankFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         Date currentTime = Calendar.getInstance().getTime();
         endTime[0] = DateFormat.getInstance().format(currentTime);
-        Log.d("test", "onActivityResult: user choose time: "+"start Time: "+startTime[0]+" end Time: "+endTime[0]);
 
         long time =0;
         try{
@@ -313,7 +250,6 @@ public class BlankFragment extends Fragment {
             }
 
 
-            Log.d("test", "how many time user sleep: "+time);
         }catch (Exception e){
 
         }
@@ -328,7 +264,7 @@ public class BlankFragment extends Fragment {
         // Add an observer on the LiveData returned by getAlphabetizedWords.
         // The onChanged() method fires when the observed data changes and the activity is
         // in the foreground.
-        Log.d("test", "connectDatabase: ");
+
         mWordViewModel.getAllWords().observe(getViewLifecycleOwner(), words -> {
             // Update the cached copy of the words in the adapter.
             for(int i = 0 ; i < words.size() ; i++){
