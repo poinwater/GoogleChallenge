@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myapplication.R;
 import com.example.myapplication.database.Item;
+import com.example.myapplication.database.WordViewModel;
 import com.example.myapplication.item.ItemAdapter;
 import com.example.myapplication.item.UserItemAdapter;
 
@@ -30,6 +32,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.Random;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -82,6 +85,7 @@ public class PlaceholderFragment extends Fragment {
             index = getArguments().getInt(ARG_SECTION_NUMBER);
         }
         pageViewModel.setIndex(index);
+
     }
 
     @Override
@@ -92,7 +96,6 @@ public class PlaceholderFragment extends Fragment {
         sharedPref = root.getContext().getSharedPreferences("com.example.myapplication.ui.main", MODE_PRIVATE);
         editor = sharedPref.edit();
         userGold = sharedPref.getInt("userGold", 0);
-
         getItems(root);
         saveObject(root.getContext(), "userItems", userItems);
         sellBtn = root.findViewById(R.id.sellBtn);
@@ -104,6 +107,9 @@ public class PlaceholderFragment extends Fragment {
         storeAdapter = new ItemAdapter(root.getContext(), storeItems);
         userItemAdapter = new UserItemAdapter(root.getContext(), userItems);
         keys = userItems.keySet().toArray(new Item[userItems.size()]);
+
+        // Testing Update Store
+        updateStore();
 
         goldText.setText(String.valueOf(userGold));
         gridView.setAdapter(userItemAdapter);
@@ -254,5 +260,18 @@ public class PlaceholderFragment extends Fragment {
             e.printStackTrace();
             return new LinkedHashMap<Item, Integer>();
         }
+    }
+
+    public void updateStore() {
+        WordViewModel mWordViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication())).get(WordViewModel.class);
+        mWordViewModel.getAllItems().observe(this, items -> {
+
+
+                Random random = new Random();
+                int index = random.nextInt(items.size());
+                Item item = items.get(index);
+
+                Log.d("test", "update Store "+item.getName());
+            });
     }
 }
