@@ -23,38 +23,42 @@ import java.util.Random;
 
 public class GiftActivity extends com.example.myapplication.item.ItemInventory {
 
-    public Item[] allGiftList = {bronzeThread, silverThread, goldThread};
+
     public Item[] rareGiftList = {silverThread, goldThread};
+    public static int SleepingStatus = 1;
+    private boolean hasReceivedGift = false;
+    public int counter = 0;
+    ImageView giftBoxView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gift);
 
+        FindByViewId();
         readAllItemsFromDatabase();
+
     }
 
     // 0: Invalid sleeping; duration < 0.5 hour || duration >= 24 hours
     // 1: Valid sleeping; 0.5 hour < duration <= 6 hours
     // 2: Valid and healthy sleeping; 6 < duration < 24 hours
-    public static int SleepingStatus = 1;
-    private boolean hasReceivedGift = false;
-    public int counter = 0;
 
-    public void openGift(View view) throws InterruptedException {
-        Item[] newGifts = getGift();
-        if (hasReceivedGift || newGifts.length == 0) {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            return;
-        }
 
-//        giftAnimation(newGifts);
-        hasReceivedGift = true;
+
+    public void goBack() {
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
 
     }
 
+    public void FindByViewId() {
+        giftBoxView = findViewById(R.id.giftBoxView);
+    }
+
     public void giftAnimation(Item[] newGifts) {
+        Toast t = Toast.makeText(this, "", Toast.LENGTH_SHORT);
         ImageView itemImageView = findViewById(R.id.itemImageView);
         Animation ani = new AlphaAnimation(0.00f, 1.00f);
         Animation aniEnd = new AlphaAnimation(1.00f, 0.00f);
@@ -70,7 +74,7 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
                 String name = newGift.getName();
                 String icon = newGift.getIcon();
                 itemImageView.setImageResource(getResources().getIdentifier(icon, "drawable", getPackageName()));
-                Toast.makeText(getApplicationContext(), "Congratulations! you get a " + name.toLowerCase() + " and some gold coins!", Toast.LENGTH_SHORT).show();
+                t.makeText(getApplicationContext(), "Congratulations! you get a " + name.toLowerCase() + " and some gold coins!", Toast.LENGTH_SHORT).show();
 
 
             }
@@ -95,26 +99,7 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
     }
 
 
-    public Item[] getGift(){
 
-        //
-        if (SleepingStatus == 2){
-            // do something
-            Random generator = new Random();
-            int randomIndex = generator.nextInt(rareGiftList.length);
-            PlaceholderFragment.updateGold(PlaceholderFragment.getGold() + 20);
-            return new Item[] {rareGiftList[randomIndex]};
-        }
-        //TODO: After testing reset the first condition to == 1
-        if(SleepingStatus == 0){
-            Random generator = new Random();
-            int randomIndex = generator.nextInt(allGiftList.length);
-            PlaceholderFragment.updateGold(PlaceholderFragment.getGold() + 10);
-            return new Item[] {allGiftList[randomIndex]};
-        }
-        return new Item[] {};
-
-    }
 
     public void readAllItemsFromDatabase(){
 
@@ -130,6 +115,17 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
             Log.i("new gift", newItem.getName());
             giftAnimation(newGifts);
 
+            giftBoxView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    goBack();
+                }
+            });
+
+
         });
+        hasReceivedGift = true;
+
+
     }
 }
