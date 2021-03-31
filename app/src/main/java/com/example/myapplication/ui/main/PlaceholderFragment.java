@@ -59,7 +59,7 @@ public class PlaceholderFragment extends Fragment {
     static Button buyBtn;
 
     Toast text;
-    LinkedHashMap<Item, Integer> userItems = new LinkedHashMap<>();
+    public static LinkedHashMap<Item, Integer> userItems = new LinkedHashMap<>();
     Item[] keys;
 
     // User Profile
@@ -232,7 +232,7 @@ public class PlaceholderFragment extends Fragment {
 
     }
 
-    public void saveObject(Context mContext, String filename, Object obj){
+    public static void saveObject(Context mContext, String filename, Object obj){
         try {
             FileOutputStream f = mContext.openFileOutput(filename + ".dat", MODE_PRIVATE);
             ObjectOutputStream s = new ObjectOutputStream(f);
@@ -243,7 +243,7 @@ public class PlaceholderFragment extends Fragment {
         }
     }
 
-    public Object readObj(Context mContext, String filename) {
+    public static Object readObj(Context mContext, String filename) {
         try {
             FileInputStream fis = mContext.openFileInput(filename + ".dat");
             ObjectInputStream ois = new ObjectInputStream(fis);

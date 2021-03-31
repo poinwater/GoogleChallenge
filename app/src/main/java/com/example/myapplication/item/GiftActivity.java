@@ -10,18 +10,27 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.database.Item;
 import com.example.myapplication.ui.main.PlaceholderFragment;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
-public class GiftActivity extends com.example.myapplication.item.ItemInventory {
+public class GiftActivity extends AppCompatActivity {
 
-    public Item[] allGiftList = {bronzeThread, silverThread, goldThread};
-    public Item[] rareGiftList = {silverThread, goldThread};
+    Item bronzeThread = new Item(1,"Bronze Thread", "bronzethread", 5, 3);
+    Item silverThread = new Item(2, "Silver Thread", "silverthread",  10, 2);
+    Item goldThread = new Item(3,"Gold Thread", "goldthread", 15, 1);
+
+    public ArrayList<Item> allGiftList = new ArrayList<>(Arrays.asList(new Item[]{bronzeThread, silverThread, goldThread}));
+    public ArrayList<Item> rareGiftList = new ArrayList<>(Arrays.asList(new Item[]{silverThread, goldThread}));
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +46,8 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
     public int counter = 0;
 
     public void openGift(View view) throws InterruptedException {
-        Item[] newGifts = getGift();
-        if (hasReceivedGift || newGifts.length == 0) {
+        ArrayList<Item> newGifts = getGift(allGiftList, rareGiftList);
+        if (hasReceivedGift || newGifts.size() == 0) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             return;
@@ -49,7 +58,7 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
 
     }
 
-    public void giftAnimation(Item[] newGifts) {
+    public void giftAnimation(ArrayList<Item> newGifts) {
         ImageView itemImageView = (ImageView) findViewById(R.id.itemImageView);
         Animation ani = new AlphaAnimation(0.00f, 1.00f);
         Animation aniEnd = new AlphaAnimation(1.00f, 0.00f);
@@ -60,9 +69,13 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
 
             @RequiresApi(api = Build.VERSION_CODES.N)
             public void onAnimationStart(Animation animation) {
-                Item newGift = newGifts[counter];
-                int amount = userItems.getOrDefault(newGift, 0);
-                updateItem(newGift, amount + 1);
+                Item newGift = newGifts.get(counter);
+
+                // Update gift
+                int amount = PlaceholderFragment.userItems.getOrDefault(newGift, 0);
+                PlaceholderFragment.userItems.put(newGift, amount + 1);
+                PlaceholderFragment.saveObject(getBaseContext(), "userItems", PlaceholderFragment.userItems);
+
                 String name = newGift.getName();
                 String icon = newGift.getIcon();
                 itemImageView.setImageResource(getResources().getIdentifier(icon, "drawable", getPackageName()));
@@ -80,7 +93,7 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
             public void onAnimationEnd(Animation animation) {
                 t.cancel();
                 itemImageView.startAnimation(aniEnd);
-                if (counter < newGifts.length - 1) {
+                if (counter < newGifts.size() - 1) {
                     counter += 1;
                     itemImageView.startAnimation(ani);
                 }
@@ -92,22 +105,23 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
     }
 
 
-    public Item[] getGift(){
-
+    public ArrayList<Item> getGift(ArrayList<Item> allGiftList, ArrayList<Item>  rareGiftList){
+        ArrayList<Item> newGifts = new ArrayList<>();
         // TODO: After testing reset the first condition to == 2
-        if (SleepingStatus == 2){
+        if (SleepingStatus == 0){
             // do something
             Random generator = new Random();
-            int randomIndex = generator.nextInt(rareGiftList.length);
+            int randomIndex = generator.nextInt(rareGiftList.size());
             PlaceholderFragment.updateGold(PlaceholderFragment.getGold() + 20);
-            return new Item[] {rareGiftList[randomIndex]};
-        }else if(SleepingStatus == 1){
-            Random generator = new Random();
-            int randomIndex = generator.nextInt(allGiftList.length);
-            PlaceholderFragment.updateGold(PlaceholderFragment.getGold() + 10);
-            return new Item[] {allGiftList[randomIndex]};
-        }else{
-            return new Item[] {};
+            newGifts.add(rareGiftList.get(randomIndex));
+
         }
+        if (SleepingStatus == 1) {
+            Random generator = new Random();
+            int randomIndex = generator.nextInt(allGiftList.size());
+            PlaceholderFragment.updateGold(PlaceholderFragment.getGold() + 10);
+            newGifts.add(allGiftList.get(randomIndex));
+        }
+        return newGifts;
     }
 }
