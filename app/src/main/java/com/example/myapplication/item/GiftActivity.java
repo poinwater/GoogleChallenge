@@ -24,9 +24,7 @@ import java.util.Random;
 public class GiftActivity extends com.example.myapplication.item.ItemInventory {
 
 
-    public Item[] rareGiftList = {silverThread, goldThread};
     public static int SleepingStatus = 1;
-    private boolean hasReceivedGift = false;
     public int counter = 0;
     ImageView giftBoxView;
 
@@ -36,7 +34,7 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
         setContentView(R.layout.activity_gift);
 
         FindByViewId();
-        if (SleepingStatus == 2) {
+        if (SleepingStatus == 0) {
             goBack();
         } else if (SleepingStatus == 1) {
             readAllItemsFromDatabase();
@@ -75,6 +73,8 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
             @RequiresApi(api = Build.VERSION_CODES.N)
             public void onAnimationStart(Animation animation) {
                 Item newGift = newGifts[counter];
+
+                //TODO: made a table to store user's items
                 int amount = userItems.getOrDefault(newGift, 0);
                 updateItem(newGift, amount + 1);
                 String name = newGift.getName();
@@ -130,7 +130,6 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
 
 
         });
-        hasReceivedGift = true;
 
 
     }
@@ -158,7 +157,6 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
 
 
         });
-        hasReceivedGift = true;
 
     }
 }
