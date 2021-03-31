@@ -91,7 +91,7 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
 
     public Item[] getGift(){
 
-        //Testing
+        // TODO: After testing reset the first condition to == 2
         Log.i("gift sleeping status", String.valueOf(SleepingStatus));
         if (SleepingStatus == 2){
             // do something
