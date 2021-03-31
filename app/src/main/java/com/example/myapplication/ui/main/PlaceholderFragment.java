@@ -96,8 +96,7 @@ public class PlaceholderFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
         sharedPref = root.getContext().getSharedPreferences("com.example.myapplication.ui.main", MODE_PRIVATE);
         editor = sharedPref.edit();
-        //TODO: Change the default value back to 0
-        userGold = sharedPref.getInt("userGold", 100);
+        userGold = sharedPref.getInt("userGold", 0);
 
         getItems(root);
         saveObject(root.getContext(), "userItems", userItems);
