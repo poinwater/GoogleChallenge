@@ -3,6 +3,7 @@ package com.example.myapplication.item;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -10,10 +11,12 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.database.Item;
+import com.example.myapplication.database.WordViewModel;
 import com.example.myapplication.ui.main.PlaceholderFragment;
 
 import java.util.Random;
@@ -27,6 +30,8 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gift);
+
+        readItemsFromDatabase();
     }
 
     // 0: Invalid sleeping; duration < 0.5 hour || duration >= 24 hours
@@ -95,7 +100,7 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
     public Item[] getGift(){
 
         // TODO: After testing reset the first condition to == 2
-        if (SleepingStatus == 2){
+        if (SleepingStatus == 0){
             // do something
             Random generator = new Random();
             int randomIndex = generator.nextInt(rareGiftList.length);
@@ -109,5 +114,19 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
         }else{
             return new Item[] {};
         }
+    }
+
+    public void readItemsFromDatabase(){
+
+        WordViewModel mWordViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication())).get(WordViewModel.class);
+        mWordViewModel.getAllItems().observe(this, items -> {
+            Random random = new Random();
+            int index = random.nextInt(items.size());
+            Item newGift = items.get(index);
+
+            Log.i("new gift", newGift.getName());
+
+
+        });
     }
 }

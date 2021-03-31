@@ -56,8 +56,8 @@ public class LockScreen extends AppCompatActivity {
                 BlankFragment.sleepingStatus = getSleepingStatus(BlankFragment.sleepTime, currentTime);
                 GiftActivity.SleepingStatus = BlankFragment.sleepingStatus;
                 // If you want to test the gift branch, set the first condition to !=
-
-                if (BlankFragment.sleepingStatus == 0 ){
+                // TODO: Change the condition back to == 0
+                if (BlankFragment.sleepingStatus != 0 ){
                     Toast.makeText(v.getContext(), "Your sleeping time is too short to get a gift!", Toast.LENGTH_SHORT).show();
                     showSystemUI();
                     return false;
