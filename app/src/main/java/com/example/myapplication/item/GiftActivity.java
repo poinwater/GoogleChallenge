@@ -36,7 +36,13 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
         setContentView(R.layout.activity_gift);
 
         FindByViewId();
-        readAllItemsFromDatabase();
+        if (SleepingStatus == 2) {
+            goBack();
+        } else if (SleepingStatus == 1) {
+            readAllItemsFromDatabase();
+        } else {
+            readRareItemsFromDatabase();
+        }
 
     }
 
@@ -126,6 +132,33 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
         });
         hasReceivedGift = true;
 
+
+    }
+
+    public void readRareItemsFromDatabase() {
+
+        WordViewModel mWordViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication())).get(WordViewModel.class);
+        mWordViewModel.getRareItems().observe(this, items -> {
+            Random random = new Random();
+
+            int index = random.nextInt(items.size());
+            Item newItem = items.get(index);
+            Item[] newGifts = new Item[] {newItem};
+
+
+            Log.i("new rare gift", newItem.getName());
+            giftAnimation(newGifts);
+
+            giftBoxView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    goBack();
+                }
+            });
+
+
+        });
+        hasReceivedGift = true;
 
     }
 }

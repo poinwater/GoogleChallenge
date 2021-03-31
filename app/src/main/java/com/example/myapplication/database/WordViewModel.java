@@ -40,6 +40,7 @@ public class WordViewModel extends AndroidViewModel {
     private final LiveData<List<Word>> mAllWords;
     private final LiveData<List<Item>> mAllItems;
     private final LiveData<List<Sleep>> mAllSleepDuration;
+    private final LiveData<List<Item>> mRareItems;
 
 
     public WordViewModel(Application application) {
@@ -48,6 +49,7 @@ public class WordViewModel extends AndroidViewModel {
         mAllWords = mRepository.getAllWords();
         mAllItems = mRepository.getAllItems();
         mAllSleepDuration = mRepository.getAllSleepDuration();
+        mRareItems = mRepository.getRareItems();
 
     }
 
@@ -67,6 +69,7 @@ public class WordViewModel extends AndroidViewModel {
         return mAllItems;
     }
 
+    public LiveData<List<Item>> getRareItems() { return mRareItems; }
     public void insertItem(Item item){
         mRepository.insertItem(item);
     }

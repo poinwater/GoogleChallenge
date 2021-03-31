@@ -33,6 +33,7 @@ class WordRepository {
     private LiveData<List<Word>> mAllWords;
     private LiveData<List<Item>> mAllItems;
     private LiveData<List<Sleep>> mAllSleep;
+    private LiveData<List<Item>> mRareItems;
 
     // Note that in order to unit test the WordRepository, you have to remove the Application
     // dependency. This adds complexity and much more code, and this sample is not about testing.
@@ -45,6 +46,7 @@ class WordRepository {
         mAllWords = mWordDao.getAlphabetizedWords();
         mAllItems = mWordDao.getAllItem();
         mAllSleep = mWordDao.getduration();
+        mRareItems = mWordDao.getRareItems();
     }
 
     // Room executes all queries on a separate thread.
@@ -79,5 +81,9 @@ class WordRepository {
 
     LiveData<List<Item>> getAllItems() {
         return mAllItems;
+    }
+
+    public LiveData<List<Item>> getRareItems() {
+        return mRareItems;
     }
 }

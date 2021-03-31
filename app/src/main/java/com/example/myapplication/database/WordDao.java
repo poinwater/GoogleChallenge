@@ -66,4 +66,7 @@ public interface WordDao {
 
     @Query("SELECT * FROM item_table ")
     LiveData<List<Item>> getAllItem();
+
+    @Query("SELECT * FROM item_table WHERE level <= 2")
+    LiveData<List<Item>> getRareItems();
 }
