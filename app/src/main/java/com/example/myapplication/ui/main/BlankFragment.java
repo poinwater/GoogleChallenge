@@ -155,6 +155,9 @@ public class BlankFragment extends Fragment {
 
                 sleepTime = currentTime.getTime();
                 wakeUpTime = wakeUpDateTime.getTime();
+                Log.i("sleep time", String.valueOf(sleepTime));
+                Log.i("wakeUpTime", String.valueOf(wakeUpTime));
+
                 lockScreen(v.getContext());
 
             }
@@ -292,6 +295,7 @@ public class BlankFragment extends Fragment {
 
     public void lockScreen(Context mContext) {
         Intent intent = new Intent(mContext, LockScreen.class);
+//        startActivityForResult(intent, 1);
         startActivity(intent);
     }
 
