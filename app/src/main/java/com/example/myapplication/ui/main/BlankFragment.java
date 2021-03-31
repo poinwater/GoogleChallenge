@@ -60,7 +60,7 @@ public class BlankFragment extends Fragment {
 
     public static int sleepingStatus = 0;
     public static long sleepTime = 0;
-//    public static long wakeUpTime;
+    public static long wakeUpTime = 0;
 
 
 //    private Button wakeup;
@@ -136,7 +136,25 @@ public class BlankFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                sleepTime = System.currentTimeMillis();
+                if (minutes[0] == -1 || hours[0] == -1) {
+                    Toast.makeText(getContext(), "Please set the wake up time first!", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+
+
+                Date currentTime = Calendar.getInstance().getTime();
+                Date wakeUpDateTime = Calendar.getInstance().getTime();
+                wakeUpDateTime.setHours(hours[0]);
+                wakeUpDateTime.setMinutes(minutes[0]);
+                wakeUpDateTime.setSeconds(0);
+
+                if (wakeUpDateTime.before(currentTime)) {
+                    wakeUpDateTime.setDate(currentTime.getDate() + 1);
+                }
+
+                sleepTime = currentTime.getTime();
+                wakeUpTime = wakeUpDateTime.getTime();
                 lockScreen(v.getContext());
 
             }

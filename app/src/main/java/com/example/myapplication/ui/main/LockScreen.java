@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.item.GiftActivity;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -22,7 +24,6 @@ public class LockScreen extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lock_screen);
-        String getUserPickTime = getIntent().getStringExtra("userPickTime");
         Date currentTime = Calendar.getInstance().getTime();
         TextView time = findViewById(R.id.text_currenttime);
         if(currentTime.getHours()/10 ==0){
@@ -39,8 +40,10 @@ public class LockScreen extends AppCompatActivity {
             }
         }
 
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        Date wakeUpDate = new Date(BlankFragment.wakeUpTime);
         TextView wakeUpTime = findViewById(R.id.text_wakeupTime);
-        wakeUpTime.setText("Exepected wakeup time: " + getUserPickTime);
+        wakeUpTime.setText("Expected wakeup time: " + dateFormat.format(wakeUpDate));
 
 
         Button unlock = findViewById(R.id.btn_unlockscreen);

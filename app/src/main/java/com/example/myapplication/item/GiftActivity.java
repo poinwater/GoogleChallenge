@@ -29,9 +29,9 @@ public class GiftActivity extends com.example.myapplication.item.ItemInventory {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gift);
     }
-    // 0: Invalid sleeping; duration < 0.5 hour;
-    // 1: Valid sleeping; duration >= 0.5 hours;
-    // 2: Valid and healthy sleeping; start <= set start time && end >= set end time && 6 hours <= duration <= 9 hours
+    // 0: Invalid sleeping; duration < 0.5 hour || duration >= 24 hours
+    // 1: Valid sleeping; 0.5 hour < duration <= 6 hours
+    // 2: Valid and healthy sleeping; 6 < duration < 24 hours
     public static int SleepingStatus = 1;
     private boolean hasReceivedGift = false;
     public int counter = 0;
