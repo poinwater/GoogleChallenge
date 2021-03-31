@@ -1,5 +1,7 @@
 package com.example.myapplication.ui.main;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -30,6 +32,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import static android.content.Context.ALARM_SERVICE;
 import static android.content.Context.MODE_PRIVATE;
 
 /**
@@ -62,6 +65,8 @@ public class BlankFragment extends Fragment {
     public static long sleepTime = 0;
     public static long wakeUpTime = 0;
 
+    public static AlarmManager alarmManager;
+    public static PendingIntent pendingIntent;
 
 //    private Button wakeup;
 
@@ -136,6 +141,7 @@ public class BlankFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+
                 if (minutes[0] == -1 || hours[0] == -1) {
                     Toast.makeText(getContext(), "Please set the wake up time first!", Toast.LENGTH_LONG).show();
                     return;
@@ -155,9 +161,11 @@ public class BlankFragment extends Fragment {
 
                 sleepTime = currentTime.getTime();
                 wakeUpTime = wakeUpDateTime.getTime();
-                Log.i("sleep time", String.valueOf(sleepTime));
-                Log.i("wakeUpTime", String.valueOf(wakeUpTime));
+                Log.i("test", "sleep time"+String.valueOf(sleepTime));
+                Log.i("test", "wakeUpTime"+String.valueOf(wakeUpTime));
 
+                ExitMoreThan30Mins();
+                wakeupAfterOneMinute(root.getRootView());
                 lockScreen(v.getContext());
 
             }
@@ -225,6 +233,35 @@ public class BlankFragment extends Fragment {
 //        });
     }
 
+    public void ExitMoreThan30Mins(){
+        Date currentTime = Calendar.getInstance().getTime();
+
+        long leavingTime =0;
+        try{
+            Date lastTime = DateFormat.getInstance().parse(endTime[0]);
+            long diff = currentTime.getTime() - lastTime.getTime();
+            leavingTime = TimeUnit.MINUTES.convert(diff, TimeUnit.MILLISECONDS);
+            Log.d("test", "onClick: "+startTime[0]);
+        }catch (Exception e){
+
+        }
+
+        //if the interval time lower than 30 mins, it will not count as a break
+        //https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html#convert-long-java.util.concurrent.TimeUnit-
+
+        //interval time
+        if(leavingTime > 30){
+            startTime[0] = DateFormat.getInstance().format(currentTime);
+        }else{
+            startTime[0] = startTime[0];
+        }
+
+        //first time to sleep
+        if(startTime[0] == null){
+            startTime[0] = DateFormat.getInstance().format(currentTime);
+        }
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void saveTimePref(){
         SharedPreferences.Editor preferencesEditor = mPreferences.edit();
@@ -266,9 +303,16 @@ public class BlankFragment extends Fragment {
             Date lastTime = DateFormat.getInstance().parse(startTime[0]);
             long diff = currentTime.getTime() - lastTime.getTime();
             time = TimeUnit.MINUTES.convert(diff, TimeUnit.MILLISECONDS);
-            duration[0] = duration[0] + time;
-            Word word = new Word(startTime[0], endTime[0]);
-            mWordViewModel.insert(word);
+            //if the user sleep more than 1 mins, and add the time into database
+            if(time > 30 && time < 24*60){
+                Word word = new Word(startTime[0], endTime[0]);
+                mWordViewModel.insert(word);
+                duration[0] = duration[0] + time;
+            }else{
+                startTime[0]=null;
+            }
+
+
             Log.d("test", "how many time user sleep: "+time);
         }catch (Exception e){
 
@@ -295,8 +339,18 @@ public class BlankFragment extends Fragment {
 
     public void lockScreen(Context mContext) {
         Intent intent = new Intent(mContext, LockScreen.class);
-//        startActivityForResult(intent, 1);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
+    }
+    public void wakeupAfterOneMinute(View v){
+        Intent intent = new Intent(v.getContext(), BoardcastReceiver.class);
+
+        pendingIntent = PendingIntent.getBroadcast(
+                v.getContext(), 234324243, intent, 0);
+
+        alarmManager = (AlarmManager) v.getContext().getSystemService(ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, wakeUpTime, pendingIntent);
+        Toast.makeText(v.getContext(), "Alarm set in seconds",Toast.LENGTH_LONG).show();
+
     }
 
 

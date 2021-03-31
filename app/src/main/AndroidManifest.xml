@@ -22,6 +22,8 @@
         <activity android:name=".ui.main.LockScreen"></activity>
         <activity android:name=".item.ItemInventory"></activity>
         <activity android:name=".item.GiftActivity"></activity>
+        <receiver android:name=".ui.main.BoardcastReceiver"></receiver>>
+
 
     </application>
 

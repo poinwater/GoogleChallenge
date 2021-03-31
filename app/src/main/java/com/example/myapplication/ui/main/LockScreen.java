@@ -52,7 +52,7 @@ public class LockScreen extends AppCompatActivity {
             public boolean onLongClick(View v) {
                 long currentTime = System.currentTimeMillis();
 
-
+                exitAlarm(currentTime, BlankFragment.sleepTime);
                 BlankFragment.sleepingStatus = getSleepingStatus(BlankFragment.sleepTime, currentTime);
                 GiftActivity.SleepingStatus = BlankFragment.sleepingStatus;
                 // If you want to test the gift branch, set the first condition to !=
@@ -78,6 +78,15 @@ public class LockScreen extends AppCompatActivity {
                 Toast.makeText(v.getContext(), "To exit, please hold the button.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void exitAlarm(long currentTime, long wakeUpTime){
+        if (BoardcastReceiver.mp != null && BoardcastReceiver.mp.isPlaying()) {
+            BoardcastReceiver.mp.stop();
+        }
+        if (currentTime < wakeUpTime) {
+            BlankFragment.alarmManager.cancel(BlankFragment.pendingIntent);
+        }
     }
 
     @Override
