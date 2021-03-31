@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.main;
 
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -132,23 +133,25 @@ public class BlankFragment extends Fragment {
         btn_sleepNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lockScreen(v.getContext());
+            }
 //                Date currentTime = Calendar.getInstance().getTime();
 //                String current = DateFormat.getInstance().format(currentTime);
 //                mWordViewModel.insertDuration(new Sleep(current,duration[0]));
 //                duration[0]=0;
-                final Calendar c = Calendar.getInstance();
-                int mHour = c.get(Calendar.HOUR_OF_DAY);
-                int mMinute = c.get(Calendar.MINUTE);
-                TimePickerDialog timePickerDialog = new TimePickerDialog(v.getContext(), new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        hours[0] = hourOfDay;
-                        minutes[0] = minute;
-                        text_userSetTime.setText(hours[0]+" : "+minutes[0]);
-                    }
-                }, mHour, mMinute, true);
-                timePickerDialog.show();
-            }
+//                final Calendar c = Calendar.getInstance();
+//                int mHour = c.get(Calendar.HOUR_OF_DAY);
+//                int mMinute = c.get(Calendar.MINUTE);
+//                TimePickerDialog timePickerDialog = new TimePickerDialog(v.getContext(), new TimePickerDialog.OnTimeSetListener() {
+//                    @Override
+//                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+//                        hours[0] = hourOfDay;
+//                        minutes[0] = minute;
+//                        text_userSetTime.setText(hours[0]+" : "+minutes[0]);
+//                    }
+//                }, mHour, mMinute, true);
+//                timePickerDialog.show();
+//            }
         });
 //TODO: Correct the wakeup button
 
@@ -262,6 +265,11 @@ public class BlankFragment extends Fragment {
                 Log.d("test", "connectDatabase: "+words.get(i).getStartTime());
             }
         });
+    }
+
+    public void lockScreen(Context mContext) {
+        Intent intent = new Intent(mContext, LockScreen.class);
+        startActivity(intent);
     }
 
 }
