@@ -2,6 +2,7 @@ package com.example.myapplication.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.item.GiftActivity;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -44,9 +46,23 @@ public class LockScreen extends AppCompatActivity {
         unlock.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Toast.makeText(v.getContext(), "You failed  ", Toast.LENGTH_SHORT).show();
-                showSystemUI();
-                return false;
+                long currentTime = System.currentTimeMillis();
+
+
+                BlankFragment.sleepingStatus = BlankFragment.getSleepingStatus(BlankFragment.sleepTime, currentTime);
+                // TODO: Testing for gift branch, reset to == 0 after testing
+                Log.i("sleeping Status", String.valueOf(BlankFragment.sleepingStatus));
+                if (BlankFragment.sleepingStatus == 0){
+                    Toast.makeText(v.getContext(), "Your sleeping time is too short to get a gift!", Toast.LENGTH_SHORT).show();
+                    showSystemUI();
+                    return false;
+                } else {
+                    Toast.makeText(v.getContext(), "Alice brought a gift during your sleeping time!", Toast.LENGTH_SHORT).show();
+                    showSystemUI();
+                    Intent intent = new Intent(getBaseContext(), GiftActivity.class);
+                    startActivity(intent);
+                    return true;
+                }
             }
         });
 
