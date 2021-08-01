@@ -27,7 +27,7 @@ alt="Sleep.play Application" width="240" height="180" border="10" /></a>
 
 
 ## Future Work
-Due to the time, we only could finish the main functions including the timing feature, bonus system, data analysis form, and the database. In the future, we will:
+Due to the time, we only could finish the main functions including the timing feature, bonus system, data analysis chart, and the database. In the future, we will:
 1. Allowing users to make custome using items and blueprint
 2. Adding four dreamlands providing different items for making custome
 3. Allowing users to define their characters.
